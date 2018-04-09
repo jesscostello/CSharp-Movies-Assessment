@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CSharp_Movies_Assessment
 {
@@ -40,6 +41,27 @@ namespace CSharp_Movies_Assessment
             }
             // pass the datatable data to the DGV
             return dt;
+        }
+
+        public void AddNewCustomerToDB(string firstName, string lastName, string address, string phone)
+        {
+            string SQL = "INSERT INTO Customers (FirstName, LastName, Address, Phone) VALUES (@First, @Last, @Address, @Phone)";
+
+            using (da = new SqlDataAdapter(SQL, myConnection))
+            {
+                var myCommand = new SqlCommand(SQL, myConnection);
+                // set the parameters
+                myCommand.Parameters.AddWithValue("First", firstName);
+                myCommand.Parameters.AddWithValue("Last", lastName);
+                myCommand.Parameters.AddWithValue("Address", address);
+                myCommand.Parameters.AddWithValue("Phone", phone);
+                //open a connection to the DB
+                myConnection.Open();
+                // run the query
+                myCommand.ExecuteNonQuery();
+                // close the connection
+                myConnection.Close();
+            }
         }
     }
 }

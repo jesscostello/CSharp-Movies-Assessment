@@ -12,6 +12,9 @@ namespace CSharp_Movies_Assessment
 {
     public partial class Form1 : Form
     {
+        // todo search customers??
+
+
         Database myDatabase = new Database();
         public int CID { get; set; }
 
@@ -52,11 +55,7 @@ namespace CSharp_Movies_Assessment
                 txtAddress.Text = dgvCustomers.Rows[e.RowIndex].Cells[3].Value.ToString();
                 txtPhone.Text = dgvCustomers.Rows[e.RowIndex].Cells[4].Value.ToString();
 
-                if (e.RowIndex >= 0)
-                {
-                    // todo Fill the next DGV?
-
-                }
+                // todo Fill the next DGV???
             }
             catch (Exception ex)
             {
@@ -64,6 +63,18 @@ namespace CSharp_Movies_Assessment
             }
 
             CID = CustomerID;
+        }
+
+        private void btnAddCustomer_Click(object sender, EventArgs e)
+        {
+            string firstName = txtFirstName.Text;
+            string lastName = txtLastName.Text;
+            string address = txtAddress.Text;
+            string phone = txtPhone.Text;
+
+            // call database method to add new customer
+            myDatabase.AddNewCustomerToDB(firstName, lastName, address, phone);
+            // refresh dgv
         }
     }
 }
