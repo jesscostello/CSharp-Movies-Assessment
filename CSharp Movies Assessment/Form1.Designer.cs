@@ -42,6 +42,7 @@
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.lblPhone = new System.Windows.Forms.Label();
             this.txtPhone = new System.Windows.Forms.TextBox();
+            this.btnAddCustomer = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabCustomers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -59,7 +60,7 @@
             this.tabControl1.Location = new System.Drawing.Point(13, 13);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(885, 412);
+            this.tabControl1.Size = new System.Drawing.Size(885, 496);
             this.tabControl1.TabIndex = 0;
             // 
             // tabCustomers
@@ -68,7 +69,7 @@
             this.tabCustomers.Location = new System.Drawing.Point(4, 22);
             this.tabCustomers.Name = "tabCustomers";
             this.tabCustomers.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCustomers.Size = new System.Drawing.Size(877, 386);
+            this.tabCustomers.Size = new System.Drawing.Size(877, 470);
             this.tabCustomers.TabIndex = 0;
             this.tabCustomers.Text = "Customers";
             this.tabCustomers.UseVisualStyleBackColor = true;
@@ -101,6 +102,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.btnAddCustomer);
             this.splitContainer1.Panel1.Controls.Add(this.lblPhone);
             this.splitContainer1.Panel1.Controls.Add(this.txtPhone);
             this.splitContainer1.Panel1.Controls.Add(this.lblAddress);
@@ -113,7 +115,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dgvCustomers);
-            this.splitContainer1.Size = new System.Drawing.Size(871, 380);
+            this.splitContainer1.Size = new System.Drawing.Size(871, 464);
             this.splitContainer1.SplitterDistance = 150;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -123,7 +125,7 @@
             this.dgvCustomers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCustomers.Location = new System.Drawing.Point(0, 0);
             this.dgvCustomers.Name = "dgvCustomers";
-            this.dgvCustomers.Size = new System.Drawing.Size(717, 380);
+            this.dgvCustomers.Size = new System.Drawing.Size(717, 464);
             this.dgvCustomers.TabIndex = 0;
             // 
             // txtFirstName
@@ -194,6 +196,18 @@
             this.txtPhone.Size = new System.Drawing.Size(144, 20);
             this.txtPhone.TabIndex = 6;
             // 
+            // btnAddCustomer
+            // 
+            this.btnAddCustomer.BackColor = System.Drawing.Color.LawnGreen;
+            this.btnAddCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddCustomer.Font = new System.Drawing.Font("Berlin Sans FB", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddCustomer.Location = new System.Drawing.Point(3, 190);
+            this.btnAddCustomer.Name = "btnAddCustomer";
+            this.btnAddCustomer.Size = new System.Drawing.Size(144, 44);
+            this.btnAddCustomer.TabIndex = 8;
+            this.btnAddCustomer.Text = "Add Customer";
+            this.btnAddCustomer.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -230,6 +244,7 @@
         private System.Windows.Forms.DataGridView dgvCustomers;
         private System.Windows.Forms.TabPage tabMovies;
         private System.Windows.Forms.TabPage tabRented;
+        private System.Windows.Forms.Button btnAddCustomer;
     }
 }
 
