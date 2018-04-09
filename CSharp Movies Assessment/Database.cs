@@ -45,22 +45,70 @@ namespace CSharp_Movies_Assessment
 
         public void AddNewCustomerToDB(string firstName, string lastName, string address, string phone)
         {
-            string SQL = "INSERT INTO Customers (FirstName, LastName, Address, Phone) VALUES (@First, @Last, @Address, @Phone)";
-
-            using (da = new SqlDataAdapter(SQL, myConnection))
+            try
             {
-                var myCommand = new SqlCommand(SQL, myConnection);
-                // set the parameters
-                myCommand.Parameters.AddWithValue("First", firstName);
-                myCommand.Parameters.AddWithValue("Last", lastName);
-                myCommand.Parameters.AddWithValue("Address", address);
-                myCommand.Parameters.AddWithValue("Phone", phone);
-                //open a connection to the DB
-                myConnection.Open();
-                // run the query
-                myCommand.ExecuteNonQuery();
-                // close the connection
-                myConnection.Close();
+                string SQL = "INSERT INTO Customers (FirstName, LastName, Address, Phone) VALUES (@First, @Last, @Address, @Phone)";
+
+                using (da = new SqlDataAdapter(SQL, myConnection))
+                {
+                    var myCommand = new SqlCommand(SQL, myConnection);
+                    // set the parameters
+                    myCommand.Parameters.AddWithValue("First", firstName);
+                    myCommand.Parameters.AddWithValue("Last", lastName);
+                    myCommand.Parameters.AddWithValue("Address", address);
+                    myCommand.Parameters.AddWithValue("Phone", phone);
+                    //open a connection to the DB
+                    myConnection.Open();
+                    // run the query
+                    myCommand.ExecuteNonQuery();
+                    // close the connection
+                    myConnection.Close();
+                }
+
+                MessageBox.Show("The new customer has been added to the database.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void EditCustomerInDB(int customerID, string firstName, string lastName, string address, string phone)
+        {
+            // only run if there is something in the textboxes 
+            if (firstName != "" && lastName != "" && address != "" && phone != "" )
+            {
+                try
+                {
+                    string SQL = "UPDATE Customers SET FirstName = @First, LastName = @Last, Address = @Address, Phone = @Phone WHERE CustID = @Id";
+
+                    using (da = new SqlDataAdapter(SQL, myConnection))
+                    {
+                        var myCommand = new SqlCommand(SQL, myConnection);
+                        // set the parameters
+                        myCommand.Parameters.AddWithValue("Id", customerID);
+                        myCommand.Parameters.AddWithValue("First", firstName);
+                        myCommand.Parameters.AddWithValue("Last", lastName);
+                        myCommand.Parameters.AddWithValue("Address", address);
+                        myCommand.Parameters.AddWithValue("Phone", phone);
+                        //open a connection to the DB
+                        myConnection.Open();
+                        // run the query
+                        myCommand.ExecuteNonQuery();
+                        // close the connection
+                        myConnection.Close();
+                    }
+
+                    MessageBox.Show("The customer details have been edited in the database.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                } 
+            }
+            else
+            {
+                MessageBox.Show("Please complete all textboxes.");
             }
         }
     }

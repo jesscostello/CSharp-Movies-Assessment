@@ -43,6 +43,8 @@
             this.lblPhone = new System.Windows.Forms.Label();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.btnAddCustomer = new System.Windows.Forms.Button();
+            this.btnEditCustomer = new System.Windows.Forms.Button();
+            this.btnDeleteCustomer = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabCustomers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -102,6 +104,8 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.btnDeleteCustomer);
+            this.splitContainer1.Panel1.Controls.Add(this.btnEditCustomer);
             this.splitContainer1.Panel1.Controls.Add(this.btnAddCustomer);
             this.splitContainer1.Panel1.Controls.Add(this.lblPhone);
             this.splitContainer1.Panel1.Controls.Add(this.txtPhone);
@@ -201,7 +205,7 @@
             // 
             this.btnAddCustomer.BackColor = System.Drawing.Color.LawnGreen;
             this.btnAddCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddCustomer.Font = new System.Drawing.Font("Berlin Sans FB", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddCustomer.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddCustomer.Location = new System.Drawing.Point(3, 190);
             this.btnAddCustomer.Name = "btnAddCustomer";
             this.btnAddCustomer.Size = new System.Drawing.Size(144, 44);
@@ -209,6 +213,32 @@
             this.btnAddCustomer.Text = "Add Customer";
             this.btnAddCustomer.UseVisualStyleBackColor = false;
             this.btnAddCustomer.Click += new System.EventHandler(this.btnAddCustomer_Click);
+            // 
+            // btnEditCustomer
+            // 
+            this.btnEditCustomer.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnEditCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditCustomer.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditCustomer.Location = new System.Drawing.Point(3, 240);
+            this.btnEditCustomer.Name = "btnEditCustomer";
+            this.btnEditCustomer.Size = new System.Drawing.Size(72, 44);
+            this.btnEditCustomer.TabIndex = 9;
+            this.btnEditCustomer.Text = "Edit Customer";
+            this.btnEditCustomer.UseVisualStyleBackColor = false;
+            this.btnEditCustomer.Click += new System.EventHandler(this.btnEditCustomer_Click);
+            // 
+            // btnDeleteCustomer
+            // 
+            this.btnDeleteCustomer.BackColor = System.Drawing.Color.Red;
+            this.btnDeleteCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeleteCustomer.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteCustomer.Location = new System.Drawing.Point(76, 240);
+            this.btnDeleteCustomer.Name = "btnDeleteCustomer";
+            this.btnDeleteCustomer.Size = new System.Drawing.Size(72, 44);
+            this.btnDeleteCustomer.TabIndex = 10;
+            this.btnDeleteCustomer.Text = "Delete Customer";
+            this.btnDeleteCustomer.UseVisualStyleBackColor = false;
+            this.btnDeleteCustomer.Click += new System.EventHandler(this.btnDeleteCustomer_Click);
             // 
             // Form1
             // 
@@ -247,6 +277,8 @@
         private System.Windows.Forms.TabPage tabMovies;
         private System.Windows.Forms.TabPage tabRented;
         private System.Windows.Forms.Button btnAddCustomer;
+        private System.Windows.Forms.Button btnEditCustomer;
+        private System.Windows.Forms.Button btnDeleteCustomer;
     }
 }
 

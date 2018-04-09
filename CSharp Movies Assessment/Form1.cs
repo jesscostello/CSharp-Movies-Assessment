@@ -75,6 +75,31 @@ namespace CSharp_Movies_Assessment
             // call database method to add new customer
             myDatabase.AddNewCustomerToDB(firstName, lastName, address, phone);
             // refresh dgv
+            DisplayCustomersDGV();
+        }
+
+        private void btnEditCustomer_Click(object sender, EventArgs e)
+        {
+            // collect text from text boxes and assign to variables
+            int customerID = CID;
+            string firstName = txtFirstName.Text;
+            string lastName = txtLastName.Text;
+            string address = txtAddress.Text;
+            string phone = txtPhone.Text;
+            // call the database method to edit customers
+            myDatabase.EditCustomerInDB(customerID, firstName, lastName, address, phone);
+            // refresh dgv
+            DisplayCustomersDGV();
+            // clear data from textboxes
+            txtFirstName.Text = "";
+            txtLastName.Text = "";
+            txtAddress.Text = "";
+            txtPhone.Text = "";
+        }
+
+        private void btnDeleteCustomer_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
