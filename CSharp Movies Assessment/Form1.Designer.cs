@@ -127,6 +127,7 @@
             this.dgvCustomers.Name = "dgvCustomers";
             this.dgvCustomers.Size = new System.Drawing.Size(717, 464);
             this.dgvCustomers.TabIndex = 0;
+            this.dgvCustomers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCustomers_CellClick);
             // 
             // txtFirstName
             // 
