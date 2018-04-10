@@ -54,6 +54,11 @@ namespace CSharp_Movies_Assessment
                 txtLastName.Text = dgvCustomers.Rows[e.RowIndex].Cells[2].Value.ToString();
                 txtAddress.Text = dgvCustomers.Rows[e.RowIndex].Cells[3].Value.ToString();
                 txtPhone.Text = dgvCustomers.Rows[e.RowIndex].Cells[4].Value.ToString();
+
+                lblFirst.Text = dgvCustomers.Rows[e.RowIndex].Cells[1].Value.ToString() + " ";
+                lblFirst.Text += dgvCustomers.Rows[e.RowIndex].Cells[2].Value.ToString() + "    ";
+                lblFirst.Text += dgvCustomers.Rows[e.RowIndex].Cells[3].Value.ToString() + "    ";
+                lblFirst.Text += dgvCustomers.Rows[e.RowIndex].Cells[4].Value.ToString();
             }
             catch (Exception ex)
             {
@@ -103,5 +108,6 @@ namespace CSharp_Movies_Assessment
             // refresh dgv
             DisplayCustomersDGV();
         }
+
     }
 }
