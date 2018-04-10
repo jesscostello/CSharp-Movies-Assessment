@@ -111,5 +111,32 @@ namespace CSharp_Movies_Assessment
                 MessageBox.Show("Please complete all textboxes.");
             }
         }
+
+        public void DeleteCustomer(int CustomerId)
+        {
+            try
+            {
+                string SQL = "DELETE FROM Customers WHERE CustID = @Id";
+
+                using (da = new SqlDataAdapter(SQL, myConnection))
+                {
+                    var myCommand = new SqlCommand(SQL, myConnection);
+                    // set the parameters
+                    myCommand.Parameters.AddWithValue("Id", CustomerId);
+                    //open a connection to the DB
+                    myConnection.Open();
+                    // run the query
+                    myCommand.ExecuteNonQuery();
+                    // close the connection
+                    myConnection.Close();
+                }
+
+                MessageBox.Show("This customer has been deleted from the database.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

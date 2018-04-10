@@ -54,8 +54,6 @@ namespace CSharp_Movies_Assessment
                 txtLastName.Text = dgvCustomers.Rows[e.RowIndex].Cells[2].Value.ToString();
                 txtAddress.Text = dgvCustomers.Rows[e.RowIndex].Cells[3].Value.ToString();
                 txtPhone.Text = dgvCustomers.Rows[e.RowIndex].Cells[4].Value.ToString();
-
-                // todo Fill the next DGV???
             }
             catch (Exception ex)
             {
@@ -99,7 +97,11 @@ namespace CSharp_Movies_Assessment
 
         private void btnDeleteCustomer_Click(object sender, EventArgs e)
         {
-
+            int CustomerId = CID;
+            // call the database method to delete customer
+            myDatabase.DeleteCustomer(CustomerId);
+            // refresh dgv
+            DisplayCustomersDGV();
         }
     }
 }
