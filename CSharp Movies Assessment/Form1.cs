@@ -17,6 +17,7 @@ namespace CSharp_Movies_Assessment
 
         Database myDatabase = new Database();
         public int CID { get; set; }
+        public int MID { get; set; }
 
         public Form1()
         {
@@ -27,6 +28,7 @@ namespace CSharp_Movies_Assessment
         public void LoadDB()
         {
             DisplayCustomersDGV();
+            DisplayMoviesDGV();
         }
 
         private void DisplayCustomersDGV()
@@ -109,5 +111,46 @@ namespace CSharp_Movies_Assessment
             DisplayCustomersDGV();
         }
 
+        private void DisplayMoviesDGV()
+        {
+            // Clear out any old data
+            dgvMovies.DataSource = null;
+            try
+            {
+                dgvMovies.DataSource = myDatabase.FillMoviesDGV();
+                dgvMovies.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dgvMovies_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int MovieID = 0;
+
+            try
+            {
+                MovieID = (int)dgvMovies.Rows[e.RowIndex].Cells[0].Value;
+                txtTitle.Text = dgvMovies.Rows[e.RowIndex].Cells[2].Value.ToString();
+                txtGenre.Text = dgvMovies.Rows[e.RowIndex].Cells[7].Value.ToString();
+                txtYear.Text = dgvMovies.Rows[e.RowIndex].Cells[3].Value.ToString();
+                txtRating.Text = dgvMovies.Rows[e.RowIndex].Cells[1].Value.ToString();
+                txtCost.Text = dgvMovies.Rows[e.RowIndex].Cells[4].Value.ToString();
+                txtCopies.Text = dgvMovies.Rows[e.RowIndex].Cells[5].Value.ToString();
+                txtPlot.Text = dgvMovies.Rows[e.RowIndex].Cells[6].Value.ToString();
+
+                lblMovieDetails.Text = dgvMovies.Rows[e.RowIndex].Cells[2].Value.ToString() + "   ";
+                lblMovieDetails.Text += dgvMovies.Rows[e.RowIndex].Cells[1].Value.ToString() + "   ";
+                lblMovieDetails.Text += dgvMovies.Rows[e.RowIndex].Cells[4].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            MID = MovieID;
+        }
     }
 }

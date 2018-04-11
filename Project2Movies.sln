@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp Movies Assessment", "CSharp Movies Assessment\CSharp Movies Assessment.csproj", "{857835E5-F3EE-42A5-8DCE-1D56B3E9E965}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project2Movies", "CSharp Movies Assessment\Project2Movies.csproj", "{857835E5-F3EE-42A5-8DCE-1D56B3E9E965}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
