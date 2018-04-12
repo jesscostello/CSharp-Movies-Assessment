@@ -599,6 +599,7 @@
             this.btnEditMovie.TabIndex = 9;
             this.btnEditMovie.Text = "Edit Movie";
             this.btnEditMovie.UseVisualStyleBackColor = false;
+            this.btnEditMovie.Click += new System.EventHandler(this.btnEditMovie_Click);
             // 
             // dgvMovies
             // 

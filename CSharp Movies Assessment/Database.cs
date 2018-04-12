@@ -188,5 +188,39 @@ namespace CSharp_Movies_Assessment
                 MessageBox.Show(ex.Message);
             }
         }
+
+        public void EditMovieInDB(int movieId, string rating, string title, string year, string cost, string copies, string plot, string genre)
+        {
+            try
+            {
+                string SQL = "UPDATE Movies SET Rating = @Rating, Title = @Title, Year = @Year, Rental_Cost = @Cost, Copies = @Copies, Plot = @Plot, Genre = @Genre WHERE MovieID = @Id";
+                
+                using (da = new SqlDataAdapter(SQL, myConnection))
+                {
+                    var myCommand = new SqlCommand(SQL, myConnection);
+                    // set the parameters
+                    myCommand.Parameters.AddWithValue("Id", movieId);
+                    myCommand.Parameters.AddWithValue("Rating", rating);
+                    myCommand.Parameters.AddWithValue("Title", title);
+                    myCommand.Parameters.AddWithValue("Year", year);
+                    myCommand.Parameters.AddWithValue("Cost", cost);
+                    myCommand.Parameters.AddWithValue("Copies", copies);
+                    myCommand.Parameters.AddWithValue("Plot", plot);
+                    myCommand.Parameters.AddWithValue("Genre", genre);
+                    //open a connection to the DB
+                    myConnection.Open();
+                    // run the query
+                    myCommand.ExecuteNonQuery();
+                    // close the connection
+                    myConnection.Close();
+                }
+
+                MessageBox.Show("The movie has been updated in the database.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

@@ -170,5 +170,35 @@ namespace CSharp_Movies_Assessment
             // refresh dgv
             DisplayMoviesDGV();
         }
+
+        private void btnEditMovie_Click(object sender, EventArgs e)
+        {
+            int movieID = MID;
+            // set variables from textbox fields
+            string rating = txtRating.Text;
+            string title = txtTitle.Text;
+            string year = txtYear.Text;
+            // todo set as currency
+            string cost = txtCost.Text;
+            string copies = txtCopies.Text;
+            string plot = txtPlot.Text;
+            string genre = txtGenre.Text;
+
+            // call database method to add new movie
+            myDatabase.EditMovieInDB(movieID, rating, title, year, cost, copies, plot, genre);
+            // refresh dgv
+            DisplayMoviesDGV();
+
+            // clear data from textboxes
+            txtTitle.Text = "";
+            txtGenre.Text = "";
+            txtYear.Text = "";
+            txtRating.Text = "";
+            txtCost.Text = "";
+            txtCopies.Text = "";
+            txtPlot.Text = "";
+
+            // todo highlight new column?
+        }
     }
 }
