@@ -222,5 +222,32 @@ namespace CSharp_Movies_Assessment
                 MessageBox.Show(ex.Message);
             }
         }
+
+        public void DeleteMovie(int movieId)
+        {
+            try
+            {
+                string SQL = "DELETE FROM Movies WHERE MovieID = @Id";
+
+                using (da = new SqlDataAdapter(SQL, myConnection))
+                {
+                    var myCommand = new SqlCommand(SQL, myConnection);
+                    // set the parameters
+                    myCommand.Parameters.AddWithValue("Id", movieId);
+                    //open a connection to the DB
+                    myConnection.Open();
+                    // run the query
+                    myCommand.ExecuteNonQuery();
+                    // close the connection
+                    myConnection.Close();
+                }
+
+                MessageBox.Show("This movie has been deleted from the database.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

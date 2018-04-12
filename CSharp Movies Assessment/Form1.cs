@@ -202,5 +202,21 @@ namespace CSharp_Movies_Assessment
             // highlight updated column
             dgvMovies.Rows[rowID].Selected = true;
         }
+
+        private void btnDeleteMovie_Click(object sender, EventArgs e)
+        {
+            int MovieId = MID;
+            // todo are you sure you want to delete
+            
+            MessageBox.Show(caption:"Delete Movie", text:"Are you sure you want to delete this movie?");
+            if (true)// user clicks okay
+            {
+                // call the database method to delete customer
+                myDatabase.DeleteMovie(MovieId);
+                // refresh dgv
+                DisplayMoviesDGV();
+            }
+            
+        }
     }
 }
