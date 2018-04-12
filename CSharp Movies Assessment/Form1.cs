@@ -152,5 +152,23 @@ namespace CSharp_Movies_Assessment
 
             MID = MovieID;
         }
+
+        private void btnAddMovie_Click(object sender, EventArgs e)
+        {
+            // set variables from textbox fields
+            string rating = txtRating.Text;
+            string title = txtTitle.Text;
+            string year = txtYear.Text;
+            // todo set as currency
+            string cost = txtCost.Text;
+            string copies = txtCopies.Text;
+            string plot = txtPlot.Text;
+            string genre = txtGenre.Text;
+
+            // call database method to add new movie
+            myDatabase.AddNewMovieToDB(rating, title, year, cost, copies, plot, genre);
+            // refresh dgv
+            DisplayMoviesDGV();
+        }
     }
 }

@@ -67,9 +67,9 @@
             this.lblPlot = new System.Windows.Forms.Label();
             this.txtPlot = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnDeleteMovie = new System.Windows.Forms.Button();
+            this.btnAddMovie = new System.Windows.Forms.Button();
+            this.btnEditMovie = new System.Windows.Forms.Button();
             this.dgvMovies = new System.Windows.Forms.DataGridView();
             this.tabRented = new System.Windows.Forms.TabPage();
             this.lblCustomer = new System.Windows.Forms.Label();
@@ -547,9 +547,9 @@
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.button2, 1, 1);
-            this.tableLayoutPanel4.Controls.Add(this.button4, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.button3, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.btnDeleteMovie, 1, 1);
+            this.tableLayoutPanel4.Controls.Add(this.btnAddMovie, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.btnEditMovie, 0, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -559,45 +559,46 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(150, 109);
             this.tableLayoutPanel4.TabIndex = 13;
             // 
-            // button4
+            // btnDeleteMovie
             // 
-            this.button4.BackColor = System.Drawing.Color.LawnGreen;
-            this.tableLayoutPanel4.SetColumnSpan(this.button4, 2);
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(3, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(144, 48);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "Add Movie";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnDeleteMovie.BackColor = System.Drawing.Color.Red;
+            this.btnDeleteMovie.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeleteMovie.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDeleteMovie.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteMovie.Location = new System.Drawing.Point(78, 57);
+            this.btnDeleteMovie.Name = "btnDeleteMovie";
+            this.btnDeleteMovie.Size = new System.Drawing.Size(69, 49);
+            this.btnDeleteMovie.TabIndex = 10;
+            this.btnDeleteMovie.Text = "Delete Movie";
+            this.btnDeleteMovie.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnAddMovie
             // 
-            this.button2.BackColor = System.Drawing.Color.Red;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(78, 57);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(69, 49);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Delete Movie";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnAddMovie.BackColor = System.Drawing.Color.LawnGreen;
+            this.tableLayoutPanel4.SetColumnSpan(this.btnAddMovie, 2);
+            this.btnAddMovie.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddMovie.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAddMovie.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddMovie.Location = new System.Drawing.Point(3, 3);
+            this.btnAddMovie.Name = "btnAddMovie";
+            this.btnAddMovie.Size = new System.Drawing.Size(144, 48);
+            this.btnAddMovie.TabIndex = 8;
+            this.btnAddMovie.Text = "Add Movie";
+            this.btnAddMovie.UseVisualStyleBackColor = false;
+            this.btnAddMovie.Click += new System.EventHandler(this.btnAddMovie_Click);
             // 
-            // button3
+            // btnEditMovie
             // 
-            this.button3.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button3.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(3, 57);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(69, 49);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Edit Movie";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnEditMovie.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnEditMovie.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditMovie.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnEditMovie.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditMovie.Location = new System.Drawing.Point(3, 57);
+            this.btnEditMovie.Name = "btnEditMovie";
+            this.btnEditMovie.Size = new System.Drawing.Size(69, 49);
+            this.btnEditMovie.TabIndex = 9;
+            this.btnEditMovie.Text = "Edit Movie";
+            this.btnEditMovie.UseVisualStyleBackColor = false;
             // 
             // dgvMovies
             // 
@@ -748,9 +749,9 @@
         private System.Windows.Forms.Label lblMovie;
         private System.Windows.Forms.Label lblFirst;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnDeleteMovie;
+        private System.Windows.Forms.Button btnEditMovie;
+        private System.Windows.Forms.Button btnAddMovie;
         private System.Windows.Forms.Label lblYear;
         private System.Windows.Forms.TextBox txtYear;
         private System.Windows.Forms.Label lblGenre;

@@ -155,5 +155,38 @@ namespace CSharp_Movies_Assessment
             // pass the datatable data to the DGV
             return dt;
         }
+
+        public void AddNewMovieToDB(string rating, string title, string year, string cost, string copies, string plot, string genre)
+        {
+            try
+            {
+                string SQL = "INSERT INTO Movies (Rating, Title, Year, Rental_Cost, Copies, Plot, Genre) VALUES (@Rating, @Title, @Year, @Cost, @Copies, @Plot, @Genre)";
+
+                using (da = new SqlDataAdapter(SQL, myConnection))
+                {
+                    var myCommand = new SqlCommand(SQL, myConnection);
+                    // set the parameters
+                    myCommand.Parameters.AddWithValue("Rating", rating);
+                    myCommand.Parameters.AddWithValue("Title", title);
+                    myCommand.Parameters.AddWithValue("Year", year);
+                    myCommand.Parameters.AddWithValue("Cost", cost);
+                    myCommand.Parameters.AddWithValue("Copies", copies);
+                    myCommand.Parameters.AddWithValue("Plot", plot);
+                    myCommand.Parameters.AddWithValue("Genre", genre);
+                    //open a connection to the DB
+                    myConnection.Open();
+                    // run the query
+                    myCommand.ExecuteNonQuery();
+                    // close the connection
+                    myConnection.Close();
+                }
+
+                MessageBox.Show("The new movie has been added to the database.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
