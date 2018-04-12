@@ -174,6 +174,7 @@ namespace CSharp_Movies_Assessment
         private void btnEditMovie_Click(object sender, EventArgs e)
         {
             int movieID = MID;
+            int rowID = movieID--;
             // set variables from textbox fields
             string rating = txtRating.Text;
             string title = txtTitle.Text;
@@ -197,8 +198,9 @@ namespace CSharp_Movies_Assessment
             txtCost.Text = "";
             txtCopies.Text = "";
             txtPlot.Text = "";
-
-            // todo highlight new column?
+            
+            // highlight updated column
+            dgvMovies.Rows[rowID].Selected = true;
         }
     }
 }

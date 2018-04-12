@@ -215,7 +215,7 @@ namespace CSharp_Movies_Assessment
                     myConnection.Close();
                 }
 
-                MessageBox.Show("The movie has been updated in the database.");
+                MessageBox.Show("The movie details have been updated in the database.");
             }
             catch (Exception ex)
             {
