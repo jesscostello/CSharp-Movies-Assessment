@@ -72,11 +72,22 @@
             this.btnEditMovie = new System.Windows.Forms.Button();
             this.dgvMovies = new System.Windows.Forms.DataGridView();
             this.tabRented = new System.Windows.Forms.TabPage();
+            this.dgvRentals = new System.Windows.Forms.DataGridView();
             this.lblCustomer = new System.Windows.Forms.Label();
             this.lblMovie = new System.Windows.Forms.Label();
             this.lblFirst = new System.Windows.Forms.Label();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnReturn = new System.Windows.Forms.Button();
+            this.lblIssue = new System.Windows.Forms.Label();
+            this.lblCN = new System.Windows.Forms.Label();
+            this.lblMN = new System.Windows.Forms.Label();
+            this.lblReturn = new System.Windows.Forms.Label();
+            this.lblIssued = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblMovieName = new System.Windows.Forms.Label();
             this.lblMovieDetails = new System.Windows.Forms.Label();
+            this.btnIssue = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabCustomers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -104,10 +115,13 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovies)).BeginInit();
+            this.tabRented.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRentals)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -614,6 +628,7 @@
             // 
             // tabRented
             // 
+            this.tabRented.Controls.Add(this.dgvRentals);
             this.tabRented.Location = new System.Drawing.Point(4, 22);
             this.tabRented.Name = "tabRented";
             this.tabRented.Padding = new System.Windows.Forms.Padding(3);
@@ -621,6 +636,16 @@
             this.tabRented.TabIndex = 2;
             this.tabRented.Text = "Rented Movies";
             this.tabRented.UseVisualStyleBackColor = true;
+            // 
+            // dgvRentals
+            // 
+            this.dgvRentals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRentals.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvRentals.Location = new System.Drawing.Point(3, 3);
+            this.dgvRentals.Name = "dgvRentals";
+            this.dgvRentals.Size = new System.Drawing.Size(876, 392);
+            this.dgvRentals.TabIndex = 0;
+            this.dgvRentals.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRentals_CellClick);
             // 
             // lblCustomer
             // 
@@ -664,6 +689,8 @@
             // 
             // splitContainer3.Panel2
             // 
+            this.splitContainer3.Panel2.Controls.Add(this.btnIssue);
+            this.splitContainer3.Panel2.Controls.Add(this.tableLayoutPanel5);
             this.splitContainer3.Panel2.Controls.Add(this.lblMovieDetails);
             this.splitContainer3.Panel2.Controls.Add(this.lblCustomer);
             this.splitContainer3.Panel2.Controls.Add(this.lblMovie);
@@ -672,6 +699,107 @@
             this.splitContainer3.SplitterDistance = 444;
             this.splitContainer3.TabIndex = 13;
             // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.48997F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.51003F));
+            this.tableLayoutPanel5.Controls.Add(this.btnReturn, 1, 3);
+            this.tableLayoutPanel5.Controls.Add(this.lblIssue, 1, 2);
+            this.tableLayoutPanel5.Controls.Add(this.lblCN, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.lblMN, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.lblReturn, 0, 3);
+            this.tableLayoutPanel5.Controls.Add(this.lblIssued, 0, 2);
+            this.tableLayoutPanel5.Controls.Add(this.lblName, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.lblMovieName, 1, 1);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(502, 7);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 4;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.48485F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.51515F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 57F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(396, 109);
+            this.tableLayoutPanel5.TabIndex = 14;
+            // 
+            // btnReturn
+            // 
+            this.btnReturn.BackColor = System.Drawing.Color.Red;
+            this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReturn.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturn.Location = new System.Drawing.Point(88, 54);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(69, 49);
+            this.btnReturn.TabIndex = 11;
+            this.btnReturn.Text = "Return Movie";
+            this.btnReturn.UseVisualStyleBackColor = false;
+            this.btnReturn.Visible = false;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
+            // lblIssue
+            // 
+            this.lblIssue.AutoSize = true;
+            this.lblIssue.Location = new System.Drawing.Point(88, 33);
+            this.lblIssue.Name = "lblIssue";
+            this.lblIssue.Size = new System.Drawing.Size(0, 13);
+            this.lblIssue.TabIndex = 8;
+            // 
+            // lblCN
+            // 
+            this.lblCN.AutoSize = true;
+            this.lblCN.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCN.Location = new System.Drawing.Point(3, 0);
+            this.lblCN.Name = "lblCN";
+            this.lblCN.Size = new System.Drawing.Size(67, 13);
+            this.lblCN.TabIndex = 2;
+            this.lblCN.Text = "Customer: ";
+            // 
+            // lblMN
+            // 
+            this.lblMN.AutoSize = true;
+            this.lblMN.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMN.Location = new System.Drawing.Point(3, 16);
+            this.lblMN.Name = "lblMN";
+            this.lblMN.Size = new System.Drawing.Size(49, 13);
+            this.lblMN.TabIndex = 3;
+            this.lblMN.Text = "Movie: ";
+            // 
+            // lblReturn
+            // 
+            this.lblReturn.AutoSize = true;
+            this.lblReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReturn.Location = new System.Drawing.Point(3, 51);
+            this.lblReturn.Name = "lblReturn";
+            this.lblReturn.Size = new System.Drawing.Size(49, 13);
+            this.lblReturn.TabIndex = 4;
+            this.lblReturn.Text = "Return:";
+            // 
+            // lblIssued
+            // 
+            this.lblIssued.AutoSize = true;
+            this.lblIssued.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIssued.Location = new System.Drawing.Point(3, 33);
+            this.lblIssued.Name = "lblIssued";
+            this.lblIssued.Size = new System.Drawing.Size(48, 13);
+            this.lblIssued.TabIndex = 5;
+            this.lblIssued.Text = "Issued:";
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(88, 0);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(0, 13);
+            this.lblName.TabIndex = 6;
+            // 
+            // lblMovieName
+            // 
+            this.lblMovieName.AutoSize = true;
+            this.lblMovieName.Location = new System.Drawing.Point(88, 16);
+            this.lblMovieName.Name = "lblMovieName";
+            this.lblMovieName.Size = new System.Drawing.Size(0, 13);
+            this.lblMovieName.TabIndex = 7;
+            // 
             // lblMovieDetails
             // 
             this.lblMovieDetails.AutoSize = true;
@@ -679,6 +807,19 @@
             this.lblMovieDetails.Name = "lblMovieDetails";
             this.lblMovieDetails.Size = new System.Drawing.Size(0, 13);
             this.lblMovieDetails.TabIndex = 13;
+            // 
+            // btnIssue
+            // 
+            this.btnIssue.BackColor = System.Drawing.Color.LawnGreen;
+            this.btnIssue.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnIssue.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIssue.Location = new System.Drawing.Point(351, 8);
+            this.btnIssue.Name = "btnIssue";
+            this.btnIssue.Size = new System.Drawing.Size(69, 50);
+            this.btnIssue.TabIndex = 15;
+            this.btnIssue.Text = "Issue Movie";
+            this.btnIssue.UseVisualStyleBackColor = false;
+            this.btnIssue.Click += new System.EventHandler(this.btnIssue_Click);
             // 
             // Form1
             // 
@@ -719,11 +860,15 @@
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovies)).EndInit();
+            this.tabRented.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRentals)).EndInit();
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
             this.splitContainer3.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -779,6 +924,17 @@
         private System.Windows.Forms.SplitContainer splitContainer5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Label lblMovieDetails;
+        private System.Windows.Forms.DataGridView dgvRentals;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.Label lblCN;
+        private System.Windows.Forms.Label lblMN;
+        private System.Windows.Forms.Label lblReturn;
+        private System.Windows.Forms.Label lblIssued;
+        private System.Windows.Forms.Label lblIssue;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblMovieName;
+        private System.Windows.Forms.Button btnReturn;
+        private System.Windows.Forms.Button btnIssue;
     }
 }
 

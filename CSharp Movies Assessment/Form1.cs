@@ -12,12 +12,14 @@ namespace CSharp_Movies_Assessment
 {
     public partial class Form1 : Form
     {
-        // todo search customers??
-
+        // todo search customers?? and movies?
+        // todo return movie btn disabled until selection from rented movies
+        // todo issue movie btn disabled until selection from movie and customer
 
         Database myDatabase = new Database();
         public int CID { get; set; }
         public int MID { get; set; }
+        public int RID { get; set; }
 
         public Form1()
         {
@@ -29,6 +31,7 @@ namespace CSharp_Movies_Assessment
         {
             DisplayCustomersDGV();
             DisplayMoviesDGV();
+            DisplayRentalsDGV();
         }
 
         private void DisplayCustomersDGV()
@@ -66,7 +69,7 @@ namespace CSharp_Movies_Assessment
             {
                 MessageBox.Show(ex.Message);
             }
-
+            // todo this is the one I want!
             CID = CustomerID;
         }
 
@@ -216,7 +219,70 @@ namespace CSharp_Movies_Assessment
                 // refresh dgv
                 DisplayMoviesDGV();
             }
+        }
+
+        private void DisplayRentalsDGV()
+        {
+            // Clear out any old data
+            dgvRentals.DataSource = null;
+            try
+            {
+                dgvRentals.DataSource = myDatabase.FillRentalsDGV();
+                dgvRentals.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dgvRentals_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int RentalID = 0;
+
+            try
+            {
+                RentalID = (int)dgvRentals.Rows[e.RowIndex].Cells[0].Value;
+                lblName.Text = dgvRentals.Rows[e.RowIndex].Cells[1].Value.ToString() + " ";
+                lblName.Text += dgvRentals.Rows[e.RowIndex].Cells[2].Value.ToString();
+                lblMovieName.Text = dgvRentals.Rows[e.RowIndex].Cells[3].Value.ToString();
+                lblIssue.Text = dgvRentals.Rows[e.RowIndex].Cells[4].Value.ToString();
+                btnReturn.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            RID = RentalID;
+        }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            int rentalId = RID;
             
+            // call database method to return movie
+            myDatabase.ReturnMovie(rentalId);
+            // refresh dgv
+            DisplayRentalsDGV();
+            // clear data
+            lblName.Text = "";
+            lblMovieName.Text = "";
+            lblIssue.Text = "";
+            int rowId = rentalId--;
+            // highlight updated column
+            // todo change this because rows get deleted!!
+            dgvRentals.Rows[rowId].Selected = true;
+        }
+
+        private void btnIssue_Click(object sender, EventArgs e)
+        {
+            int customer = CID;
+            int movie = MID;
+            string date = DateTime.Now.ToString();
+
+            // call the database method to add to rented movies
+            myDatabase.RentOutMovie(customer, movie, date);
         }
     }
 }

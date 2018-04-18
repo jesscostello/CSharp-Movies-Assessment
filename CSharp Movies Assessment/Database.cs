@@ -222,7 +222,7 @@ namespace CSharp_Movies_Assessment
                 MessageBox.Show(ex.Message);
             }
         }
-
+        
         public void DeleteMovie(int movieId)
         {
             try
@@ -243,6 +243,82 @@ namespace CSharp_Movies_Assessment
                 }
 
                 MessageBox.Show("This movie has been deleted from the database.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public DataTable FillRentalsDGV()
+        {
+            // Create a data table
+            DataTable dt = new DataTable();
+            using (da = new SqlDataAdapter("SELECT * FROM Rentals", myConnection))
+            {
+                // open a connection to the database
+                myConnection.Open();
+                // fill the datatable with the data from the SQL
+                da.Fill(dt);
+                // close the database connection
+                myConnection.Close();
+            }
+            // pass the datatable data to the DGV
+            return dt;
+        }
+
+        public void ReturnMovie(int rentalId)
+        {
+            string date = DateTime.Now.ToString();
+            try
+            {
+                string SQL = "UPDATE RentedMovies SET DateReturned = @Date WHERE RMID = @Id";
+
+                using (da = new SqlDataAdapter(SQL, myConnection))
+                {
+                    var myCommand = new SqlCommand(SQL, myConnection);
+                    // set the parameters
+                    myCommand.Parameters.AddWithValue("Id", rentalId);
+                    myCommand.Parameters.AddWithValue("Date", date);
+                    //open a connection to the DB
+                    myConnection.Open();
+                    // run the query
+                    myCommand.ExecuteNonQuery();
+                    // close the connection
+                    myConnection.Close();
+                }
+
+                MessageBox.Show("This movie has been successfully returned.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void RentOutMovie(int customer, int movie, string date)
+        {
+            try
+            {
+                string SQL = "INSERT INTO RentedMovies (MovieIDFK, CustIDFK, DateRented) VALUES (@Customer, @Movie, @Date)";
+
+                using (da = new SqlDataAdapter(SQL, myConnection))
+                {
+                    var myCommand = new SqlCommand(SQL, myConnection);
+                    // set the parameters
+                    myCommand.Parameters.AddWithValue("Customer", customer);
+                    myCommand.Parameters.AddWithValue("Movie", movie);
+                    myCommand.Parameters.AddWithValue("Date", date);
+                    
+                    //open a connection to the DB
+                    myConnection.Open();
+                    // run the query
+                    myCommand.ExecuteNonQuery();
+                    // close the connection
+                    myConnection.Close();
+                }
+
+                MessageBox.Show("The movie has been issued successfully.");
             }
             catch (Exception ex)
             {
