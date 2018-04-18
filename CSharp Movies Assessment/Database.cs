@@ -269,7 +269,8 @@ namespace CSharp_Movies_Assessment
 
         public void ReturnMovie(int rentalId)
         {
-            string date = DateTime.Now.ToString();
+            string currentDate = DateTime.Now.ToString();
+            DateTime date = Convert.ToDateTime(currentDate);
             try
             {
                 string SQL = "UPDATE RentedMovies SET DateReturned = @Date WHERE RMID = @Id";
@@ -323,6 +324,47 @@ namespace CSharp_Movies_Assessment
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        public DataTable SearchCustomers()
+        {
+            try
+            {
+                string searchName = "jess";
+                // Create a data table
+                //DataTable dt = new DataTable();
+                //string SQL = "SELECT * FROM Customers WHERE FirstName LIKE '%" + "@Search" + "%'";
+                //using (da = new SqlDataAdapter(SQL, myConnection))
+                //{
+                //    var myCommand = new SqlCommand(SQL, myConnection);
+                //    myCommand.Parameters.AddWithValue("Search", searchName);
+                //    // open a connection to the database
+                //    myConnection.Open();
+                //    // fill the datatable with the data from the SQL
+                //    da.Fill(dt);
+                //    // close the database connection
+                //    myConnection.Close();
+                //}
+                DataTable dt = new DataTable();
+                using (da = new SqlDataAdapter("SELECT * FROM Customers WHERE FirstName LIKE '%" + "@Search" + "%'", myConnection))
+                {
+                    var myCommand = new SqlCommand(SQL, myConnection);
+                    myCommand.Parameters.AddWithValue("Search", searchName);
+                    // open a connection to the database
+                    myConnection.Open();
+                    // fill the datatable with the data from the SQL
+                    da.Fill(dt);
+                    // close the database connection
+                    myConnection.Close();
+                }
+                // pass the datatable data to the DGV
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
             }
         }
     }

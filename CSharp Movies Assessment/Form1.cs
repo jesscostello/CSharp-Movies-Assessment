@@ -71,6 +71,7 @@ namespace CSharp_Movies_Assessment
             }
             // todo this is the one I want!
             CID = CustomerID;
+            MakeIssueMovieButtonVisible();
         }
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
@@ -145,7 +146,7 @@ namespace CSharp_Movies_Assessment
                 txtPlot.Text = dgvMovies.Rows[e.RowIndex].Cells[6].Value.ToString();
 
                 lblMovieDetails.Text = dgvMovies.Rows[e.RowIndex].Cells[2].Value.ToString() + "   ";
-                lblMovieDetails.Text += dgvMovies.Rows[e.RowIndex].Cells[1].Value.ToString() + "   ";
+                lblMovieDetails.Text += dgvMovies.Rows[e.RowIndex].Cells[1].Value.ToString() + "   $";
                 lblMovieDetails.Text += dgvMovies.Rows[e.RowIndex].Cells[4].Value.ToString();
             }
             catch (Exception ex)
@@ -154,6 +155,7 @@ namespace CSharp_Movies_Assessment
             }
 
             MID = MovieID;
+            MakeIssueMovieButtonVisible();
         }
 
         private void btnAddMovie_Click(object sender, EventArgs e)
@@ -269,10 +271,12 @@ namespace CSharp_Movies_Assessment
             lblName.Text = "";
             lblMovieName.Text = "";
             lblIssue.Text = "";
+            btnReturn.Visible = false;
+
             int rowId = rentalId--;
             // highlight updated column
             // todo change this because rows get deleted!!
-            dgvRentals.Rows[rowId].Selected = true;
+            //dgvRentals.Rows[rowId].Selected = true;
         }
 
         private void btnIssue_Click(object sender, EventArgs e)
@@ -288,7 +292,50 @@ namespace CSharp_Movies_Assessment
             DisplayRentalsDGV();
             // show rented movies dgv
             tabControl1.SelectedIndex = 2;
+
+            // clear data
+            lblName.Text = "";
+            lblMovieName.Text = "";
+            lblIssue.Text = "";
+            lblFirst.Text = "";
+            lblMovieDetails.Text = "";
+            btnIssue.Visible = false;
+
             // todo show recently rented movie as selected row
+            dgvRentals.Rows[17].Selected = true;
+            dgvRentals.FirstDisplayedScrollingRowIndex = 17;
+        }
+
+        private void MakeIssueMovieButtonVisible()
+        {
+            if (CID > 0 && MID > 0)
+            {
+                btnIssue.Visible = true;
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            //myDatabase.SearchCustomers();
+
+            DisplayCustomerSearchInDGV();
+        }
+
+        public void DisplayCustomerSearchInDGV()
+        {
+            string search = txtCustSearch.Text;
+
+            // Clear out any old data
+            dgvMovies.DataSource = null;
+            try
+            {
+                dgvCustomers.DataSource = myDatabase.SearchCustomers();
+                dgvCustomers.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
