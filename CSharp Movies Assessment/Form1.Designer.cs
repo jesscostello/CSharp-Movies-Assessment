@@ -77,6 +77,7 @@
             this.lblMovie = new System.Windows.Forms.Label();
             this.lblFirst = new System.Windows.Forms.Label();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.btnIssue = new System.Windows.Forms.Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.btnReturn = new System.Windows.Forms.Button();
             this.lblIssue = new System.Windows.Forms.Label();
@@ -87,7 +88,6 @@
             this.lblName = new System.Windows.Forms.Label();
             this.lblMovieName = new System.Windows.Forms.Label();
             this.lblMovieDetails = new System.Windows.Forms.Label();
-            this.btnIssue = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabCustomers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -699,6 +699,19 @@
             this.splitContainer3.SplitterDistance = 444;
             this.splitContainer3.TabIndex = 13;
             // 
+            // btnIssue
+            // 
+            this.btnIssue.BackColor = System.Drawing.Color.LawnGreen;
+            this.btnIssue.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnIssue.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIssue.Location = new System.Drawing.Point(351, 8);
+            this.btnIssue.Name = "btnIssue";
+            this.btnIssue.Size = new System.Drawing.Size(69, 50);
+            this.btnIssue.TabIndex = 15;
+            this.btnIssue.Text = "Issue Movie";
+            this.btnIssue.UseVisualStyleBackColor = false;
+            this.btnIssue.Click += new System.EventHandler(this.btnIssue_Click);
+            // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 2;
@@ -807,19 +820,6 @@
             this.lblMovieDetails.Name = "lblMovieDetails";
             this.lblMovieDetails.Size = new System.Drawing.Size(0, 13);
             this.lblMovieDetails.TabIndex = 13;
-            // 
-            // btnIssue
-            // 
-            this.btnIssue.BackColor = System.Drawing.Color.LawnGreen;
-            this.btnIssue.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnIssue.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIssue.Location = new System.Drawing.Point(351, 8);
-            this.btnIssue.Name = "btnIssue";
-            this.btnIssue.Size = new System.Drawing.Size(69, 50);
-            this.btnIssue.TabIndex = 15;
-            this.btnIssue.Text = "Issue Movie";
-            this.btnIssue.UseVisualStyleBackColor = false;
-            this.btnIssue.Click += new System.EventHandler(this.btnIssue_Click);
             // 
             // Form1
             // 

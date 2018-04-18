@@ -280,9 +280,15 @@ namespace CSharp_Movies_Assessment
             int customer = CID;
             int movie = MID;
             string date = DateTime.Now.ToString();
+            DateTime currentDate = Convert.ToDateTime(date);
 
             // call the database method to add to rented movies
-            myDatabase.RentOutMovie(customer, movie, date);
+            myDatabase.RentOutMovie(customer, movie, currentDate);
+            // refresh rented movies dgv
+            DisplayRentalsDGV();
+            // show rented movies dgv
+            tabControl1.SelectedIndex = 2;
+            // todo show recently rented movie as selected row
         }
     }
 }

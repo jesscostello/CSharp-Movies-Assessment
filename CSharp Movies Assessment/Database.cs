@@ -296,11 +296,11 @@ namespace CSharp_Movies_Assessment
             }
         }
 
-        public void RentOutMovie(int customer, int movie, string date)
+        public void RentOutMovie(int customer, int movie, DateTime date)
         {
             try
             {
-                string SQL = "INSERT INTO RentedMovies (MovieIDFK, CustIDFK, DateRented) VALUES (@Customer, @Movie, @Date)";
+                string SQL = "INSERT INTO RentedMovies (MovieIDFK, CustIDFK, DateRented) VALUES (@Movie, @Customer, @Date)";
 
                 using (da = new SqlDataAdapter(SQL, myConnection))
                 {
