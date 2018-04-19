@@ -317,7 +317,7 @@ namespace CSharp_Movies_Assessment
         private void btnSearch_Click(object sender, EventArgs e)
         {
             //myDatabase.SearchCustomers();
-
+            string search = txtCustSearch.Text;
             DisplayCustomerSearchInDGV();
         }
 
@@ -329,7 +329,7 @@ namespace CSharp_Movies_Assessment
             dgvMovies.DataSource = null;
             try
             {
-                dgvCustomers.DataSource = myDatabase.SearchCustomers();
+                dgvCustomers.DataSource = myDatabase.SearchCustomers(search);
                 dgvCustomers.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
             }
             catch (Exception ex)

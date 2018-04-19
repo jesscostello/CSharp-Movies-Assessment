@@ -327,30 +327,18 @@ namespace CSharp_Movies_Assessment
             }
         }
 
-        public DataTable SearchCustomers()
+        public DataTable SearchCustomers(string search)
         {
             try
             {
-                string searchName = "jess";
-                // Create a data table
-                //DataTable dt = new DataTable();
-                //string SQL = "SELECT * FROM Customers WHERE FirstName LIKE '%" + "@Search" + "%'";
-                //using (da = new SqlDataAdapter(SQL, myConnection))
-                //{
-                //    var myCommand = new SqlCommand(SQL, myConnection);
-                //    myCommand.Parameters.AddWithValue("Search", searchName);
-                //    // open a connection to the database
-                //    myConnection.Open();
-                //    // fill the datatable with the data from the SQL
-                //    da.Fill(dt);
-                //    // close the database connection
-                //    myConnection.Close();
-                //}
+                string searchName = search;
+                string SQL = "SELECT * FROM Customers WHERE FirstName LIKE @Search";
+                MessageBox.Show(searchName);
                 DataTable dt = new DataTable();
-                using (da = new SqlDataAdapter("SELECT * FROM Customers WHERE FirstName LIKE '%" + "@Search" + "%'", myConnection))
+                using (da = new SqlDataAdapter(SQL, myConnection))
                 {
                     var myCommand = new SqlCommand(SQL, myConnection);
-                    myCommand.Parameters.AddWithValue("Search", searchName);
+                    myCommand.Parameters.AddWithValue("@Search", "%" + searchName + "%");
                     // open a connection to the database
                     myConnection.Open();
                     // fill the datatable with the data from the SQL
