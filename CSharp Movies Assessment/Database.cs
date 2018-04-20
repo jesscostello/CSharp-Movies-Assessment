@@ -156,6 +156,23 @@ namespace CSharp_Movies_Assessment
             return dt;
         }
 
+        //public DataTable FillMoviesDGV()
+        //{
+        //    // Create a data table
+        //    DataTable dt = new DataTable();
+        //    using (da = new SqlDataAdapter("SELECT * FROM Movies", myConnection))
+        //    {
+        //        // open a connection to the database
+        //        myConnection.Open();
+        //        // fill the datatable with the data from the SQL
+        //        da.Fill(dt);
+        //        // close the database connection
+        //        myConnection.Close();
+        //    }
+        //    // pass the datatable data to the DGV
+        //    return dt;
+        //}
+
         public void AddNewMovieToDB(string rating, string title, string year, string cost, string copies, string plot, string genre)
         {
             try
@@ -329,16 +346,16 @@ namespace CSharp_Movies_Assessment
 
         public DataTable SearchCustomers(string search)
         {
-            try
-            {
+            //try
+            //{
                 string searchName = search;
-                string SQL = "SELECT * FROM Customers WHERE FirstName LIKE @Search";
-                MessageBox.Show(searchName);
+                string SQL = "SELECT * FROM Customers WHERE FirstName LIKE @xxx";
+                //MessageBox.Show(searchName);
                 DataTable dt = new DataTable();
                 using (da = new SqlDataAdapter(SQL, myConnection))
                 {
                     var myCommand = new SqlCommand(SQL, myConnection);
-                    myCommand.Parameters.AddWithValue("@Search", "%" + searchName + "%");
+                    myCommand.Parameters.AddWithValue("@xxx", "%" + searchName + "%");
                     // open a connection to the database
                     myConnection.Open();
                     // fill the datatable with the data from the SQL
@@ -346,14 +363,13 @@ namespace CSharp_Movies_Assessment
                     // close the database connection
                     myConnection.Close();
                 }
-                // pass the datatable data to the DGV
                 return dt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                throw;
-            }
+            //}
+            // pass the datatable data to the DGV
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
         }
     }
 }

@@ -13,8 +13,8 @@ namespace CSharp_Movies_Assessment
     public partial class Form1 : Form
     {
         // todo search customers?? and movies?
-        // todo return movie btn disabled until selection from rented movies
-        // todo issue movie btn disabled until selection from movie and customer
+        // return movie btn disabled until selection from rented movies
+        // issue movie btn disabled until selection from movie and customer
 
         Database myDatabase = new Database();
         public int CID { get; set; }
