@@ -89,8 +89,11 @@
             this.lblMovieName = new System.Windows.Forms.Label();
             this.lblMovieDetails = new System.Windows.Forms.Label();
             this.splitContainer6 = new System.Windows.Forms.SplitContainer();
-            this.txtCustSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.txtCustSearch = new System.Windows.Forms.TextBox();
+            this.splitContainer7 = new System.Windows.Forms.SplitContainer();
+            this.radShowAll = new System.Windows.Forms.RadioButton();
+            this.radShowOut = new System.Windows.Forms.RadioButton();
             this.tabControl1.SuspendLayout();
             this.tabCustomers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -129,6 +132,10 @@
             this.splitContainer6.Panel1.SuspendLayout();
             this.splitContainer6.Panel2.SuspendLayout();
             this.splitContainer6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).BeginInit();
+            this.splitContainer7.Panel1.SuspendLayout();
+            this.splitContainer7.Panel2.SuspendLayout();
+            this.splitContainer7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -351,7 +358,7 @@
             this.tabMovies.Location = new System.Drawing.Point(4, 22);
             this.tabMovies.Name = "tabMovies";
             this.tabMovies.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMovies.Size = new System.Drawing.Size(882, 366);
+            this.tabMovies.Size = new System.Drawing.Size(882, 374);
             this.tabMovies.TabIndex = 1;
             this.tabMovies.Text = "Movies";
             this.tabMovies.UseVisualStyleBackColor = true;
@@ -369,7 +376,7 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.dgvMovies);
-            this.splitContainer2.Size = new System.Drawing.Size(876, 360);
+            this.splitContainer2.Size = new System.Drawing.Size(876, 368);
             this.splitContainer2.SplitterDistance = 150;
             this.splitContainer2.TabIndex = 1;
             // 
@@ -387,8 +394,8 @@
             // splitContainer5.Panel2
             // 
             this.splitContainer5.Panel2.Controls.Add(this.tableLayoutPanel4);
-            this.splitContainer5.Size = new System.Drawing.Size(150, 360);
-            this.splitContainer5.SplitterDistance = 256;
+            this.splitContainer5.Size = new System.Drawing.Size(150, 368);
+            this.splitContainer5.SplitterDistance = 261;
             this.splitContainer5.TabIndex = 0;
             // 
             // flowLayoutPanel2
@@ -405,7 +412,7 @@
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(150, 256);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(150, 261);
             this.flowLayoutPanel2.TabIndex = 13;
             // 
             // lblTitle
@@ -577,7 +584,7 @@
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(150, 100);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(150, 103);
             this.tableLayoutPanel4.TabIndex = 13;
             // 
             // btnDeleteMovie
@@ -586,9 +593,9 @@
             this.btnDeleteMovie.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDeleteMovie.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnDeleteMovie.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteMovie.Location = new System.Drawing.Point(78, 53);
+            this.btnDeleteMovie.Location = new System.Drawing.Point(78, 54);
             this.btnDeleteMovie.Name = "btnDeleteMovie";
-            this.btnDeleteMovie.Size = new System.Drawing.Size(69, 44);
+            this.btnDeleteMovie.Size = new System.Drawing.Size(69, 46);
             this.btnDeleteMovie.TabIndex = 10;
             this.btnDeleteMovie.Text = "Delete Movie";
             this.btnDeleteMovie.UseVisualStyleBackColor = false;
@@ -603,7 +610,7 @@
             this.btnAddMovie.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddMovie.Location = new System.Drawing.Point(3, 3);
             this.btnAddMovie.Name = "btnAddMovie";
-            this.btnAddMovie.Size = new System.Drawing.Size(144, 44);
+            this.btnAddMovie.Size = new System.Drawing.Size(144, 45);
             this.btnAddMovie.TabIndex = 8;
             this.btnAddMovie.Text = "Add Movie";
             this.btnAddMovie.UseVisualStyleBackColor = false;
@@ -615,9 +622,9 @@
             this.btnEditMovie.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditMovie.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnEditMovie.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditMovie.Location = new System.Drawing.Point(3, 53);
+            this.btnEditMovie.Location = new System.Drawing.Point(3, 54);
             this.btnEditMovie.Name = "btnEditMovie";
-            this.btnEditMovie.Size = new System.Drawing.Size(69, 44);
+            this.btnEditMovie.Size = new System.Drawing.Size(69, 46);
             this.btnEditMovie.TabIndex = 9;
             this.btnEditMovie.Text = "Edit Movie";
             this.btnEditMovie.UseVisualStyleBackColor = false;
@@ -629,17 +636,17 @@
             this.dgvMovies.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMovies.Location = new System.Drawing.Point(0, 0);
             this.dgvMovies.Name = "dgvMovies";
-            this.dgvMovies.Size = new System.Drawing.Size(722, 360);
+            this.dgvMovies.Size = new System.Drawing.Size(722, 368);
             this.dgvMovies.TabIndex = 0;
             this.dgvMovies.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMovies_CellClick);
             // 
             // tabRented
             // 
-            this.tabRented.Controls.Add(this.dgvRentals);
+            this.tabRented.Controls.Add(this.splitContainer7);
             this.tabRented.Location = new System.Drawing.Point(4, 22);
             this.tabRented.Name = "tabRented";
             this.tabRented.Padding = new System.Windows.Forms.Padding(3);
-            this.tabRented.Size = new System.Drawing.Size(882, 366);
+            this.tabRented.Size = new System.Drawing.Size(882, 374);
             this.tabRented.TabIndex = 2;
             this.tabRented.Text = "Rented Movies";
             this.tabRented.UseVisualStyleBackColor = true;
@@ -648,9 +655,9 @@
             // 
             this.dgvRentals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRentals.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvRentals.Location = new System.Drawing.Point(3, 3);
+            this.dgvRentals.Location = new System.Drawing.Point(0, 0);
             this.dgvRentals.Name = "dgvRentals";
-            this.dgvRentals.Size = new System.Drawing.Size(876, 360);
+            this.dgvRentals.Size = new System.Drawing.Size(722, 368);
             this.dgvRentals.TabIndex = 0;
             this.dgvRentals.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRentals_CellClick);
             // 
@@ -848,13 +855,6 @@
             this.splitContainer6.SplitterDistance = 25;
             this.splitContainer6.TabIndex = 14;
             // 
-            // txtCustSearch
-            // 
-            this.txtCustSearch.Location = new System.Drawing.Point(3, 3);
-            this.txtCustSearch.Name = "txtCustSearch";
-            this.txtCustSearch.Size = new System.Drawing.Size(185, 20);
-            this.txtCustSearch.TabIndex = 0;
-            // 
             // btnSearch
             // 
             this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -865,6 +865,55 @@
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // txtCustSearch
+            // 
+            this.txtCustSearch.Location = new System.Drawing.Point(3, 3);
+            this.txtCustSearch.Name = "txtCustSearch";
+            this.txtCustSearch.Size = new System.Drawing.Size(185, 20);
+            this.txtCustSearch.TabIndex = 0;
+            // 
+            // splitContainer7
+            // 
+            this.splitContainer7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer7.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer7.Name = "splitContainer7";
+            // 
+            // splitContainer7.Panel1
+            // 
+            this.splitContainer7.Panel1.Controls.Add(this.radShowOut);
+            this.splitContainer7.Panel1.Controls.Add(this.radShowAll);
+            // 
+            // splitContainer7.Panel2
+            // 
+            this.splitContainer7.Panel2.Controls.Add(this.dgvRentals);
+            this.splitContainer7.Size = new System.Drawing.Size(876, 368);
+            this.splitContainer7.SplitterDistance = 150;
+            this.splitContainer7.TabIndex = 1;
+            // 
+            // radShowAll
+            // 
+            this.radShowAll.AutoSize = true;
+            this.radShowAll.Checked = true;
+            this.radShowAll.Location = new System.Drawing.Point(4, 4);
+            this.radShowAll.Name = "radShowAll";
+            this.radShowAll.Size = new System.Drawing.Size(134, 17);
+            this.radShowAll.TabIndex = 0;
+            this.radShowAll.TabStop = true;
+            this.radShowAll.Text = "Show all rented movies";
+            this.radShowAll.UseVisualStyleBackColor = true;
+            this.radShowAll.CheckedChanged += new System.EventHandler(this.radShowAll_CheckedChanged);
+            // 
+            // radShowOut
+            // 
+            this.radShowOut.AutoSize = true;
+            this.radShowOut.Location = new System.Drawing.Point(4, 28);
+            this.radShowOut.Name = "radShowOut";
+            this.radShowOut.Size = new System.Drawing.Size(147, 17);
+            this.radShowOut.TabIndex = 1;
+            this.radShowOut.Text = "Show rentals currently out";
+            this.radShowOut.UseVisualStyleBackColor = true;
+            this.radShowOut.CheckedChanged += new System.EventHandler(this.radShowOut_CheckedChanged);
             // 
             // Form1
             // 
@@ -919,6 +968,11 @@
             this.splitContainer6.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer6)).EndInit();
             this.splitContainer6.ResumeLayout(false);
+            this.splitContainer7.Panel1.ResumeLayout(false);
+            this.splitContainer7.Panel1.PerformLayout();
+            this.splitContainer7.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).EndInit();
+            this.splitContainer7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -988,6 +1042,9 @@
         private System.Windows.Forms.SplitContainer splitContainer6;
         private System.Windows.Forms.TextBox txtCustSearch;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.SplitContainer splitContainer7;
+        private System.Windows.Forms.RadioButton radShowOut;
+        private System.Windows.Forms.RadioButton radShowAll;
     }
 }
 

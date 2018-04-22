@@ -146,8 +146,18 @@ namespace CSharp_Movies_Assessment
                 txtPlot.Text = dgvMovies.Rows[e.RowIndex].Cells[6].Value.ToString();
 
                 lblMovieDetails.Text = dgvMovies.Rows[e.RowIndex].Cells[2].Value.ToString() + "   ";
-                lblMovieDetails.Text += dgvMovies.Rows[e.RowIndex].Cells[1].Value.ToString() + "   $";
-                lblMovieDetails.Text += dgvMovies.Rows[e.RowIndex].Cells[4].Value.ToString();
+                lblMovieDetails.Text += dgvMovies.Rows[e.RowIndex].Cells[1].Value.ToString() + "   ";
+                //lblMovieDetails.Text += dgvMovies.Rows[e.RowIndex].Cells[4].Value.ToString();
+                int year = (int)dgvMovies.Rows[e.RowIndex].Cells[3].Value;
+
+                if (year >= 2013)
+                {
+                    lblMovieDetails.Text += "$5.00";
+                }
+                else
+                {
+                    lblMovieDetails.Text += "$2.00";
+                }
             }
             catch (Exception ex)
             {
@@ -179,7 +189,7 @@ namespace CSharp_Movies_Assessment
         private void btnEditMovie_Click(object sender, EventArgs e)
         {
             int movieID = MID;
-            int rowID = movieID--;
+            
             // set variables from textbox fields
             string rating = txtRating.Text;
             string title = txtTitle.Text;
@@ -203,9 +213,10 @@ namespace CSharp_Movies_Assessment
             txtCost.Text = "";
             txtCopies.Text = "";
             txtPlot.Text = "";
-            
+
             // highlight updated column
-            dgvMovies.Rows[rowID].Selected = true;
+            //int rowID = movieID--;
+            //dgvMovies.Rows[movieID].Selected = true;
         }
 
         private void btnDeleteMovie_Click(object sender, EventArgs e)
@@ -335,6 +346,44 @@ namespace CSharp_Movies_Assessment
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void radShowOut_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radShowOut.Checked == true)
+            {
+                radShowAll.Checked = false;
+                // Clear out any old data
+                dgvRentals.DataSource = null;
+                try
+                {
+                    dgvRentals.DataSource = myDatabase.ShowRentedOutMovies();
+                    dgvRentals.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }   
+        }
+
+        private void radShowAll_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radShowAll.Checked == true)
+            {
+                radShowOut.Checked = false;
+                // Clear out any old data
+                dgvRentals.DataSource = null;
+                try
+                {
+                    dgvRentals.DataSource = myDatabase.FillRentalsDGV();
+                    dgvRentals.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
     }
