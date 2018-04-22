@@ -94,6 +94,9 @@
             this.splitContainer7 = new System.Windows.Forms.SplitContainer();
             this.radShowAll = new System.Windows.Forms.RadioButton();
             this.radShowOut = new System.Windows.Forms.RadioButton();
+            this.splitContainer8 = new System.Windows.Forms.SplitContainer();
+            this.radAllCust = new System.Windows.Forms.RadioButton();
+            this.radTopCust = new System.Windows.Forms.RadioButton();
             this.tabControl1.SuspendLayout();
             this.tabCustomers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -136,6 +139,10 @@
             this.splitContainer7.Panel1.SuspendLayout();
             this.splitContainer7.Panel2.SuspendLayout();
             this.splitContainer7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer8)).BeginInit();
+            this.splitContainer8.Panel1.SuspendLayout();
+            this.splitContainer8.Panel2.SuspendLayout();
+            this.splitContainer8.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -187,7 +194,7 @@
             // 
             // splitContainer4.Panel1
             // 
-            this.splitContainer4.Panel1.Controls.Add(this.flowLayoutPanel1);
+            this.splitContainer4.Panel1.Controls.Add(this.splitContainer8);
             // 
             // splitContainer4.Panel2
             // 
@@ -210,7 +217,7 @@
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(150, 257);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(150, 177);
             this.flowLayoutPanel1.TabIndex = 8;
             // 
             // lblFN
@@ -915,6 +922,49 @@
             this.radShowOut.UseVisualStyleBackColor = true;
             this.radShowOut.CheckedChanged += new System.EventHandler(this.radShowOut_CheckedChanged);
             // 
+            // splitContainer8
+            // 
+            this.splitContainer8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer8.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer8.Name = "splitContainer8";
+            this.splitContainer8.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer8.Panel1
+            // 
+            this.splitContainer8.Panel1.Controls.Add(this.radTopCust);
+            this.splitContainer8.Panel1.Controls.Add(this.radAllCust);
+            // 
+            // splitContainer8.Panel2
+            // 
+            this.splitContainer8.Panel2.Controls.Add(this.flowLayoutPanel1);
+            this.splitContainer8.Size = new System.Drawing.Size(150, 257);
+            this.splitContainer8.SplitterDistance = 76;
+            this.splitContainer8.TabIndex = 9;
+            // 
+            // radAllCust
+            // 
+            this.radAllCust.AutoSize = true;
+            this.radAllCust.Checked = true;
+            this.radAllCust.Location = new System.Drawing.Point(6, 4);
+            this.radAllCust.Name = "radAllCust";
+            this.radAllCust.Size = new System.Drawing.Size(116, 17);
+            this.radAllCust.TabIndex = 0;
+            this.radAllCust.TabStop = true;
+            this.radAllCust.Text = "Show all customers";
+            this.radAllCust.UseVisualStyleBackColor = true;
+            this.radAllCust.CheckedChanged += new System.EventHandler(this.radAllCust_CheckedChanged);
+            // 
+            // radTopCust
+            // 
+            this.radTopCust.AutoSize = true;
+            this.radTopCust.Location = new System.Drawing.Point(6, 27);
+            this.radTopCust.Name = "radTopCust";
+            this.radTopCust.Size = new System.Drawing.Size(140, 17);
+            this.radTopCust.TabIndex = 1;
+            this.radTopCust.Text = "Show Top 10 customers";
+            this.radTopCust.UseVisualStyleBackColor = true;
+            this.radTopCust.CheckedChanged += new System.EventHandler(this.radTopCust_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -973,6 +1023,11 @@
             this.splitContainer7.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).EndInit();
             this.splitContainer7.ResumeLayout(false);
+            this.splitContainer8.Panel1.ResumeLayout(false);
+            this.splitContainer8.Panel1.PerformLayout();
+            this.splitContainer8.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer8)).EndInit();
+            this.splitContainer8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1045,6 +1100,9 @@
         private System.Windows.Forms.SplitContainer splitContainer7;
         private System.Windows.Forms.RadioButton radShowOut;
         private System.Windows.Forms.RadioButton radShowAll;
+        private System.Windows.Forms.SplitContainer splitContainer8;
+        private System.Windows.Forms.RadioButton radTopCust;
+        private System.Windows.Forms.RadioButton radAllCust;
     }
 }
 

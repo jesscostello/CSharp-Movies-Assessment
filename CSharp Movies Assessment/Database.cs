@@ -388,5 +388,22 @@ namespace CSharp_Movies_Assessment
             //    MessageBox.Show(ex.Message);
             //}
         }
+
+        public DataTable ShowTopCustomers()
+        {
+            // Create a data table
+            DataTable dt = new DataTable();
+            using (da = new SqlDataAdapter("SELECT * FROM TopCustomers", myConnection))
+            {
+                // open a connection to the database
+                myConnection.Open();
+                // fill the datatable with the data from the SQL
+                da.Fill(dt);
+                // close the database connection
+                myConnection.Close();
+            }
+            // pass the datatable data to the DGV
+            return dt;
+        }
     }
 }

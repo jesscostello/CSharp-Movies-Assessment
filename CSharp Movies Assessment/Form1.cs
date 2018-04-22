@@ -373,17 +373,35 @@ namespace CSharp_Movies_Assessment
             if (radShowAll.Checked == true)
             {
                 radShowOut.Checked = false;
+                DisplayRentalsDGV();
+            }
+        }
+
+        private void radTopCust_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radTopCust.Checked == true)
+            {
+                radAllCust.Checked = false;
                 // Clear out any old data
                 dgvRentals.DataSource = null;
                 try
                 {
-                    dgvRentals.DataSource = myDatabase.FillRentalsDGV();
-                    dgvRentals.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
+                    dgvCustomers.DataSource = myDatabase.ShowTopCustomers();
+                    dgvCustomers.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
+            }
+        }
+
+        private void radAllCust_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radAllCust.Checked == true)
+            {
+                radTopCust.Checked = false;
+                DisplayCustomersDGV();
             }
         }
     }
