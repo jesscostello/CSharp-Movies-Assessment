@@ -165,8 +165,19 @@ namespace CSharp_Movies_Assessment
             }
 
             MID = MovieID;
+            string copies = dgvMovies.Rows[e.RowIndex].Cells[5].Value.ToString();
+            CheckNumberOfCopies(copies);
+
+            // todo move to other method in if stmt
             MakeIssueMovieButtonVisible();
         }
+
+        private void CheckNumberOfCopies(string copies)
+        {
+            myDatabase.CheckCopiesOut(copies);
+        }
+
+
 
         private void btnAddMovie_Click(object sender, EventArgs e)
         {
@@ -174,7 +185,6 @@ namespace CSharp_Movies_Assessment
             string rating = txtRating.Text;
             string title = txtTitle.Text;
             string year = txtYear.Text;
-            // todo set as currency
             string cost = txtCost.Text;
             string copies = txtCopies.Text;
             string plot = txtPlot.Text;
@@ -194,7 +204,6 @@ namespace CSharp_Movies_Assessment
             string rating = txtRating.Text;
             string title = txtTitle.Text;
             string year = txtYear.Text;
-            // todo set as currency
             string cost = txtCost.Text;
             string copies = txtCopies.Text;
             string plot = txtPlot.Text;
@@ -247,6 +256,8 @@ namespace CSharp_Movies_Assessment
             {
                 MessageBox.Show(ex.Message);
             }
+            // if rental is returned while showing only rentals currently out
+            // so that dgv resets to inital datasource and inital radbtn values
             radShowAll.Checked = true;
             radShowOut.Checked = false;
         }

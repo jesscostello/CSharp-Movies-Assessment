@@ -156,6 +156,8 @@ namespace CSharp_Movies_Assessment
             return dt;
         }
 
+        
+
         //public DataTable FillMoviesDGV()
         //{
         //    // Create a data table
@@ -288,7 +290,7 @@ namespace CSharp_Movies_Assessment
         {
             // Create a data table
             DataTable dt = new DataTable();
-            using (da = new SqlDataAdapter("SELECT * FROM Rentals WHERE DateReturned IS NULL", myConnection))
+            using (da = new SqlDataAdapter("SELECT * FROM RentalsOutNow", myConnection))
             {
                 // open a connection to the database
                 myConnection.Open();
@@ -366,16 +368,18 @@ namespace CSharp_Movies_Assessment
             //try
             //{
                 string searchName = search;
-                string SQL = "SELECT * FROM Customers WHERE FirstName LIKE @xxx";
-                //MessageBox.Show(searchName);
+                string SQL = "SELECT * FROM Customers WHERE FirstName LIKE '%@Search%'";
+                string test = "jess";
+                MessageBox.Show(searchName + " " + SQL);
                 DataTable dt = new DataTable();
                 using (da = new SqlDataAdapter(SQL, myConnection))
                 {
                     var myCommand = new SqlCommand(SQL, myConnection);
-                    myCommand.Parameters.AddWithValue("@xxx", "%" + searchName + "%");
+                    myCommand.Parameters.AddWithValue("Search", test);
                     // open a connection to the database
                     myConnection.Open();
-                    // fill the datatable with the data from the SQL
+                // fill the datatable with the data from the SQL
+                MessageBox.Show(SQL);
                     da.Fill(dt);
                     // close the database connection
                     myConnection.Close();
@@ -421,6 +425,11 @@ namespace CSharp_Movies_Assessment
             }
             // pass the datatable data to the DGV
             return dt;
+        }
+
+        public void CheckCopiesOut(string copies)
+        {
+            
         }
     }
 }
