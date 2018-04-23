@@ -350,7 +350,7 @@ namespace CSharp_Movies_Assessment
             string search = txtCustSearch.Text;
 
             // Clear out any old data
-            dgvMovies.DataSource = null;
+            dgvCustomers.DataSource = null;
             try
             {
                 dgvCustomers.DataSource = myDatabase.SearchCustomers(search);
