@@ -365,31 +365,35 @@ namespace CSharp_Movies_Assessment
 
         public DataTable SearchCustomers(string search)
         {
-            string searchName = search;
-            string SQL = "SELECT * FROM Customers WHERE FirstName =" + @Search ;
 
             DataTable dt = new DataTable();
-            using (da = new SqlDataAdapter(SQL, myConnection))
-            {
-                var myCommand = new SqlCommand(SQL, myConnection);
-                myCommand.Parameters.AddWithValue("Search", searchName);
-                
-                //myCommand.Parameters.AddWithValue("Search", string.Format("%{0}%", searchName));
-                
-                // open a connection to the database
-                myConnection.Open();
-                // fill the datatable with the data from the SQL
-                try
-                {
-                    da.Fill(dt);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                // close the database connection
-                myConnection.Close();
-            }
+            string SQL = "SELECT * FROM Customers WHERE FirstName LIKE @XXX";
+            da = new SqlDataAdapter(SQL, myConnection);
+            da.SelectCommand.Parameters.AddWithValue("@XXX", "%" + search + "%");
+            da.Fill(dt);
+
+            //using (da = new SqlDataAdapter(SQL, myConnection))
+            //{
+            //    var myCommand = new SqlCommand(SQL, myConnection);
+            //    myCommand.Parameters.AddWithValue("XXX", "'" + searchxxx + "'");
+            //    
+            //    //myCommand.Parameters.AddWithValue("Search", string.Format("%{0}%", searchName));
+            //    
+            //    // open a connection to the database
+            //    myConnection.Open();
+            //    // fill the datatable with the data from the SQL
+            //    //try
+            //    //{
+            //        da.Fill(dt);
+            //        //MessageBox.Show(SQL);
+            //    //}
+            //    //catch (Exception ex)
+            //    //{
+            //    //    MessageBox.Show(ex.Message);
+            //    //}
+            //    // close the database connection
+            //    myConnection.Close();
+            //}
             // pass the datatable data to the DGV
             return dt;
         }

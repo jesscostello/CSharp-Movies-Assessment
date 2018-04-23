@@ -170,7 +170,7 @@
             this.tabCustomers.Location = new System.Drawing.Point(4, 22);
             this.tabCustomers.Name = "tabCustomers";
             this.tabCustomers.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCustomers.Size = new System.Drawing.Size(882, 374);
+            this.tabCustomers.Size = new System.Drawing.Size(940, 439);
             this.tabCustomers.TabIndex = 0;
             this.tabCustomers.Text = "Customers";
             this.tabCustomers.UseVisualStyleBackColor = true;
@@ -188,8 +188,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dgvCustomers);
-            this.splitContainer1.Size = new System.Drawing.Size(876, 368);
-            this.splitContainer1.SplitterDistance = 150;
+            this.splitContainer1.Size = new System.Drawing.Size(934, 433);
+            this.splitContainer1.SplitterDistance = 159;
             this.splitContainer1.TabIndex = 0;
             // 
             // splitContainer4
@@ -206,8 +206,8 @@
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.Controls.Add(this.tableLayoutPanel1);
-            this.splitContainer4.Size = new System.Drawing.Size(150, 368);
-            this.splitContainer4.SplitterDistance = 257;
+            this.splitContainer4.Size = new System.Drawing.Size(159, 433);
+            this.splitContainer4.SplitterDistance = 302;
             this.splitContainer4.TabIndex = 14;
             // 
             // splitContainer8
@@ -225,8 +225,8 @@
             // splitContainer8.Panel2
             // 
             this.splitContainer8.Panel2.Controls.Add(this.flowLayoutPanel1);
-            this.splitContainer8.Size = new System.Drawing.Size(150, 257);
-            this.splitContainer8.SplitterDistance = 76;
+            this.splitContainer8.Size = new System.Drawing.Size(159, 302);
+            this.splitContainer8.SplitterDistance = 89;
             this.splitContainer8.TabIndex = 9;
             // 
             // radTopCust
@@ -267,7 +267,7 @@
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(150, 177);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(159, 209);
             this.flowLayoutPanel1.TabIndex = 8;
             // 
             // lblFN
@@ -353,7 +353,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(150, 107);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(159, 127);
             this.tableLayoutPanel1.TabIndex = 13;
             // 
             // btnAddCustomer
@@ -365,7 +365,7 @@
             this.btnAddCustomer.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddCustomer.Location = new System.Drawing.Point(3, 3);
             this.btnAddCustomer.Name = "btnAddCustomer";
-            this.btnAddCustomer.Size = new System.Drawing.Size(144, 47);
+            this.btnAddCustomer.Size = new System.Drawing.Size(153, 57);
             this.btnAddCustomer.TabIndex = 8;
             this.btnAddCustomer.Text = "Add Customer";
             this.btnAddCustomer.UseVisualStyleBackColor = false;
@@ -377,9 +377,9 @@
             this.btnDeleteCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDeleteCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnDeleteCustomer.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteCustomer.Location = new System.Drawing.Point(78, 56);
+            this.btnDeleteCustomer.Location = new System.Drawing.Point(82, 66);
             this.btnDeleteCustomer.Name = "btnDeleteCustomer";
-            this.btnDeleteCustomer.Size = new System.Drawing.Size(69, 48);
+            this.btnDeleteCustomer.Size = new System.Drawing.Size(74, 58);
             this.btnDeleteCustomer.TabIndex = 10;
             this.btnDeleteCustomer.Text = "Delete Customer";
             this.btnDeleteCustomer.UseVisualStyleBackColor = false;
@@ -391,9 +391,9 @@
             this.btnEditCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnEditCustomer.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditCustomer.Location = new System.Drawing.Point(3, 56);
+            this.btnEditCustomer.Location = new System.Drawing.Point(3, 66);
             this.btnEditCustomer.Name = "btnEditCustomer";
-            this.btnEditCustomer.Size = new System.Drawing.Size(69, 48);
+            this.btnEditCustomer.Size = new System.Drawing.Size(73, 58);
             this.btnEditCustomer.TabIndex = 9;
             this.btnEditCustomer.Text = "Edit Customer";
             this.btnEditCustomer.UseVisualStyleBackColor = false;
@@ -405,7 +405,7 @@
             this.dgvCustomers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCustomers.Location = new System.Drawing.Point(0, 0);
             this.dgvCustomers.Name = "dgvCustomers";
-            this.dgvCustomers.Size = new System.Drawing.Size(722, 368);
+            this.dgvCustomers.Size = new System.Drawing.Size(771, 433);
             this.dgvCustomers.TabIndex = 0;
             this.dgvCustomers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCustomers_CellClick);
             // 

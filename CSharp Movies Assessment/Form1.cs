@@ -51,27 +51,31 @@ namespace CSharp_Movies_Assessment
 
         private void dgvCustomers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int CustomerID = 0;
-            try
+            if (radTopCust.Checked == false && e.RowIndex >= 0)
             {
-                CustomerID = (int) dgvCustomers.Rows[e.RowIndex].Cells[0].Value;
-                txtFirstName.Text = dgvCustomers.Rows[e.RowIndex].Cells[1].Value.ToString();
-                txtLastName.Text = dgvCustomers.Rows[e.RowIndex].Cells[2].Value.ToString();
-                txtAddress.Text = dgvCustomers.Rows[e.RowIndex].Cells[3].Value.ToString();
-                txtPhone.Text = dgvCustomers.Rows[e.RowIndex].Cells[4].Value.ToString();
+                int CustomerID = 0;
+                try
+                {
+                    CustomerID = (int)dgvCustomers.Rows[e.RowIndex].Cells[0].Value;
+                    txtFirstName.Text = dgvCustomers.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    txtLastName.Text = dgvCustomers.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    txtAddress.Text = dgvCustomers.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    txtPhone.Text = dgvCustomers.Rows[e.RowIndex].Cells[4].Value.ToString();
 
-                lblFirst.Text = dgvCustomers.Rows[e.RowIndex].Cells[1].Value.ToString() + " ";
-                lblFirst.Text += dgvCustomers.Rows[e.RowIndex].Cells[2].Value.ToString() + "    ";
-                lblFirst.Text += dgvCustomers.Rows[e.RowIndex].Cells[3].Value.ToString() + "    ";
-                lblFirst.Text += dgvCustomers.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    lblFirst.Text = dgvCustomers.Rows[e.RowIndex].Cells[1].Value.ToString() + " ";
+                    lblFirst.Text += dgvCustomers.Rows[e.RowIndex].Cells[2].Value.ToString() + "    ";
+                    lblFirst.Text += dgvCustomers.Rows[e.RowIndex].Cells[3].Value.ToString() + "    ";
+                    lblFirst.Text += dgvCustomers.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    dgvCustomers.Columns[2].Visible = false;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                // todo this is the one I want!
+                CID = CustomerID;
+                MakeIssueMovieButtonVisible(); 
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            // todo this is the one I want!
-            CID = CustomerID;
-            MakeIssueMovieButtonVisible();
         }
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
@@ -133,7 +137,7 @@ namespace CSharp_Movies_Assessment
         private void dgvMovies_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int MovieID = 0;
-
+            MessageBox.Show(Convert.ToString(radTopCust.Checked));
             try
             {
                 MovieID = (int)dgvMovies.Rows[e.RowIndex].Cells[0].Value;
@@ -169,7 +173,7 @@ namespace CSharp_Movies_Assessment
             CheckNumberOfCopies(copies);
 
             // todo move to other method in if stmt
-            MakeIssueMovieButtonVisible();
+            MakeIssueMovieButtonVisible(); 
         }
 
         private void CheckNumberOfCopies(string copies)
