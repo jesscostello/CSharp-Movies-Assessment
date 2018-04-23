@@ -148,7 +148,7 @@ namespace CSharp_Movies_Assessment
                 lblMovieDetails.Text = dgvMovies.Rows[e.RowIndex].Cells[2].Value.ToString() + "   ";
                 lblMovieDetails.Text += dgvMovies.Rows[e.RowIndex].Cells[1].Value.ToString() + "   ";
                 //lblMovieDetails.Text += dgvMovies.Rows[e.RowIndex].Cells[4].Value.ToString();
-                int year = (int)dgvMovies.Rows[e.RowIndex].Cells[3].Value;
+                int year = Convert.ToInt16(dgvMovies.Rows[e.RowIndex].Cells[3].Value);
 
                 if (year >= 2013)
                 {
@@ -247,6 +247,8 @@ namespace CSharp_Movies_Assessment
             {
                 MessageBox.Show(ex.Message);
             }
+            radShowAll.Checked = true;
+            radShowOut.Checked = false;
         }
 
         private void dgvRentals_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -383,7 +385,7 @@ namespace CSharp_Movies_Assessment
             {
                 radAllCust.Checked = false;
                 // Clear out any old data
-                dgvRentals.DataSource = null;
+                dgvCustomers.DataSource = null;
                 try
                 {
                     dgvCustomers.DataSource = myDatabase.ShowTopCustomers();
@@ -402,6 +404,34 @@ namespace CSharp_Movies_Assessment
             {
                 radTopCust.Checked = false;
                 DisplayCustomersDGV();
+            }
+        }
+
+        private void radTopMovies_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radTopMovies.Checked == true)
+            {
+                radAllMovies.Checked = false;
+                // Clear out any old data
+                dgvMovies.DataSource = null;
+                try
+                {
+                    dgvMovies.DataSource = myDatabase.ShowTopMovies();
+                    dgvMovies.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void radAllMovies_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radAllMovies.Checked == true)
+            {
+                radTopMovies.Checked = false;
+                DisplayMoviesDGV();
             }
         }
     }

@@ -32,6 +32,9 @@
             this.tabCustomers = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer8 = new System.Windows.Forms.SplitContainer();
+            this.radTopCust = new System.Windows.Forms.RadioButton();
+            this.radAllCust = new System.Windows.Forms.RadioButton();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblFN = new System.Windows.Forms.Label();
             this.txtFirstName = new System.Windows.Forms.TextBox();
@@ -72,6 +75,9 @@
             this.btnEditMovie = new System.Windows.Forms.Button();
             this.dgvMovies = new System.Windows.Forms.DataGridView();
             this.tabRented = new System.Windows.Forms.TabPage();
+            this.splitContainer7 = new System.Windows.Forms.SplitContainer();
+            this.radShowOut = new System.Windows.Forms.RadioButton();
+            this.radShowAll = new System.Windows.Forms.RadioButton();
             this.dgvRentals = new System.Windows.Forms.DataGridView();
             this.lblCustomer = new System.Windows.Forms.Label();
             this.lblMovie = new System.Windows.Forms.Label();
@@ -91,12 +97,9 @@
             this.splitContainer6 = new System.Windows.Forms.SplitContainer();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtCustSearch = new System.Windows.Forms.TextBox();
-            this.splitContainer7 = new System.Windows.Forms.SplitContainer();
-            this.radShowAll = new System.Windows.Forms.RadioButton();
-            this.radShowOut = new System.Windows.Forms.RadioButton();
-            this.splitContainer8 = new System.Windows.Forms.SplitContainer();
-            this.radAllCust = new System.Windows.Forms.RadioButton();
-            this.radTopCust = new System.Windows.Forms.RadioButton();
+            this.splitContainer9 = new System.Windows.Forms.SplitContainer();
+            this.radAllMovies = new System.Windows.Forms.RadioButton();
+            this.radTopMovies = new System.Windows.Forms.RadioButton();
             this.tabControl1.SuspendLayout();
             this.tabCustomers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -107,6 +110,10 @@
             this.splitContainer4.Panel1.SuspendLayout();
             this.splitContainer4.Panel2.SuspendLayout();
             this.splitContainer4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer8)).BeginInit();
+            this.splitContainer8.Panel1.SuspendLayout();
+            this.splitContainer8.Panel2.SuspendLayout();
+            this.splitContainer8.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).BeginInit();
@@ -125,6 +132,10 @@
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovies)).BeginInit();
             this.tabRented.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).BeginInit();
+            this.splitContainer7.Panel1.SuspendLayout();
+            this.splitContainer7.Panel2.SuspendLayout();
+            this.splitContainer7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRentals)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
@@ -135,14 +146,10 @@
             this.splitContainer6.Panel1.SuspendLayout();
             this.splitContainer6.Panel2.SuspendLayout();
             this.splitContainer6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).BeginInit();
-            this.splitContainer7.Panel1.SuspendLayout();
-            this.splitContainer7.Panel2.SuspendLayout();
-            this.splitContainer7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer8)).BeginInit();
-            this.splitContainer8.Panel1.SuspendLayout();
-            this.splitContainer8.Panel2.SuspendLayout();
-            this.splitContainer8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer9)).BeginInit();
+            this.splitContainer9.Panel1.SuspendLayout();
+            this.splitContainer9.Panel2.SuspendLayout();
+            this.splitContainer9.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -154,7 +161,7 @@
             this.tabControl1.Location = new System.Drawing.Point(10, 10);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(890, 400);
+            this.tabControl1.Size = new System.Drawing.Size(948, 465);
             this.tabControl1.TabIndex = 0;
             // 
             // tabCustomers
@@ -202,6 +209,49 @@
             this.splitContainer4.Size = new System.Drawing.Size(150, 368);
             this.splitContainer4.SplitterDistance = 257;
             this.splitContainer4.TabIndex = 14;
+            // 
+            // splitContainer8
+            // 
+            this.splitContainer8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer8.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer8.Name = "splitContainer8";
+            this.splitContainer8.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer8.Panel1
+            // 
+            this.splitContainer8.Panel1.Controls.Add(this.radTopCust);
+            this.splitContainer8.Panel1.Controls.Add(this.radAllCust);
+            // 
+            // splitContainer8.Panel2
+            // 
+            this.splitContainer8.Panel2.Controls.Add(this.flowLayoutPanel1);
+            this.splitContainer8.Size = new System.Drawing.Size(150, 257);
+            this.splitContainer8.SplitterDistance = 76;
+            this.splitContainer8.TabIndex = 9;
+            // 
+            // radTopCust
+            // 
+            this.radTopCust.AutoSize = true;
+            this.radTopCust.Location = new System.Drawing.Point(6, 27);
+            this.radTopCust.Name = "radTopCust";
+            this.radTopCust.Size = new System.Drawing.Size(140, 17);
+            this.radTopCust.TabIndex = 1;
+            this.radTopCust.Text = "Show Top 10 customers";
+            this.radTopCust.UseVisualStyleBackColor = true;
+            this.radTopCust.CheckedChanged += new System.EventHandler(this.radTopCust_CheckedChanged);
+            // 
+            // radAllCust
+            // 
+            this.radAllCust.AutoSize = true;
+            this.radAllCust.Checked = true;
+            this.radAllCust.Location = new System.Drawing.Point(6, 4);
+            this.radAllCust.Name = "radAllCust";
+            this.radAllCust.Size = new System.Drawing.Size(116, 17);
+            this.radAllCust.TabIndex = 0;
+            this.radAllCust.TabStop = true;
+            this.radAllCust.Text = "Show all customers";
+            this.radAllCust.UseVisualStyleBackColor = true;
+            this.radAllCust.CheckedChanged += new System.EventHandler(this.radAllCust_CheckedChanged);
             // 
             // flowLayoutPanel1
             // 
@@ -365,7 +415,7 @@
             this.tabMovies.Location = new System.Drawing.Point(4, 22);
             this.tabMovies.Name = "tabMovies";
             this.tabMovies.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMovies.Size = new System.Drawing.Size(882, 374);
+            this.tabMovies.Size = new System.Drawing.Size(940, 439);
             this.tabMovies.TabIndex = 1;
             this.tabMovies.Text = "Movies";
             this.tabMovies.UseVisualStyleBackColor = true;
@@ -383,8 +433,8 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.dgvMovies);
-            this.splitContainer2.Size = new System.Drawing.Size(876, 368);
-            this.splitContainer2.SplitterDistance = 150;
+            this.splitContainer2.Size = new System.Drawing.Size(934, 433);
+            this.splitContainer2.SplitterDistance = 159;
             this.splitContainer2.TabIndex = 1;
             // 
             // splitContainer5
@@ -396,13 +446,13 @@
             // 
             // splitContainer5.Panel1
             // 
-            this.splitContainer5.Panel1.Controls.Add(this.flowLayoutPanel2);
+            this.splitContainer5.Panel1.Controls.Add(this.splitContainer9);
             // 
             // splitContainer5.Panel2
             // 
             this.splitContainer5.Panel2.Controls.Add(this.tableLayoutPanel4);
-            this.splitContainer5.Size = new System.Drawing.Size(150, 368);
-            this.splitContainer5.SplitterDistance = 261;
+            this.splitContainer5.Size = new System.Drawing.Size(159, 433);
+            this.splitContainer5.SplitterDistance = 318;
             this.splitContainer5.TabIndex = 0;
             // 
             // flowLayoutPanel2
@@ -419,7 +469,7 @@
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(150, 261);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(159, 252);
             this.flowLayoutPanel2.TabIndex = 13;
             // 
             // lblTitle
@@ -571,10 +621,10 @@
             // 
             // txtPlot
             // 
-            this.txtPlot.Location = new System.Drawing.Point(156, 3);
+            this.txtPlot.Location = new System.Drawing.Point(3, 188);
             this.txtPlot.Multiline = true;
             this.txtPlot.Name = "txtPlot";
-            this.txtPlot.Size = new System.Drawing.Size(144, 81);
+            this.txtPlot.Size = new System.Drawing.Size(144, 61);
             this.txtPlot.TabIndex = 18;
             // 
             // tableLayoutPanel4
@@ -591,7 +641,7 @@
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(150, 103);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(159, 111);
             this.tableLayoutPanel4.TabIndex = 13;
             // 
             // btnDeleteMovie
@@ -600,9 +650,9 @@
             this.btnDeleteMovie.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDeleteMovie.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnDeleteMovie.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteMovie.Location = new System.Drawing.Point(78, 54);
+            this.btnDeleteMovie.Location = new System.Drawing.Point(82, 58);
             this.btnDeleteMovie.Name = "btnDeleteMovie";
-            this.btnDeleteMovie.Size = new System.Drawing.Size(69, 46);
+            this.btnDeleteMovie.Size = new System.Drawing.Size(74, 50);
             this.btnDeleteMovie.TabIndex = 10;
             this.btnDeleteMovie.Text = "Delete Movie";
             this.btnDeleteMovie.UseVisualStyleBackColor = false;
@@ -617,7 +667,7 @@
             this.btnAddMovie.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddMovie.Location = new System.Drawing.Point(3, 3);
             this.btnAddMovie.Name = "btnAddMovie";
-            this.btnAddMovie.Size = new System.Drawing.Size(144, 45);
+            this.btnAddMovie.Size = new System.Drawing.Size(153, 49);
             this.btnAddMovie.TabIndex = 8;
             this.btnAddMovie.Text = "Add Movie";
             this.btnAddMovie.UseVisualStyleBackColor = false;
@@ -629,9 +679,9 @@
             this.btnEditMovie.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditMovie.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnEditMovie.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditMovie.Location = new System.Drawing.Point(3, 54);
+            this.btnEditMovie.Location = new System.Drawing.Point(3, 58);
             this.btnEditMovie.Name = "btnEditMovie";
-            this.btnEditMovie.Size = new System.Drawing.Size(69, 46);
+            this.btnEditMovie.Size = new System.Drawing.Size(73, 50);
             this.btnEditMovie.TabIndex = 9;
             this.btnEditMovie.Text = "Edit Movie";
             this.btnEditMovie.UseVisualStyleBackColor = false;
@@ -643,7 +693,7 @@
             this.dgvMovies.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMovies.Location = new System.Drawing.Point(0, 0);
             this.dgvMovies.Name = "dgvMovies";
-            this.dgvMovies.Size = new System.Drawing.Size(722, 368);
+            this.dgvMovies.Size = new System.Drawing.Size(771, 433);
             this.dgvMovies.TabIndex = 0;
             this.dgvMovies.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMovies_CellClick);
             // 
@@ -657,6 +707,48 @@
             this.tabRented.TabIndex = 2;
             this.tabRented.Text = "Rented Movies";
             this.tabRented.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer7
+            // 
+            this.splitContainer7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer7.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer7.Name = "splitContainer7";
+            // 
+            // splitContainer7.Panel1
+            // 
+            this.splitContainer7.Panel1.Controls.Add(this.radShowOut);
+            this.splitContainer7.Panel1.Controls.Add(this.radShowAll);
+            // 
+            // splitContainer7.Panel2
+            // 
+            this.splitContainer7.Panel2.Controls.Add(this.dgvRentals);
+            this.splitContainer7.Size = new System.Drawing.Size(876, 368);
+            this.splitContainer7.SplitterDistance = 150;
+            this.splitContainer7.TabIndex = 1;
+            // 
+            // radShowOut
+            // 
+            this.radShowOut.AutoSize = true;
+            this.radShowOut.Location = new System.Drawing.Point(4, 28);
+            this.radShowOut.Name = "radShowOut";
+            this.radShowOut.Size = new System.Drawing.Size(147, 17);
+            this.radShowOut.TabIndex = 1;
+            this.radShowOut.Text = "Show rentals currently out";
+            this.radShowOut.UseVisualStyleBackColor = true;
+            this.radShowOut.CheckedChanged += new System.EventHandler(this.radShowOut_CheckedChanged);
+            // 
+            // radShowAll
+            // 
+            this.radShowAll.AutoSize = true;
+            this.radShowAll.Checked = true;
+            this.radShowAll.Location = new System.Drawing.Point(4, 4);
+            this.radShowAll.Name = "radShowAll";
+            this.radShowAll.Size = new System.Drawing.Size(134, 17);
+            this.radShowAll.TabIndex = 0;
+            this.radShowAll.TabStop = true;
+            this.radShowAll.Text = "Show all rented movies";
+            this.radShowAll.UseVisualStyleBackColor = true;
+            this.radShowAll.CheckedChanged += new System.EventHandler(this.radShowAll_CheckedChanged);
             // 
             // dgvRentals
             // 
@@ -716,8 +808,8 @@
             this.splitContainer3.Panel2.Controls.Add(this.lblCustomer);
             this.splitContainer3.Panel2.Controls.Add(this.lblMovie);
             this.splitContainer3.Panel2.Controls.Add(this.lblFirst);
-            this.splitContainer3.Size = new System.Drawing.Size(910, 538);
-            this.splitContainer3.SplitterDistance = 420;
+            this.splitContainer3.Size = new System.Drawing.Size(968, 622);
+            this.splitContainer3.SplitterDistance = 485;
             this.splitContainer3.TabIndex = 13;
             // 
             // btnIssue
@@ -858,8 +950,8 @@
             // splitContainer6.Panel2
             // 
             this.splitContainer6.Panel2.Controls.Add(this.splitContainer3);
-            this.splitContainer6.Size = new System.Drawing.Size(910, 567);
-            this.splitContainer6.SplitterDistance = 25;
+            this.splitContainer6.Size = new System.Drawing.Size(968, 654);
+            this.splitContainer6.SplitterDistance = 28;
             this.splitContainer6.TabIndex = 14;
             // 
             // btnSearch
@@ -880,96 +972,54 @@
             this.txtCustSearch.Size = new System.Drawing.Size(185, 20);
             this.txtCustSearch.TabIndex = 0;
             // 
-            // splitContainer7
+            // splitContainer9
             // 
-            this.splitContainer7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer7.Location = new System.Drawing.Point(3, 3);
-            this.splitContainer7.Name = "splitContainer7";
+            this.splitContainer9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer9.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer9.Name = "splitContainer9";
+            this.splitContainer9.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // splitContainer7.Panel1
+            // splitContainer9.Panel1
             // 
-            this.splitContainer7.Panel1.Controls.Add(this.radShowOut);
-            this.splitContainer7.Panel1.Controls.Add(this.radShowAll);
+            this.splitContainer9.Panel1.Controls.Add(this.radTopMovies);
+            this.splitContainer9.Panel1.Controls.Add(this.radAllMovies);
             // 
-            // splitContainer7.Panel2
+            // splitContainer9.Panel2
             // 
-            this.splitContainer7.Panel2.Controls.Add(this.dgvRentals);
-            this.splitContainer7.Size = new System.Drawing.Size(876, 368);
-            this.splitContainer7.SplitterDistance = 150;
-            this.splitContainer7.TabIndex = 1;
+            this.splitContainer9.Panel2.Controls.Add(this.flowLayoutPanel2);
+            this.splitContainer9.Size = new System.Drawing.Size(159, 318);
+            this.splitContainer9.SplitterDistance = 62;
+            this.splitContainer9.TabIndex = 16;
             // 
-            // radShowAll
+            // radAllMovies
             // 
-            this.radShowAll.AutoSize = true;
-            this.radShowAll.Checked = true;
-            this.radShowAll.Location = new System.Drawing.Point(4, 4);
-            this.radShowAll.Name = "radShowAll";
-            this.radShowAll.Size = new System.Drawing.Size(134, 17);
-            this.radShowAll.TabIndex = 0;
-            this.radShowAll.TabStop = true;
-            this.radShowAll.Text = "Show all rented movies";
-            this.radShowAll.UseVisualStyleBackColor = true;
-            this.radShowAll.CheckedChanged += new System.EventHandler(this.radShowAll_CheckedChanged);
+            this.radAllMovies.AutoSize = true;
+            this.radAllMovies.Checked = true;
+            this.radAllMovies.Location = new System.Drawing.Point(4, 4);
+            this.radAllMovies.Name = "radAllMovies";
+            this.radAllMovies.Size = new System.Drawing.Size(101, 17);
+            this.radAllMovies.TabIndex = 0;
+            this.radAllMovies.TabStop = true;
+            this.radAllMovies.Text = "Show all movies";
+            this.radAllMovies.UseVisualStyleBackColor = true;
+            this.radAllMovies.CheckedChanged += new System.EventHandler(this.radAllMovies_CheckedChanged);
             // 
-            // radShowOut
+            // radTopMovies
             // 
-            this.radShowOut.AutoSize = true;
-            this.radShowOut.Location = new System.Drawing.Point(4, 28);
-            this.radShowOut.Name = "radShowOut";
-            this.radShowOut.Size = new System.Drawing.Size(147, 17);
-            this.radShowOut.TabIndex = 1;
-            this.radShowOut.Text = "Show rentals currently out";
-            this.radShowOut.UseVisualStyleBackColor = true;
-            this.radShowOut.CheckedChanged += new System.EventHandler(this.radShowOut_CheckedChanged);
-            // 
-            // splitContainer8
-            // 
-            this.splitContainer8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer8.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer8.Name = "splitContainer8";
-            this.splitContainer8.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer8.Panel1
-            // 
-            this.splitContainer8.Panel1.Controls.Add(this.radTopCust);
-            this.splitContainer8.Panel1.Controls.Add(this.radAllCust);
-            // 
-            // splitContainer8.Panel2
-            // 
-            this.splitContainer8.Panel2.Controls.Add(this.flowLayoutPanel1);
-            this.splitContainer8.Size = new System.Drawing.Size(150, 257);
-            this.splitContainer8.SplitterDistance = 76;
-            this.splitContainer8.TabIndex = 9;
-            // 
-            // radAllCust
-            // 
-            this.radAllCust.AutoSize = true;
-            this.radAllCust.Checked = true;
-            this.radAllCust.Location = new System.Drawing.Point(6, 4);
-            this.radAllCust.Name = "radAllCust";
-            this.radAllCust.Size = new System.Drawing.Size(116, 17);
-            this.radAllCust.TabIndex = 0;
-            this.radAllCust.TabStop = true;
-            this.radAllCust.Text = "Show all customers";
-            this.radAllCust.UseVisualStyleBackColor = true;
-            this.radAllCust.CheckedChanged += new System.EventHandler(this.radAllCust_CheckedChanged);
-            // 
-            // radTopCust
-            // 
-            this.radTopCust.AutoSize = true;
-            this.radTopCust.Location = new System.Drawing.Point(6, 27);
-            this.radTopCust.Name = "radTopCust";
-            this.radTopCust.Size = new System.Drawing.Size(140, 17);
-            this.radTopCust.TabIndex = 1;
-            this.radTopCust.Text = "Show Top 10 customers";
-            this.radTopCust.UseVisualStyleBackColor = true;
-            this.radTopCust.CheckedChanged += new System.EventHandler(this.radTopCust_CheckedChanged);
+            this.radTopMovies.AutoSize = true;
+            this.radTopMovies.Location = new System.Drawing.Point(4, 28);
+            this.radTopMovies.Name = "radTopMovies";
+            this.radTopMovies.Size = new System.Drawing.Size(125, 17);
+            this.radTopMovies.TabIndex = 1;
+            this.radTopMovies.Text = "Show Top 10 movies";
+            this.radTopMovies.UseVisualStyleBackColor = true;
+            this.radTopMovies.CheckedChanged += new System.EventHandler(this.radTopMovies_CheckedChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(910, 567);
+            this.ClientSize = new System.Drawing.Size(968, 654);
             this.Controls.Add(this.splitContainer6);
             this.Name = "Form1";
             this.Text = "Movies Database";
@@ -983,6 +1033,11 @@
             this.splitContainer4.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
             this.splitContainer4.ResumeLayout(false);
+            this.splitContainer8.Panel1.ResumeLayout(false);
+            this.splitContainer8.Panel1.PerformLayout();
+            this.splitContainer8.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer8)).EndInit();
+            this.splitContainer8.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -1005,6 +1060,11 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovies)).EndInit();
             this.tabRented.ResumeLayout(false);
+            this.splitContainer7.Panel1.ResumeLayout(false);
+            this.splitContainer7.Panel1.PerformLayout();
+            this.splitContainer7.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).EndInit();
+            this.splitContainer7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRentals)).EndInit();
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
@@ -1018,16 +1078,11 @@
             this.splitContainer6.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer6)).EndInit();
             this.splitContainer6.ResumeLayout(false);
-            this.splitContainer7.Panel1.ResumeLayout(false);
-            this.splitContainer7.Panel1.PerformLayout();
-            this.splitContainer7.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).EndInit();
-            this.splitContainer7.ResumeLayout(false);
-            this.splitContainer8.Panel1.ResumeLayout(false);
-            this.splitContainer8.Panel1.PerformLayout();
-            this.splitContainer8.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer8)).EndInit();
-            this.splitContainer8.ResumeLayout(false);
+            this.splitContainer9.Panel1.ResumeLayout(false);
+            this.splitContainer9.Panel1.PerformLayout();
+            this.splitContainer9.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer9)).EndInit();
+            this.splitContainer9.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1103,6 +1158,9 @@
         private System.Windows.Forms.SplitContainer splitContainer8;
         private System.Windows.Forms.RadioButton radTopCust;
         private System.Windows.Forms.RadioButton radAllCust;
+        private System.Windows.Forms.SplitContainer splitContainer9;
+        private System.Windows.Forms.RadioButton radTopMovies;
+        private System.Windows.Forms.RadioButton radAllMovies;
     }
 }
 
