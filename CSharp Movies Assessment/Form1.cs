@@ -47,27 +47,30 @@ namespace CSharp_Movies_Assessment
 
         private void dgvCustomers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int CustomerID = 0;
-            try
+            if (e.RowIndex >= 0)
             {
-                CustomerID = (int)dgvCustomers.Rows[e.RowIndex].Cells[0].Value;
-                txtFirstName.Text = dgvCustomers.Rows[e.RowIndex].Cells[1].Value.ToString();
-                txtLastName.Text = dgvCustomers.Rows[e.RowIndex].Cells[2].Value.ToString();
-                txtAddress.Text = dgvCustomers.Rows[e.RowIndex].Cells[3].Value.ToString();
-                txtPhone.Text = dgvCustomers.Rows[e.RowIndex].Cells[4].Value.ToString();
+                int CustomerID = 0;
+                try
+                {
+                    CustomerID = (int)dgvCustomers.Rows[e.RowIndex].Cells[0].Value;
+                    txtFirstName.Text = dgvCustomers.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    txtLastName.Text = dgvCustomers.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    txtAddress.Text = dgvCustomers.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    txtPhone.Text = dgvCustomers.Rows[e.RowIndex].Cells[4].Value.ToString();
 
-                lblFirst.Text = dgvCustomers.Rows[e.RowIndex].Cells[1].Value.ToString() + " ";
-                lblFirst.Text += dgvCustomers.Rows[e.RowIndex].Cells[2].Value.ToString() + "    ";
-                lblFirst.Text += dgvCustomers.Rows[e.RowIndex].Cells[3].Value.ToString() + "    ";
-                lblFirst.Text += dgvCustomers.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    lblFirst.Text = dgvCustomers.Rows[e.RowIndex].Cells[1].Value.ToString() + " ";
+                    lblFirst.Text += dgvCustomers.Rows[e.RowIndex].Cells[2].Value.ToString() + "    ";
+                    lblFirst.Text += dgvCustomers.Rows[e.RowIndex].Cells[3].Value.ToString() + "    ";
+                    lblFirst.Text += dgvCustomers.Rows[e.RowIndex].Cells[4].Value.ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                // todo this is the one I want!
+                CID = CustomerID;
+                MakeIssueMovieButtonVisible();  
             }
-            catch (Exception ex)
-            {
-               MessageBox.Show(ex.Message);
-            }
-            // todo this is the one I want!
-            CID = CustomerID;
-            MakeIssueMovieButtonVisible(); 
         }
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
@@ -128,63 +131,64 @@ namespace CSharp_Movies_Assessment
 
         private void dgvMovies_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int MovieID = 0;
-            try
+            if (e.RowIndex >=0)
             {
-                MovieID = (int)dgvMovies.Rows[e.RowIndex].Cells[0].Value;
-                txtTitle.Text = dgvMovies.Rows[e.RowIndex].Cells[2].Value.ToString();
-                if (radTopMovies.Checked == false)
+                int MovieID = 0;
+                try
                 {
-                    txtGenre.Text = dgvMovies.Rows[e.RowIndex].Cells[7].Value.ToString();
-                    txtPlot.Text = dgvMovies.Rows[e.RowIndex].Cells[6].Value.ToString();
-                }
-                else
-                {
-                    txtGenre.Text = dgvMovies.Rows[e.RowIndex].Cells[6].Value.ToString();
-                    // todo work out how to get plot to display
-                }
-                txtYear.Text = dgvMovies.Rows[e.RowIndex].Cells[3].Value.ToString();
-                txtRating.Text = dgvMovies.Rows[e.RowIndex].Cells[1].Value.ToString();
-                txtCost.Text = dgvMovies.Rows[e.RowIndex].Cells[4].Value.ToString();
-                txtCopies.Text = dgvMovies.Rows[e.RowIndex].Cells[5].Value.ToString();
-                
-                lblMovieDetails.Text = dgvMovies.Rows[e.RowIndex].Cells[2].Value.ToString() + "   ";
-                lblMovieDetails.Text += dgvMovies.Rows[e.RowIndex].Cells[1].Value.ToString() + "   ";
-                int year = Convert.ToInt16(dgvMovies.Rows[e.RowIndex].Cells[3].Value);
+                    MovieID = (int)dgvMovies.Rows[e.RowIndex].Cells[0].Value;
+                    txtTitle.Text = dgvMovies.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    if (radTopMovies.Checked == false)
+                    {
+                        txtGenre.Text = dgvMovies.Rows[e.RowIndex].Cells[7].Value.ToString();
+                        txtPlot.Text = dgvMovies.Rows[e.RowIndex].Cells[6].Value.ToString();
+                    }
+                    else
+                    {
+                        txtGenre.Text = dgvMovies.Rows[e.RowIndex].Cells[6].Value.ToString();
+                        // todo work out how to get plot to display
+                    }
+                    txtYear.Text = dgvMovies.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    txtRating.Text = dgvMovies.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    txtCost.Text = dgvMovies.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    txtCopies.Text = dgvMovies.Rows[e.RowIndex].Cells[5].Value.ToString();
 
-                if (year >= 2013)
-                {
-                    lblMovieDetails.Text += "$5.00";
+                    lblMovieDetails.Text = dgvMovies.Rows[e.RowIndex].Cells[2].Value.ToString() + "   ";
+                    lblMovieDetails.Text += dgvMovies.Rows[e.RowIndex].Cells[1].Value.ToString() + "   ";
+                    int year = Convert.ToInt16(dgvMovies.Rows[e.RowIndex].Cells[3].Value);
+
+                    if (year >= 2013)
+                    {
+                        lblMovieDetails.Text += "$5.00";
+                    }
+                    else
+                    {
+                        lblMovieDetails.Text += "$2.00";
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    lblMovieDetails.Text += "$2.00";
+                    MessageBox.Show(ex.Message);
                 }
+
+                MID = MovieID;
+                string copies = dgvMovies.Rows[e.RowIndex].Cells[5].Value.ToString();
+
+                if (copies != "")
+                {
+                    CheckNumberOfCopies(MID, copies);
+                } 
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-            MID = MovieID;
-            string copies = dgvMovies.Rows[e.RowIndex].Cells[5].Value.ToString();
-
-            if (copies != "")
-            {
-                CheckNumberOfCopies(MID, copies); 
-            }
-
-            // todo move to other method in if stmt
-            MakeIssueMovieButtonVisible(); 
         }
 
         private void CheckNumberOfCopies(int MID, string copies)
         {
             int available = myDatabase.CheckCopiesOut(MID, copies);
+            MessageBox.Show(available.ToString() + copies);
             int total = Convert.ToInt16(copies);
-            if (available <= total)
+            if (available < total)
             {
-                MessageBox.Show("You can rent this movie");
+                MakeIssueMovieButtonVisible();
             }
             else
             {
@@ -278,7 +282,10 @@ namespace CSharp_Movies_Assessment
         private void dgvRentals_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int RentalID = 0;
-
+            // clear details from 'issue movie' side
+            lblFirst.Text = "";
+            lblMovieDetails.Text = "";
+            btnIssue.Visible = false;
             try
             {
                 RentalID = (int)dgvRentals.Rows[e.RowIndex].Cells[0].Value;
