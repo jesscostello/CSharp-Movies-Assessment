@@ -12,7 +12,7 @@ namespace CSharp_Movies_Assessment
 {
     public partial class Form1 : Form
     {
-        // todo search customers?? and movies?
+        // todo search movies
         // return movie btn disabled until selection from rented movies
         // issue movie btn disabled until selection from movie and customer
 
@@ -51,31 +51,27 @@ namespace CSharp_Movies_Assessment
 
         private void dgvCustomers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (radTopCust.Checked == false && e.RowIndex >= 0)
+            int CustomerID = 0;
+            try
             {
-                int CustomerID = 0;
-                try
-                {
-                    CustomerID = (int)dgvCustomers.Rows[e.RowIndex].Cells[0].Value;
-                    txtFirstName.Text = dgvCustomers.Rows[e.RowIndex].Cells[1].Value.ToString();
-                    txtLastName.Text = dgvCustomers.Rows[e.RowIndex].Cells[2].Value.ToString();
-                    txtAddress.Text = dgvCustomers.Rows[e.RowIndex].Cells[3].Value.ToString();
-                    txtPhone.Text = dgvCustomers.Rows[e.RowIndex].Cells[4].Value.ToString();
+                CustomerID = (int)dgvCustomers.Rows[e.RowIndex].Cells[0].Value;
+                txtFirstName.Text = dgvCustomers.Rows[e.RowIndex].Cells[1].Value.ToString();
+                txtLastName.Text = dgvCustomers.Rows[e.RowIndex].Cells[2].Value.ToString();
+                txtAddress.Text = dgvCustomers.Rows[e.RowIndex].Cells[3].Value.ToString();
+                txtPhone.Text = dgvCustomers.Rows[e.RowIndex].Cells[4].Value.ToString();
 
-                    lblFirst.Text = dgvCustomers.Rows[e.RowIndex].Cells[1].Value.ToString() + " ";
-                    lblFirst.Text += dgvCustomers.Rows[e.RowIndex].Cells[2].Value.ToString() + "    ";
-                    lblFirst.Text += dgvCustomers.Rows[e.RowIndex].Cells[3].Value.ToString() + "    ";
-                    lblFirst.Text += dgvCustomers.Rows[e.RowIndex].Cells[4].Value.ToString();
-                    dgvCustomers.Columns[2].Visible = false;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                // todo this is the one I want!
-                CID = CustomerID;
-                MakeIssueMovieButtonVisible(); 
+                lblFirst.Text = dgvCustomers.Rows[e.RowIndex].Cells[1].Value.ToString() + " ";
+                lblFirst.Text += dgvCustomers.Rows[e.RowIndex].Cells[2].Value.ToString() + "    ";
+                lblFirst.Text += dgvCustomers.Rows[e.RowIndex].Cells[3].Value.ToString() + "    ";
+                lblFirst.Text += dgvCustomers.Rows[e.RowIndex].Cells[4].Value.ToString();
             }
+            catch (Exception ex)
+            {
+               MessageBox.Show(ex.Message);
+            }
+            // todo this is the one I want!
+            CID = CustomerID;
+            MakeIssueMovieButtonVisible(); 
         }
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
@@ -137,17 +133,23 @@ namespace CSharp_Movies_Assessment
         private void dgvMovies_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int MovieID = 0;
-            MessageBox.Show(Convert.ToString(radTopCust.Checked));
             try
             {
                 MovieID = (int)dgvMovies.Rows[e.RowIndex].Cells[0].Value;
                 txtTitle.Text = dgvMovies.Rows[e.RowIndex].Cells[2].Value.ToString();
-                txtGenre.Text = dgvMovies.Rows[e.RowIndex].Cells[7].Value.ToString();
+                if (radTopMovies.Checked == false)
+                {
+                    txtGenre.Text = dgvMovies.Rows[e.RowIndex].Cells[7].Value.ToString(); 
+                }
+                else
+                {
+                    txtGenre.Text = dgvMovies.Rows[e.RowIndex].Cells[6].Value.ToString();
+                }
                 txtYear.Text = dgvMovies.Rows[e.RowIndex].Cells[3].Value.ToString();
                 txtRating.Text = dgvMovies.Rows[e.RowIndex].Cells[1].Value.ToString();
                 txtCost.Text = dgvMovies.Rows[e.RowIndex].Cells[4].Value.ToString();
                 txtCopies.Text = dgvMovies.Rows[e.RowIndex].Cells[5].Value.ToString();
-                txtPlot.Text = dgvMovies.Rows[e.RowIndex].Cells[6].Value.ToString();
+                //txtPlot.Text = dgvMovies.Rows[e.RowIndex].Cells[6].Value.ToString();
 
                 lblMovieDetails.Text = dgvMovies.Rows[e.RowIndex].Cells[2].Value.ToString() + "   ";
                 lblMovieDetails.Text += dgvMovies.Rows[e.RowIndex].Cells[1].Value.ToString() + "   ";
@@ -405,6 +407,9 @@ namespace CSharp_Movies_Assessment
                 {
                     dgvCustomers.DataSource = myDatabase.ShowTopCustomers();
                     dgvCustomers.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
+                    // make address and phone column invisible
+                    dgvCustomers.Columns[3].Visible = false;
+                    dgvCustomers.Columns[4].Visible = false;
                 }
                 catch (Exception ex)
                 {
@@ -433,6 +438,12 @@ namespace CSharp_Movies_Assessment
                 {
                     dgvMovies.DataSource = myDatabase.ShowTopMovies();
                     dgvMovies.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
+                    // make all columns invisible except movie name
+                    dgvMovies.Columns[1].Visible = false;
+                    dgvMovies.Columns[3].Visible = false;
+                    dgvMovies.Columns[4].Visible = false;
+                    dgvMovies.Columns[5].Visible = false;
+                    dgvMovies.Columns[6].Visible = false;
                 }
                 catch (Exception ex)
                 {
@@ -448,6 +459,11 @@ namespace CSharp_Movies_Assessment
                 radTopMovies.Checked = false;
                 DisplayMoviesDGV();
             }
+        }
+
+        private void btnPlot_Click(object sender, EventArgs e)
+        {
+             
         }
     }
 }
