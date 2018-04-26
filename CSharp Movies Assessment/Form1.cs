@@ -168,15 +168,28 @@ namespace CSharp_Movies_Assessment
 
             MID = MovieID;
             string copies = dgvMovies.Rows[e.RowIndex].Cells[5].Value.ToString();
-            CheckNumberOfCopies(copies);
+
+            if (copies != "")
+            {
+                CheckNumberOfCopies(MID, copies); 
+            }
 
             // todo move to other method in if stmt
             MakeIssueMovieButtonVisible(); 
         }
 
-        private void CheckNumberOfCopies(string copies)
+        private void CheckNumberOfCopies(int MID, string copies)
         {
-            myDatabase.CheckCopiesOut(copies);
+            int available = myDatabase.CheckCopiesOut(MID, copies);
+            int total = Convert.ToInt16(copies);
+            if (available <= total)
+            {
+                MessageBox.Show("You can rent this movie");
+            }
+            else
+            {
+                MessageBox.Show("Sorry that movie is not available at this time.");
+            }
         }
 
         private void btnAddMovie_Click(object sender, EventArgs e)

@@ -402,9 +402,25 @@ namespace CSharp_Movies_Assessment
             return dt;
         }
 
-        public void CheckCopiesOut(string copies)
+        public int CheckCopiesOut(int MID, string copies)
         {
+            string SQL = "SELECT Count(*) FROM RentedMovies WHERE MovieIDFK = @MID AND DateReturned IS NULL";
+
+            using (da = new SqlDataAdapter(SQL, myConnection))
+            {
+                var myCommand = new SqlCommand(SQL, myConnection);
+                // set the parameters
+                myCommand.Parameters.AddWithValue("Copies", copies);
+                myCommand.Parameters.AddWithValue("MID", MID); 
             
+                //open a connection to the DB
+                myConnection.Open();
+                // run the query
+                int result = Convert.ToInt16(myCommand.ExecuteScalar());
+                // close the connection
+                myConnection.Close();
+                return result;
+            }
         }
     }
 }
