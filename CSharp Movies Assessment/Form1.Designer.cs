@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabCustomers = new System.Windows.Forms.TabPage();
+            this.splitContainer10 = new System.Windows.Forms.SplitContainer();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtCustSearch = new System.Windows.Forms.TextBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer8 = new System.Windows.Forms.SplitContainer();
             this.radTopCust = new System.Windows.Forms.RadioButton();
             this.radAllCust = new System.Windows.Forms.RadioButton();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -52,7 +55,6 @@
             this.tabMovies = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer9 = new System.Windows.Forms.SplitContainer();
             this.radTopMovies = new System.Windows.Forms.RadioButton();
             this.radAllMovies = new System.Windows.Forms.RadioButton();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
@@ -82,10 +84,6 @@
             this.radShowOut = new System.Windows.Forms.RadioButton();
             this.radShowAll = new System.Windows.Forms.RadioButton();
             this.dgvRentals = new System.Windows.Forms.DataGridView();
-            this.lblCustomer = new System.Windows.Forms.Label();
-            this.lblMovie = new System.Windows.Forms.Label();
-            this.lblFirst = new System.Windows.Forms.Label();
-            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.btnIssue = new System.Windows.Forms.Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.btnReturn = new System.Windows.Forms.Button();
@@ -97,12 +95,24 @@
             this.lblName = new System.Windows.Forms.Label();
             this.lblMovieName = new System.Windows.Forms.Label();
             this.lblMovieDetails = new System.Windows.Forms.Label();
+            this.lblCustomer = new System.Windows.Forms.Label();
+            this.lblMovie = new System.Windows.Forms.Label();
+            this.lblFirst = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.splitContainer6 = new System.Windows.Forms.SplitContainer();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.txtCustSearch = new System.Windows.Forms.TextBox();
-            this.btnPlot = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnSearchMov = new System.Windows.Forms.Button();
+            this.txtSearchMov = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
+            this.splitContainer3.Panel1.SuspendLayout();
+            this.splitContainer3.Panel2.SuspendLayout();
+            this.splitContainer3.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabCustomers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer10)).BeginInit();
+            this.splitContainer10.Panel1.SuspendLayout();
+            this.splitContainer10.Panel2.SuspendLayout();
+            this.splitContainer10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -111,10 +121,6 @@
             this.splitContainer4.Panel1.SuspendLayout();
             this.splitContainer4.Panel2.SuspendLayout();
             this.splitContainer4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer8)).BeginInit();
-            this.splitContainer8.Panel1.SuspendLayout();
-            this.splitContainer8.Panel2.SuspendLayout();
-            this.splitContainer8.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).BeginInit();
@@ -127,10 +133,6 @@
             this.splitContainer5.Panel1.SuspendLayout();
             this.splitContainer5.Panel2.SuspendLayout();
             this.splitContainer5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer9)).BeginInit();
-            this.splitContainer9.Panel1.SuspendLayout();
-            this.splitContainer9.Panel2.SuspendLayout();
-            this.splitContainer9.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -142,16 +144,36 @@
             this.splitContainer7.Panel2.SuspendLayout();
             this.splitContainer7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRentals)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
-            this.splitContainer3.Panel1.SuspendLayout();
-            this.splitContainer3.Panel2.SuspendLayout();
-            this.splitContainer3.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer6)).BeginInit();
             this.splitContainer6.Panel1.SuspendLayout();
             this.splitContainer6.Panel2.SuspendLayout();
             this.splitContainer6.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // splitContainer3
+            // 
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer3.Name = "splitContainer3";
+            this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this.tabControl1);
+            this.splitContainer3.Panel1.Padding = new System.Windows.Forms.Padding(10);
+            // 
+            // splitContainer3.Panel2
+            // 
+            this.splitContainer3.Panel2.Controls.Add(this.btnIssue);
+            this.splitContainer3.Panel2.Controls.Add(this.tableLayoutPanel5);
+            this.splitContainer3.Panel2.Controls.Add(this.lblMovieDetails);
+            this.splitContainer3.Panel2.Controls.Add(this.lblCustomer);
+            this.splitContainer3.Panel2.Controls.Add(this.lblMovie);
+            this.splitContainer3.Panel2.Controls.Add(this.lblFirst);
+            this.splitContainer3.Size = new System.Drawing.Size(968, 654);
+            this.splitContainer3.SplitterDistance = 565;
+            this.splitContainer3.TabIndex = 13;
             // 
             // tabControl1
             // 
@@ -162,24 +184,64 @@
             this.tabControl1.Location = new System.Drawing.Point(10, 10);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(948, 464);
+            this.tabControl1.Size = new System.Drawing.Size(948, 545);
             this.tabControl1.TabIndex = 0;
             // 
             // tabCustomers
             // 
-            this.tabCustomers.Controls.Add(this.splitContainer1);
+            this.tabCustomers.Controls.Add(this.splitContainer10);
             this.tabCustomers.Location = new System.Drawing.Point(4, 22);
             this.tabCustomers.Name = "tabCustomers";
             this.tabCustomers.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCustomers.Size = new System.Drawing.Size(940, 438);
+            this.tabCustomers.Size = new System.Drawing.Size(940, 519);
             this.tabCustomers.TabIndex = 0;
             this.tabCustomers.Text = "Customers";
             this.tabCustomers.UseVisualStyleBackColor = true;
             // 
+            // splitContainer10
+            // 
+            this.splitContainer10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer10.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer10.Name = "splitContainer10";
+            this.splitContainer10.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer10.Panel1
+            // 
+            this.splitContainer10.Panel1.Controls.Add(this.radTopCust);
+            this.splitContainer10.Panel1.Controls.Add(this.label1);
+            this.splitContainer10.Panel1.Controls.Add(this.radAllCust);
+            this.splitContainer10.Panel1.Controls.Add(this.btnSearch);
+            this.splitContainer10.Panel1.Controls.Add(this.txtCustSearch);
+            // 
+            // splitContainer10.Panel2
+            // 
+            this.splitContainer10.Panel2.Controls.Add(this.splitContainer1);
+            this.splitContainer10.Size = new System.Drawing.Size(934, 513);
+            this.splitContainer10.SplitterDistance = 33;
+            this.splitContainer10.TabIndex = 16;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearch.Location = new System.Drawing.Point(858, 3);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 17;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // txtCustSearch
+            // 
+            this.txtCustSearch.Location = new System.Drawing.Point(667, 5);
+            this.txtCustSearch.Name = "txtCustSearch";
+            this.txtCustSearch.Size = new System.Drawing.Size(185, 20);
+            this.txtCustSearch.TabIndex = 0;
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -189,7 +251,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dgvCustomers);
-            this.splitContainer1.Size = new System.Drawing.Size(934, 432);
+            this.splitContainer1.Size = new System.Drawing.Size(934, 476);
             this.splitContainer1.SplitterDistance = 159;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -202,38 +264,19 @@
             // 
             // splitContainer4.Panel1
             // 
-            this.splitContainer4.Panel1.Controls.Add(this.splitContainer8);
+            this.splitContainer4.Panel1.Controls.Add(this.flowLayoutPanel1);
             // 
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.Controls.Add(this.tableLayoutPanel1);
-            this.splitContainer4.Size = new System.Drawing.Size(159, 432);
-            this.splitContainer4.SplitterDistance = 301;
+            this.splitContainer4.Size = new System.Drawing.Size(159, 476);
+            this.splitContainer4.SplitterDistance = 331;
             this.splitContainer4.TabIndex = 14;
-            // 
-            // splitContainer8
-            // 
-            this.splitContainer8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer8.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer8.Name = "splitContainer8";
-            this.splitContainer8.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer8.Panel1
-            // 
-            this.splitContainer8.Panel1.Controls.Add(this.radTopCust);
-            this.splitContainer8.Panel1.Controls.Add(this.radAllCust);
-            // 
-            // splitContainer8.Panel2
-            // 
-            this.splitContainer8.Panel2.Controls.Add(this.flowLayoutPanel1);
-            this.splitContainer8.Size = new System.Drawing.Size(159, 301);
-            this.splitContainer8.SplitterDistance = 88;
-            this.splitContainer8.TabIndex = 9;
             // 
             // radTopCust
             // 
             this.radTopCust.AutoSize = true;
-            this.radTopCust.Location = new System.Drawing.Point(6, 27);
+            this.radTopCust.Location = new System.Drawing.Point(163, 8);
             this.radTopCust.Name = "radTopCust";
             this.radTopCust.Size = new System.Drawing.Size(140, 17);
             this.radTopCust.TabIndex = 1;
@@ -245,7 +288,7 @@
             // 
             this.radAllCust.AutoSize = true;
             this.radAllCust.Checked = true;
-            this.radAllCust.Location = new System.Drawing.Point(6, 4);
+            this.radAllCust.Location = new System.Drawing.Point(6, 8);
             this.radAllCust.Name = "radAllCust";
             this.radAllCust.Size = new System.Drawing.Size(116, 17);
             this.radAllCust.TabIndex = 0;
@@ -268,7 +311,7 @@
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(159, 209);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(159, 331);
             this.flowLayoutPanel1.TabIndex = 8;
             // 
             // lblFN
@@ -354,7 +397,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(159, 127);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(159, 141);
             this.tableLayoutPanel1.TabIndex = 13;
             // 
             // btnAddCustomer
@@ -366,7 +409,7 @@
             this.btnAddCustomer.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddCustomer.Location = new System.Drawing.Point(3, 3);
             this.btnAddCustomer.Name = "btnAddCustomer";
-            this.btnAddCustomer.Size = new System.Drawing.Size(153, 57);
+            this.btnAddCustomer.Size = new System.Drawing.Size(153, 64);
             this.btnAddCustomer.TabIndex = 8;
             this.btnAddCustomer.Text = "Add Customer";
             this.btnAddCustomer.UseVisualStyleBackColor = false;
@@ -378,9 +421,9 @@
             this.btnDeleteCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDeleteCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnDeleteCustomer.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteCustomer.Location = new System.Drawing.Point(82, 66);
+            this.btnDeleteCustomer.Location = new System.Drawing.Point(82, 73);
             this.btnDeleteCustomer.Name = "btnDeleteCustomer";
-            this.btnDeleteCustomer.Size = new System.Drawing.Size(74, 58);
+            this.btnDeleteCustomer.Size = new System.Drawing.Size(74, 65);
             this.btnDeleteCustomer.TabIndex = 10;
             this.btnDeleteCustomer.Text = "Delete Customer";
             this.btnDeleteCustomer.UseVisualStyleBackColor = false;
@@ -392,9 +435,9 @@
             this.btnEditCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnEditCustomer.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditCustomer.Location = new System.Drawing.Point(3, 66);
+            this.btnEditCustomer.Location = new System.Drawing.Point(3, 73);
             this.btnEditCustomer.Name = "btnEditCustomer";
-            this.btnEditCustomer.Size = new System.Drawing.Size(73, 58);
+            this.btnEditCustomer.Size = new System.Drawing.Size(73, 65);
             this.btnEditCustomer.TabIndex = 9;
             this.btnEditCustomer.Text = "Edit Customer";
             this.btnEditCustomer.UseVisualStyleBackColor = false;
@@ -406,17 +449,17 @@
             this.dgvCustomers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCustomers.Location = new System.Drawing.Point(0, 0);
             this.dgvCustomers.Name = "dgvCustomers";
-            this.dgvCustomers.Size = new System.Drawing.Size(771, 432);
+            this.dgvCustomers.Size = new System.Drawing.Size(771, 476);
             this.dgvCustomers.TabIndex = 0;
             this.dgvCustomers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCustomers_CellClick);
             // 
             // tabMovies
             // 
-            this.tabMovies.Controls.Add(this.splitContainer2);
+            this.tabMovies.Controls.Add(this.splitContainer6);
             this.tabMovies.Location = new System.Drawing.Point(4, 22);
             this.tabMovies.Name = "tabMovies";
             this.tabMovies.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMovies.Size = new System.Drawing.Size(940, 438);
+            this.tabMovies.Size = new System.Drawing.Size(940, 519);
             this.tabMovies.TabIndex = 1;
             this.tabMovies.Text = "Movies";
             this.tabMovies.UseVisualStyleBackColor = true;
@@ -424,7 +467,7 @@
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
             this.splitContainer2.Name = "splitContainer2";
             // 
             // splitContainer2.Panel1
@@ -434,7 +477,7 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.dgvMovies);
-            this.splitContainer2.Size = new System.Drawing.Size(934, 432);
+            this.splitContainer2.Size = new System.Drawing.Size(934, 477);
             this.splitContainer2.SplitterDistance = 159;
             this.splitContainer2.TabIndex = 1;
             // 
@@ -447,38 +490,19 @@
             // 
             // splitContainer5.Panel1
             // 
-            this.splitContainer5.Panel1.Controls.Add(this.splitContainer9);
+            this.splitContainer5.Panel1.Controls.Add(this.flowLayoutPanel2);
             // 
             // splitContainer5.Panel2
             // 
             this.splitContainer5.Panel2.Controls.Add(this.tableLayoutPanel4);
-            this.splitContainer5.Size = new System.Drawing.Size(159, 432);
-            this.splitContainer5.SplitterDistance = 300;
+            this.splitContainer5.Size = new System.Drawing.Size(159, 477);
+            this.splitContainer5.SplitterDistance = 334;
             this.splitContainer5.TabIndex = 0;
-            // 
-            // splitContainer9
-            // 
-            this.splitContainer9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer9.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer9.Name = "splitContainer9";
-            this.splitContainer9.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer9.Panel1
-            // 
-            this.splitContainer9.Panel1.Controls.Add(this.radTopMovies);
-            this.splitContainer9.Panel1.Controls.Add(this.radAllMovies);
-            // 
-            // splitContainer9.Panel2
-            // 
-            this.splitContainer9.Panel2.Controls.Add(this.flowLayoutPanel2);
-            this.splitContainer9.Size = new System.Drawing.Size(159, 300);
-            this.splitContainer9.SplitterDistance = 58;
-            this.splitContainer9.TabIndex = 16;
             // 
             // radTopMovies
             // 
             this.radTopMovies.AutoSize = true;
-            this.radTopMovies.Location = new System.Drawing.Point(4, 28);
+            this.radTopMovies.Location = new System.Drawing.Point(163, 9);
             this.radTopMovies.Name = "radTopMovies";
             this.radTopMovies.Size = new System.Drawing.Size(125, 17);
             this.radTopMovies.TabIndex = 1;
@@ -490,7 +514,7 @@
             // 
             this.radAllMovies.AutoSize = true;
             this.radAllMovies.Checked = true;
-            this.radAllMovies.Location = new System.Drawing.Point(4, 4);
+            this.radAllMovies.Location = new System.Drawing.Point(9, 9);
             this.radAllMovies.Name = "radAllMovies";
             this.radAllMovies.Size = new System.Drawing.Size(101, 17);
             this.radAllMovies.TabIndex = 0;
@@ -508,12 +532,12 @@
             this.flowLayoutPanel2.Controls.Add(this.tableLayoutPanel2);
             this.flowLayoutPanel2.Controls.Add(this.tableLayoutPanel3);
             this.flowLayoutPanel2.Controls.Add(this.lblPlot);
-            this.flowLayoutPanel2.Controls.Add(this.btnPlot);
+            this.flowLayoutPanel2.Controls.Add(this.txtPlot);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(159, 238);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(159, 334);
             this.flowLayoutPanel2.TabIndex = 13;
             // 
             // lblTitle
@@ -665,10 +689,10 @@
             // 
             // txtPlot
             // 
-            this.txtPlot.Location = new System.Drawing.Point(269, 3);
+            this.txtPlot.Location = new System.Drawing.Point(3, 188);
             this.txtPlot.Multiline = true;
             this.txtPlot.Name = "txtPlot";
-            this.txtPlot.Size = new System.Drawing.Size(144, 61);
+            this.txtPlot.Size = new System.Drawing.Size(144, 77);
             this.txtPlot.TabIndex = 18;
             // 
             // tableLayoutPanel4
@@ -685,7 +709,7 @@
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(159, 128);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(159, 139);
             this.tableLayoutPanel4.TabIndex = 13;
             // 
             // btnDeleteMovie
@@ -694,9 +718,9 @@
             this.btnDeleteMovie.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDeleteMovie.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnDeleteMovie.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteMovie.Location = new System.Drawing.Point(82, 67);
+            this.btnDeleteMovie.Location = new System.Drawing.Point(82, 72);
             this.btnDeleteMovie.Name = "btnDeleteMovie";
-            this.btnDeleteMovie.Size = new System.Drawing.Size(74, 58);
+            this.btnDeleteMovie.Size = new System.Drawing.Size(74, 64);
             this.btnDeleteMovie.TabIndex = 10;
             this.btnDeleteMovie.Text = "Delete Movie";
             this.btnDeleteMovie.UseVisualStyleBackColor = false;
@@ -711,7 +735,7 @@
             this.btnAddMovie.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddMovie.Location = new System.Drawing.Point(3, 3);
             this.btnAddMovie.Name = "btnAddMovie";
-            this.btnAddMovie.Size = new System.Drawing.Size(153, 58);
+            this.btnAddMovie.Size = new System.Drawing.Size(153, 63);
             this.btnAddMovie.TabIndex = 8;
             this.btnAddMovie.Text = "Add Movie";
             this.btnAddMovie.UseVisualStyleBackColor = false;
@@ -723,9 +747,9 @@
             this.btnEditMovie.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditMovie.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnEditMovie.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditMovie.Location = new System.Drawing.Point(3, 67);
+            this.btnEditMovie.Location = new System.Drawing.Point(3, 72);
             this.btnEditMovie.Name = "btnEditMovie";
-            this.btnEditMovie.Size = new System.Drawing.Size(73, 58);
+            this.btnEditMovie.Size = new System.Drawing.Size(73, 64);
             this.btnEditMovie.TabIndex = 9;
             this.btnEditMovie.Text = "Edit Movie";
             this.btnEditMovie.UseVisualStyleBackColor = false;
@@ -737,7 +761,7 @@
             this.dgvMovies.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMovies.Location = new System.Drawing.Point(0, 0);
             this.dgvMovies.Name = "dgvMovies";
-            this.dgvMovies.Size = new System.Drawing.Size(771, 432);
+            this.dgvMovies.Size = new System.Drawing.Size(771, 477);
             this.dgvMovies.TabIndex = 0;
             this.dgvMovies.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMovies_CellClick);
             // 
@@ -747,7 +771,7 @@
             this.tabRented.Location = new System.Drawing.Point(4, 22);
             this.tabRented.Name = "tabRented";
             this.tabRented.Padding = new System.Windows.Forms.Padding(3);
-            this.tabRented.Size = new System.Drawing.Size(940, 438);
+            this.tabRented.Size = new System.Drawing.Size(940, 519);
             this.tabRented.TabIndex = 2;
             this.tabRented.Text = "Rented Movies";
             this.tabRented.UseVisualStyleBackColor = true;
@@ -766,7 +790,7 @@
             // splitContainer7.Panel2
             // 
             this.splitContainer7.Panel2.Controls.Add(this.dgvRentals);
-            this.splitContainer7.Size = new System.Drawing.Size(934, 432);
+            this.splitContainer7.Size = new System.Drawing.Size(934, 513);
             this.splitContainer7.SplitterDistance = 159;
             this.splitContainer7.TabIndex = 1;
             // 
@@ -800,61 +824,9 @@
             this.dgvRentals.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRentals.Location = new System.Drawing.Point(0, 0);
             this.dgvRentals.Name = "dgvRentals";
-            this.dgvRentals.Size = new System.Drawing.Size(771, 432);
+            this.dgvRentals.Size = new System.Drawing.Size(771, 513);
             this.dgvRentals.TabIndex = 0;
             this.dgvRentals.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRentals_CellClick);
-            // 
-            // lblCustomer
-            // 
-            this.lblCustomer.AutoSize = true;
-            this.lblCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCustomer.Location = new System.Drawing.Point(14, 5);
-            this.lblCustomer.Name = "lblCustomer";
-            this.lblCustomer.Size = new System.Drawing.Size(67, 13);
-            this.lblCustomer.TabIndex = 1;
-            this.lblCustomer.Text = "Customer: ";
-            // 
-            // lblMovie
-            // 
-            this.lblMovie.AutoSize = true;
-            this.lblMovie.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMovie.Location = new System.Drawing.Point(14, 25);
-            this.lblMovie.Name = "lblMovie";
-            this.lblMovie.Size = new System.Drawing.Size(49, 13);
-            this.lblMovie.TabIndex = 6;
-            this.lblMovie.Text = "Movie: ";
-            // 
-            // lblFirst
-            // 
-            this.lblFirst.AutoSize = true;
-            this.lblFirst.Location = new System.Drawing.Point(87, 5);
-            this.lblFirst.Name = "lblFirst";
-            this.lblFirst.Size = new System.Drawing.Size(0, 13);
-            this.lblFirst.TabIndex = 12;
-            // 
-            // splitContainer3
-            // 
-            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer3.Name = "splitContainer3";
-            this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer3.Panel1
-            // 
-            this.splitContainer3.Panel1.Controls.Add(this.tabControl1);
-            this.splitContainer3.Panel1.Padding = new System.Windows.Forms.Padding(10);
-            // 
-            // splitContainer3.Panel2
-            // 
-            this.splitContainer3.Panel2.Controls.Add(this.btnIssue);
-            this.splitContainer3.Panel2.Controls.Add(this.tableLayoutPanel5);
-            this.splitContainer3.Panel2.Controls.Add(this.lblMovieDetails);
-            this.splitContainer3.Panel2.Controls.Add(this.lblCustomer);
-            this.splitContainer3.Panel2.Controls.Add(this.lblMovie);
-            this.splitContainer3.Panel2.Controls.Add(this.lblFirst);
-            this.splitContainer3.Size = new System.Drawing.Size(968, 622);
-            this.splitContainer3.SplitterDistance = 484;
-            this.splitContainer3.TabIndex = 13;
             // 
             // btnIssue
             // 
@@ -979,64 +951,113 @@
             this.lblMovieDetails.Size = new System.Drawing.Size(0, 13);
             this.lblMovieDetails.TabIndex = 13;
             // 
+            // lblCustomer
+            // 
+            this.lblCustomer.AutoSize = true;
+            this.lblCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustomer.Location = new System.Drawing.Point(14, 5);
+            this.lblCustomer.Name = "lblCustomer";
+            this.lblCustomer.Size = new System.Drawing.Size(67, 13);
+            this.lblCustomer.TabIndex = 1;
+            this.lblCustomer.Text = "Customer: ";
+            // 
+            // lblMovie
+            // 
+            this.lblMovie.AutoSize = true;
+            this.lblMovie.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMovie.Location = new System.Drawing.Point(14, 25);
+            this.lblMovie.Name = "lblMovie";
+            this.lblMovie.Size = new System.Drawing.Size(49, 13);
+            this.lblMovie.TabIndex = 6;
+            this.lblMovie.Text = "Movie: ";
+            // 
+            // lblFirst
+            // 
+            this.lblFirst.AutoSize = true;
+            this.lblFirst.Location = new System.Drawing.Point(87, 5);
+            this.lblFirst.Name = "lblFirst";
+            this.lblFirst.Size = new System.Drawing.Size(0, 13);
+            this.lblFirst.TabIndex = 12;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(532, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(131, 13);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Search for customers:";
+            // 
             // splitContainer6
             // 
             this.splitContainer6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer6.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer6.Location = new System.Drawing.Point(3, 3);
             this.splitContainer6.Name = "splitContainer6";
             this.splitContainer6.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // splitContainer6.Panel1
             // 
-            this.splitContainer6.Panel1.Controls.Add(this.btnSearch);
-            this.splitContainer6.Panel1.Controls.Add(this.txtCustSearch);
-            this.splitContainer6.Panel1.Controls.Add(this.txtPlot);
+            this.splitContainer6.Panel1.Controls.Add(this.label2);
+            this.splitContainer6.Panel1.Controls.Add(this.btnSearchMov);
+            this.splitContainer6.Panel1.Controls.Add(this.txtSearchMov);
+            this.splitContainer6.Panel1.Controls.Add(this.radTopMovies);
+            this.splitContainer6.Panel1.Controls.Add(this.radAllMovies);
             // 
             // splitContainer6.Panel2
             // 
-            this.splitContainer6.Panel2.Controls.Add(this.splitContainer3);
-            this.splitContainer6.Size = new System.Drawing.Size(968, 654);
-            this.splitContainer6.SplitterDistance = 28;
-            this.splitContainer6.TabIndex = 14;
+            this.splitContainer6.Panel2.Controls.Add(this.splitContainer2);
+            this.splitContainer6.Size = new System.Drawing.Size(934, 513);
+            this.splitContainer6.SplitterDistance = 32;
+            this.splitContainer6.TabIndex = 2;
             // 
-            // btnSearch
+            // label2
             // 
-            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSearch.Location = new System.Drawing.Point(188, 1);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 17;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(548, 10);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(113, 13);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Search for movies:";
             // 
-            // txtCustSearch
+            // btnSearchMov
             // 
-            this.txtCustSearch.Location = new System.Drawing.Point(3, 3);
-            this.txtCustSearch.Name = "txtCustSearch";
-            this.txtCustSearch.Size = new System.Drawing.Size(185, 20);
-            this.txtCustSearch.TabIndex = 0;
+            this.btnSearchMov.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearchMov.Location = new System.Drawing.Point(856, 5);
+            this.btnSearchMov.Name = "btnSearchMov";
+            this.btnSearchMov.Size = new System.Drawing.Size(75, 23);
+            this.btnSearchMov.TabIndex = 20;
+            this.btnSearchMov.Text = "Search";
+            this.btnSearchMov.UseVisualStyleBackColor = true;
             // 
-            // btnPlot
+            // txtSearchMov
             // 
-            this.btnPlot.Location = new System.Drawing.Point(3, 188);
-            this.btnPlot.Name = "btnPlot";
-            this.btnPlot.Size = new System.Drawing.Size(75, 23);
-            this.btnPlot.TabIndex = 20;
-            this.btnPlot.Text = "Read Plot";
-            this.btnPlot.UseVisualStyleBackColor = true;
-            this.btnPlot.Click += new System.EventHandler(this.btnPlot_Click);
+            this.txtSearchMov.Location = new System.Drawing.Point(665, 7);
+            this.txtSearchMov.Name = "txtSearchMov";
+            this.txtSearchMov.Size = new System.Drawing.Size(185, 20);
+            this.txtSearchMov.TabIndex = 19;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(968, 654);
-            this.Controls.Add(this.splitContainer6);
+            this.Controls.Add(this.splitContainer3);
             this.Name = "Form1";
             this.Text = "Movies Database";
+            this.splitContainer3.Panel1.ResumeLayout(false);
+            this.splitContainer3.Panel2.ResumeLayout(false);
+            this.splitContainer3.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
+            this.splitContainer3.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabCustomers.ResumeLayout(false);
+            this.splitContainer10.Panel1.ResumeLayout(false);
+            this.splitContainer10.Panel1.PerformLayout();
+            this.splitContainer10.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer10)).EndInit();
+            this.splitContainer10.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -1045,11 +1066,6 @@
             this.splitContainer4.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
             this.splitContainer4.ResumeLayout(false);
-            this.splitContainer8.Panel1.ResumeLayout(false);
-            this.splitContainer8.Panel1.PerformLayout();
-            this.splitContainer8.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer8)).EndInit();
-            this.splitContainer8.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -1063,11 +1079,6 @@
             this.splitContainer5.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
             this.splitContainer5.ResumeLayout(false);
-            this.splitContainer9.Panel1.ResumeLayout(false);
-            this.splitContainer9.Panel1.PerformLayout();
-            this.splitContainer9.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer9)).EndInit();
-            this.splitContainer9.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -1083,11 +1094,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).EndInit();
             this.splitContainer7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRentals)).EndInit();
-            this.splitContainer3.Panel1.ResumeLayout(false);
-            this.splitContainer3.Panel2.ResumeLayout(false);
-            this.splitContainer3.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
-            this.splitContainer3.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             this.splitContainer6.Panel1.ResumeLayout(false);
@@ -1101,79 +1107,81 @@
 
         #endregion
 
+        private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabCustomers;
+        private System.Windows.Forms.SplitContainer splitContainer10;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.TextBox txtCustSearch;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.Label lblPhone;
-        private System.Windows.Forms.TextBox txtPhone;
-        private System.Windows.Forms.Label lblAddress;
-        private System.Windows.Forms.TextBox txtAddress;
-        private System.Windows.Forms.Label lblLN;
-        private System.Windows.Forms.TextBox txtLastName;
+        private System.Windows.Forms.SplitContainer splitContainer4;
+        private System.Windows.Forms.RadioButton radTopCust;
+        private System.Windows.Forms.RadioButton radAllCust;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label lblFN;
         private System.Windows.Forms.TextBox txtFirstName;
+        private System.Windows.Forms.Label lblLN;
+        private System.Windows.Forms.TextBox txtLastName;
+        private System.Windows.Forms.Label lblAddress;
+        private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.Label lblPhone;
+        private System.Windows.Forms.TextBox txtPhone;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button btnAddCustomer;
+        private System.Windows.Forms.Button btnDeleteCustomer;
+        private System.Windows.Forms.Button btnEditCustomer;
         private System.Windows.Forms.DataGridView dgvCustomers;
         private System.Windows.Forms.TabPage tabMovies;
-        private System.Windows.Forms.TabPage tabRented;
-        private System.Windows.Forms.Button btnAddCustomer;
-        private System.Windows.Forms.Button btnEditCustomer;
-        private System.Windows.Forms.Button btnDeleteCustomer;
-        private System.Windows.Forms.Label lblCustomer;
-        private System.Windows.Forms.Label lblMovie;
-        private System.Windows.Forms.Label lblFirst;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.Button btnDeleteMovie;
-        private System.Windows.Forms.Button btnEditMovie;
-        private System.Windows.Forms.Button btnAddMovie;
-        private System.Windows.Forms.Label lblYear;
-        private System.Windows.Forms.TextBox txtYear;
-        private System.Windows.Forms.Label lblGenre;
-        private System.Windows.Forms.TextBox txtGenre;
+        private System.Windows.Forms.SplitContainer splitContainer5;
+        private System.Windows.Forms.RadioButton radTopMovies;
+        private System.Windows.Forms.RadioButton radAllMovies;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.TextBox txtTitle;
-        private System.Windows.Forms.DataGridView dgvMovies;
-        private System.Windows.Forms.Label lblPlot;
-        private System.Windows.Forms.TextBox txtPlot;
-        private System.Windows.Forms.Label lblCopies;
-        private System.Windows.Forms.TextBox txtCopies;
-        private System.Windows.Forms.Label lblCost;
-        private System.Windows.Forms.TextBox txtCost;
+        private System.Windows.Forms.Label lblGenre;
+        private System.Windows.Forms.TextBox txtGenre;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label lblYear;
+        private System.Windows.Forms.TextBox txtYear;
         private System.Windows.Forms.Label lblRating;
         private System.Windows.Forms.TextBox txtRating;
-        private System.Windows.Forms.SplitContainer splitContainer3;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.SplitContainer splitContainer4;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.SplitContainer splitContainer5;
+        private System.Windows.Forms.Label lblCost;
+        private System.Windows.Forms.TextBox txtCost;
+        private System.Windows.Forms.Label lblCopies;
+        private System.Windows.Forms.TextBox txtCopies;
+        private System.Windows.Forms.Label lblPlot;
+        private System.Windows.Forms.TextBox txtPlot;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.Label lblMovieDetails;
+        private System.Windows.Forms.Button btnDeleteMovie;
+        private System.Windows.Forms.Button btnAddMovie;
+        private System.Windows.Forms.Button btnEditMovie;
+        private System.Windows.Forms.DataGridView dgvMovies;
+        private System.Windows.Forms.TabPage tabRented;
+        private System.Windows.Forms.SplitContainer splitContainer7;
+        private System.Windows.Forms.RadioButton radShowOut;
+        private System.Windows.Forms.RadioButton radShowAll;
         private System.Windows.Forms.DataGridView dgvRentals;
+        private System.Windows.Forms.Button btnIssue;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.Button btnReturn;
+        private System.Windows.Forms.Label lblIssue;
         private System.Windows.Forms.Label lblCN;
         private System.Windows.Forms.Label lblMN;
         private System.Windows.Forms.Label lblReturn;
         private System.Windows.Forms.Label lblIssued;
-        private System.Windows.Forms.Label lblIssue;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblMovieName;
-        private System.Windows.Forms.Button btnReturn;
-        private System.Windows.Forms.Button btnIssue;
+        private System.Windows.Forms.Label lblMovieDetails;
+        private System.Windows.Forms.Label lblCustomer;
+        private System.Windows.Forms.Label lblMovie;
+        private System.Windows.Forms.Label lblFirst;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.SplitContainer splitContainer6;
-        private System.Windows.Forms.TextBox txtCustSearch;
-        private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.SplitContainer splitContainer7;
-        private System.Windows.Forms.RadioButton radShowOut;
-        private System.Windows.Forms.RadioButton radShowAll;
-        private System.Windows.Forms.SplitContainer splitContainer8;
-        private System.Windows.Forms.RadioButton radTopCust;
-        private System.Windows.Forms.RadioButton radAllCust;
-        private System.Windows.Forms.SplitContainer splitContainer9;
-        private System.Windows.Forms.RadioButton radTopMovies;
-        private System.Windows.Forms.RadioButton radAllMovies;
-        private System.Windows.Forms.Button btnPlot;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnSearchMov;
+        private System.Windows.Forms.TextBox txtSearchMov;
     }
 }
 

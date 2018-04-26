@@ -461,9 +461,5 @@ namespace CSharp_Movies_Assessment
             }
         }
 
-        private void btnPlot_Click(object sender, EventArgs e)
-        {
-             
-        }
     }
 }
