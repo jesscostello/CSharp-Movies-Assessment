@@ -346,8 +346,6 @@ namespace CSharp_Movies_Assessment
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            //myDatabase.SearchCustomers();
-            string search = txtCustSearch.Text;
             DisplayCustomerSearchInDGV();
         }
 
@@ -461,5 +459,26 @@ namespace CSharp_Movies_Assessment
             }
         }
 
+        private void btnSearchMov_Click(object sender, EventArgs e)
+        {
+            DisplayMovieSearchInDGV();
+        }
+
+        private void DisplayMovieSearchInDGV()
+        {
+            string search = txtSearchMov.Text;
+
+            // Clear out any old data
+            dgvMovies.DataSource = null;
+            try
+            {
+                dgvMovies.DataSource = myDatabase.SearchMovies(search);
+                dgvMovies.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

@@ -365,77 +365,15 @@ namespace CSharp_Movies_Assessment
 
         public DataTable SearchCustomers(string search)
         {
-
             DataTable dt = new DataTable();
-            string SQL = "SELECT * FROM Customers WHERE FirstName LIKE @XXX";
+            string SQL = "SELECT * FROM Customers WHERE FirstName LIKE @SearchName";
             da = new SqlDataAdapter(SQL, myConnection);
-            da.SelectCommand.Parameters.AddWithValue("@XXX", "%" + search + "%");
+            da.SelectCommand.Parameters.AddWithValue("@SearchName", "%" + search + "%");
             da.Fill(dt);
 
-            //using (da = new SqlDataAdapter(SQL, myConnection))
-            //{
-            //    var myCommand = new SqlCommand(SQL, myConnection);
-            //    myCommand.Parameters.AddWithValue("XXX", "'" + searchxxx + "'");
-            //    
-            //    //myCommand.Parameters.AddWithValue("Search", string.Format("%{0}%", searchName));
-            //    
-            //    // open a connection to the database
-            //    myConnection.Open();
-            //    // fill the datatable with the data from the SQL
-            //    //try
-            //    //{
-            //        da.Fill(dt);
-            //        //MessageBox.Show(SQL);
-            //    //}
-            //    //catch (Exception ex)
-            //    //{
-            //    //    MessageBox.Show(ex.Message);
-            //    //}
-            //    // close the database connection
-            //    myConnection.Close();
-            //}
             // pass the datatable data to the DGV
             return dt;
         }
-
-        //public DataTable SearchCustomers(string search)
-        //{
-        //    //try
-        //    //{
-        //    string searchName = search;
-        //    string SQL = "SELECT * FROM Customers WHERE FirstName LIKE '%' + @Search + '%' ";
-        //    //string test = "jess";
-        //    //MessageBox.Show(searchName + " " + SQL);
-        //    DataTable dt = new DataTable();
-        //    using (da = new SqlDataAdapter(SQL, myConnection))
-        //    {
-        //        try
-        //        {
-        //            var myCommand = new SqlCommand(SQL, myConnection);
-        //            //myCommand.Parameters.AddWithValue("Test", test);
-        //            myCommand.Parameters.AddWithValue("Search", searchName);
-        //            //myCommand.Parameters.AddWithValue("Search", string.Format("%{0}%", searchName));
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            MessageBox.Show(ex.Message);
-        //        }
-
-        //        // open a connection to the database
-        //        myConnection.Open();
-        //        // fill the datatable with the data from the SQL
-        //        da.Fill(dt);
-        //        // close the database connection
-        //        myConnection.Close();
-        //    }
-        //    return dt;
-        //    //}
-        //    // pass the datatable data to the DGV
-        //    //catch (Exception ex)
-        //    //{
-        //    //    MessageBox.Show(ex.Message);
-        //    //}
-        //}
 
         public DataTable ShowTopCustomers()
         {
@@ -467,6 +405,18 @@ namespace CSharp_Movies_Assessment
                 // close the database connection
                 myConnection.Close();
             }
+            // pass the datatable data to the DGV
+            return dt;
+        }
+
+        public DataTable SearchMovies(string search)
+        {
+            DataTable dt = new DataTable();
+            string SQL = "SELECT * FROM Movies WHERE Title LIKE @SearchName";
+            da = new SqlDataAdapter(SQL, myConnection);
+            da.SelectCommand.Parameters.AddWithValue("@SearchName", "%" + search + "%");
+            da.Fill(dt);
+
             // pass the datatable data to the DGV
             return dt;
         }

@@ -1030,6 +1030,7 @@
             this.btnSearchMov.TabIndex = 20;
             this.btnSearchMov.Text = "Search";
             this.btnSearchMov.UseVisualStyleBackColor = true;
+            this.btnSearchMov.Click += new System.EventHandler(this.btnSearchMov_Click);
             // 
             // txtSearchMov
             // 
