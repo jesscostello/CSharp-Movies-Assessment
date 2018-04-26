@@ -103,6 +103,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnSearchMov = new System.Windows.Forms.Button();
             this.txtSearchMov = new System.Windows.Forms.TextBox();
+            this.btnClearCust = new System.Windows.Forms.Button();
+            this.btnClearMov = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
@@ -207,6 +209,7 @@
             // 
             // splitContainer10.Panel1
             // 
+            this.splitContainer10.Panel1.Controls.Add(this.btnClearCust);
             this.splitContainer10.Panel1.Controls.Add(this.radTopCust);
             this.splitContainer10.Panel1.Controls.Add(this.label1);
             this.splitContainer10.Panel1.Controls.Add(this.radAllCust);
@@ -223,7 +226,7 @@
             // btnSearch
             // 
             this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSearch.Location = new System.Drawing.Point(858, 3);
+            this.btnSearch.Location = new System.Drawing.Point(776, 3);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 17;
@@ -233,7 +236,7 @@
             // 
             // txtCustSearch
             // 
-            this.txtCustSearch.Location = new System.Drawing.Point(667, 5);
+            this.txtCustSearch.Location = new System.Drawing.Point(591, 5);
             this.txtCustSearch.Name = "txtCustSearch";
             this.txtCustSearch.Size = new System.Drawing.Size(185, 20);
             this.txtCustSearch.TabIndex = 0;
@@ -983,7 +986,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(532, 8);
+            this.label1.Location = new System.Drawing.Point(456, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(131, 13);
             this.label1.TabIndex = 18;
@@ -998,6 +1001,7 @@
             // 
             // splitContainer6.Panel1
             // 
+            this.splitContainer6.Panel1.Controls.Add(this.btnClearMov);
             this.splitContainer6.Panel1.Controls.Add(this.label2);
             this.splitContainer6.Panel1.Controls.Add(this.btnSearchMov);
             this.splitContainer6.Panel1.Controls.Add(this.txtSearchMov);
@@ -1015,7 +1019,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(548, 10);
+            this.label2.Location = new System.Drawing.Point(473, 8);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(113, 13);
             this.label2.TabIndex = 21;
@@ -1024,7 +1028,7 @@
             // btnSearchMov
             // 
             this.btnSearchMov.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSearchMov.Location = new System.Drawing.Point(856, 5);
+            this.btnSearchMov.Location = new System.Drawing.Point(775, 3);
             this.btnSearchMov.Name = "btnSearchMov";
             this.btnSearchMov.Size = new System.Drawing.Size(75, 23);
             this.btnSearchMov.TabIndex = 20;
@@ -1034,10 +1038,32 @@
             // 
             // txtSearchMov
             // 
-            this.txtSearchMov.Location = new System.Drawing.Point(665, 7);
+            this.txtSearchMov.Location = new System.Drawing.Point(590, 5);
             this.txtSearchMov.Name = "txtSearchMov";
             this.txtSearchMov.Size = new System.Drawing.Size(185, 20);
             this.txtSearchMov.TabIndex = 19;
+            // 
+            // btnClearCust
+            // 
+            this.btnClearCust.Location = new System.Drawing.Point(857, 3);
+            this.btnClearCust.Name = "btnClearCust";
+            this.btnClearCust.Size = new System.Drawing.Size(77, 23);
+            this.btnClearCust.TabIndex = 19;
+            this.btnClearCust.Text = "Clear Search";
+            this.btnClearCust.UseVisualStyleBackColor = true;
+            this.btnClearCust.Visible = false;
+            this.btnClearCust.Click += new System.EventHandler(this.btnClearCust_Click);
+            // 
+            // btnClearMov
+            // 
+            this.btnClearMov.Location = new System.Drawing.Point(854, 3);
+            this.btnClearMov.Name = "btnClearMov";
+            this.btnClearMov.Size = new System.Drawing.Size(77, 23);
+            this.btnClearMov.TabIndex = 22;
+            this.btnClearMov.Text = "Clear Search";
+            this.btnClearMov.UseVisualStyleBackColor = true;
+            this.btnClearMov.Visible = false;
+            this.btnClearMov.Click += new System.EventHandler(this.btnClearMov_Click);
             // 
             // Form1
             // 
@@ -1183,6 +1209,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSearchMov;
         private System.Windows.Forms.TextBox txtSearchMov;
+        private System.Windows.Forms.Button btnClearCust;
+        private System.Windows.Forms.Button btnClearMov;
     }
 }
 

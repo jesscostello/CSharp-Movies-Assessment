@@ -12,10 +12,6 @@ namespace CSharp_Movies_Assessment
 {
     public partial class Form1 : Form
     {
-        // todo search movies
-        // return movie btn disabled until selection from rented movies
-        // issue movie btn disabled until selection from movie and customer
-
         Database myDatabase = new Database();
         public int CID { get; set; }
         public int MID { get; set; }
@@ -139,21 +135,21 @@ namespace CSharp_Movies_Assessment
                 txtTitle.Text = dgvMovies.Rows[e.RowIndex].Cells[2].Value.ToString();
                 if (radTopMovies.Checked == false)
                 {
-                    txtGenre.Text = dgvMovies.Rows[e.RowIndex].Cells[7].Value.ToString(); 
+                    txtGenre.Text = dgvMovies.Rows[e.RowIndex].Cells[7].Value.ToString();
+                    txtPlot.Text = dgvMovies.Rows[e.RowIndex].Cells[6].Value.ToString();
                 }
                 else
                 {
                     txtGenre.Text = dgvMovies.Rows[e.RowIndex].Cells[6].Value.ToString();
+                    // todo work out how to get plot to display
                 }
                 txtYear.Text = dgvMovies.Rows[e.RowIndex].Cells[3].Value.ToString();
                 txtRating.Text = dgvMovies.Rows[e.RowIndex].Cells[1].Value.ToString();
                 txtCost.Text = dgvMovies.Rows[e.RowIndex].Cells[4].Value.ToString();
                 txtCopies.Text = dgvMovies.Rows[e.RowIndex].Cells[5].Value.ToString();
-                //txtPlot.Text = dgvMovies.Rows[e.RowIndex].Cells[6].Value.ToString();
-
+                
                 lblMovieDetails.Text = dgvMovies.Rows[e.RowIndex].Cells[2].Value.ToString() + "   ";
                 lblMovieDetails.Text += dgvMovies.Rows[e.RowIndex].Cells[1].Value.ToString() + "   ";
-                //lblMovieDetails.Text += dgvMovies.Rows[e.RowIndex].Cells[4].Value.ToString();
                 int year = Convert.ToInt16(dgvMovies.Rows[e.RowIndex].Cells[3].Value);
 
                 if (year >= 2013)
@@ -182,8 +178,6 @@ namespace CSharp_Movies_Assessment
         {
             myDatabase.CheckCopiesOut(copies);
         }
-
-
 
         private void btnAddMovie_Click(object sender, EventArgs e)
         {
@@ -347,6 +341,8 @@ namespace CSharp_Movies_Assessment
         private void btnSearch_Click(object sender, EventArgs e)
         {
             DisplayCustomerSearchInDGV();
+            // display clear search btn
+            btnClearCust.Visible = true;
         }
 
         public void DisplayCustomerSearchInDGV()
@@ -364,6 +360,13 @@ namespace CSharp_Movies_Assessment
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnClearCust_Click(object sender, EventArgs e)
+        {
+            DisplayCustomersDGV();
+            txtCustSearch.Text = "";
+            btnClearCust.Visible = false;
         }
 
         private void radShowOut_CheckedChanged(object sender, EventArgs e)
@@ -462,6 +465,8 @@ namespace CSharp_Movies_Assessment
         private void btnSearchMov_Click(object sender, EventArgs e)
         {
             DisplayMovieSearchInDGV();
+            // display clear search button
+            btnClearMov.Visible = true;
         }
 
         private void DisplayMovieSearchInDGV()
@@ -479,6 +484,13 @@ namespace CSharp_Movies_Assessment
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnClearMov_Click(object sender, EventArgs e)
+        {
+            DisplayMoviesDGV();
+            txtSearchMov.Text = "";
+            btnClearMov.Visible = false;
         }
     }
 }
