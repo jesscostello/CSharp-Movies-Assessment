@@ -308,12 +308,11 @@ namespace CSharp_Movies_Assessment
         /// </summary>
         private void btnDeleteMovie_Click(object sender, EventArgs e)
         {
-            int MovieId = MID;
-            // todo are you sure you want to delete
-            
-            MessageBox.Show(caption:"Delete Movie", text:"Are you sure you want to delete this movie?");
-            if (true)// user clicks okay
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this movie?", "Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            // if user clicks ok
+            if (result.Equals(DialogResult.OK))
             {
+                int MovieId = MID;
                 // call the database method to delete customer
                 myDatabase.DeleteMovie(MovieId);
                 // refresh dgv
