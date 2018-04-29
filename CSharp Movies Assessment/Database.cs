@@ -427,7 +427,7 @@ namespace CSharp_Movies_Assessment
         {
             // Create a data table
             DataTable dt = new DataTable();
-            using (da = new SqlDataAdapter("SELECT * FROM TopMovies", myConnection))
+            using (da = new SqlDataAdapter("SELECT TopMovies.*, Movies.Plot FROM TopMovies, Movies WHERE TopMovies.MovieID = Movies.MovieID", myConnection))
             {
                 // open a connection to the database
                 myConnection.Open();

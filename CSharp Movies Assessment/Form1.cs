@@ -169,11 +169,11 @@ namespace CSharp_Movies_Assessment
                 {
                     // set movie ID
                     MovieID = (int)dgvMovies.Rows[e.RowIndex].Cells[0].Value;
+                    int movie = MovieID;
                     // display selected movie details in textboxes
                     txtTitle.Text = dgvMovies.Rows[e.RowIndex].Cells[2].Value.ToString();
                     txtYear.Text = dgvMovies.Rows[e.RowIndex].Cells[3].Value.ToString();
                     txtRating.Text = dgvMovies.Rows[e.RowIndex].Cells[1].Value.ToString();
-                    // todo is this needed??
                     txtCost.Text = dgvMovies.Rows[e.RowIndex].Cells[4].Value.ToString();
                     txtCopies.Text = dgvMovies.Rows[e.RowIndex].Cells[5].Value.ToString();
                     // row indexes are different for top movies table and all movies table
@@ -185,7 +185,7 @@ namespace CSharp_Movies_Assessment
                     else
                     {
                         txtGenre.Text = dgvMovies.Rows[e.RowIndex].Cells[6].Value.ToString();
-                        // todo work out how to get plot to display
+                        txtPlot.Text = dgvMovies.Rows[e.RowIndex].Cells[8].Value.ToString();
                     }
                     // display movie title and rating as a label outside of tabs
                     lblMovieDetails.Text = dgvMovies.Rows[e.RowIndex].Cells[2].Value.ToString() + "   ";
@@ -244,6 +244,7 @@ namespace CSharp_Movies_Assessment
             {
                 MessageBox.Show("Sorry that movie is not available at this time.");
                 lblMovieDetails.Text = "";
+                btnIssue.Visible = false;
             }
         }
         /// <summary>
@@ -416,7 +417,7 @@ namespace CSharp_Movies_Assessment
         private void MakeIssueMovieButtonVisible()
         {
             // only make the issue movie button available if a customer and movie have both been selected
-            if (CID > 0 && MID > 0)
+            if (lblCustDetails.Text != "" && lblMovieDetails.Text != "")
             {
                 btnIssue.Visible = true;
             }
@@ -567,6 +568,7 @@ namespace CSharp_Movies_Assessment
                     dgvMovies.Columns[4].Visible = false;
                     dgvMovies.Columns[5].Visible = false;
                     dgvMovies.Columns[6].Visible = false;
+                    dgvMovies.Columns[8].Visible = false;
                 }
                 catch (Exception ex)
                 {
