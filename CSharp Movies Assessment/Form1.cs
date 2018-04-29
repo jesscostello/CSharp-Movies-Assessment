@@ -13,6 +13,7 @@ namespace CSharp_Movies_Assessment
     public partial class Form1 : Form
     {
         Database myDatabase = new Database();
+        // set properties for customer/movie/rental ID
         public int CID { get; set; }
         public int MID { get; set; }
         public int RID { get; set; }
@@ -22,14 +23,18 @@ namespace CSharp_Movies_Assessment
             InitializeComponent();
             LoadDB();
         }
-
+        /// <summary>
+        /// Show all the database tables in the 3 DGVs
+        /// </summary>
         public void LoadDB()
         {
             DisplayCustomersDGV();
             DisplayMoviesDGV();
             DisplayRentalsDGV();
         }
-
+        /// <summary>
+        /// Set the data source to display the customers table. Show error if doesn't work
+        /// </summary>
         private void DisplayCustomersDGV()
         {
             // Clear out any old data
@@ -44,37 +49,47 @@ namespace CSharp_Movies_Assessment
                 MessageBox.Show(ex.Message);
             }
         }
-
+        /// <summary>
+        /// Customers DGV Cell Click
+        /// </summary>
         private void dgvCustomers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            // if user clicks a cell with data in it
             if (e.RowIndex >= 0)
             {
+                // give value to customer ID
                 int CustomerID = 0;
                 try
                 {
+                    // set customer ID
                     CustomerID = (int)dgvCustomers.Rows[e.RowIndex].Cells[0].Value;
+                    // display selected customer details in textboxes
                     txtFirstName.Text = dgvCustomers.Rows[e.RowIndex].Cells[1].Value.ToString();
                     txtLastName.Text = dgvCustomers.Rows[e.RowIndex].Cells[2].Value.ToString();
                     txtAddress.Text = dgvCustomers.Rows[e.RowIndex].Cells[3].Value.ToString();
                     txtPhone.Text = dgvCustomers.Rows[e.RowIndex].Cells[4].Value.ToString();
-
-                    lblFirst.Text = dgvCustomers.Rows[e.RowIndex].Cells[1].Value.ToString() + " ";
-                    lblFirst.Text += dgvCustomers.Rows[e.RowIndex].Cells[2].Value.ToString() + "    ";
-                    lblFirst.Text += dgvCustomers.Rows[e.RowIndex].Cells[3].Value.ToString() + "    ";
-                    lblFirst.Text += dgvCustomers.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    // display selected customer details as a label outside of tabs
+                    lblCustDetails.Text = dgvCustomers.Rows[e.RowIndex].Cells[1].Value.ToString() + " ";
+                    lblCustDetails.Text += dgvCustomers.Rows[e.RowIndex].Cells[2].Value.ToString() + "    ";
+                    lblCustDetails.Text += dgvCustomers.Rows[e.RowIndex].Cells[3].Value.ToString() + "    ";
+                    lblCustDetails.Text += dgvCustomers.Rows[e.RowIndex].Cells[4].Value.ToString();
                 }
+                // show error message if there is any errors doing above code
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
-                // todo this is the one I want!
+                // give the value of customerID to the CID property for later use
                 CID = CustomerID;
                 MakeIssueMovieButtonVisible();  
             }
         }
-
+        /// <summary>
+        /// 'Add Customer' button clicked
+        /// </summary>
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
+            // collect text from text boxes and assign to variables
             string firstName = txtFirstName.Text;
             string lastName = txtLastName.Text;
             string address = txtAddress.Text;
@@ -82,10 +97,17 @@ namespace CSharp_Movies_Assessment
 
             // call database method to add new customer
             myDatabase.AddNewCustomerToDB(firstName, lastName, address, phone);
-            // refresh dgv
+            // refresh dgv displaying the new customer
             DisplayCustomersDGV();
+            // clear data from textboxes
+            firstName = "";
+            lastName = "";
+            address = "";
+            phone = "";
         }
-
+        /// <summary>
+        /// 'Edit Customer' button clicked
+        /// </summary>
         private void btnEditCustomer_Click(object sender, EventArgs e)
         {
             // collect text from text boxes and assign to variables
@@ -94,9 +116,10 @@ namespace CSharp_Movies_Assessment
             string lastName = txtLastName.Text;
             string address = txtAddress.Text;
             string phone = txtPhone.Text;
+            
             // call the database method to edit customers
             myDatabase.EditCustomerInDB(customerID, firstName, lastName, address, phone);
-            // refresh dgv
+            // refresh dgv displaying the updated information
             DisplayCustomersDGV();
             // clear data from textboxes
             txtFirstName.Text = "";
@@ -104,7 +127,9 @@ namespace CSharp_Movies_Assessment
             txtAddress.Text = "";
             txtPhone.Text = "";
         }
-
+        /// <summary>
+        /// 'Delete Customer' button clicked
+        /// </summary>
         private void btnDeleteCustomer_Click(object sender, EventArgs e)
         {
             int CustomerId = CID;
@@ -113,7 +138,9 @@ namespace CSharp_Movies_Assessment
             // refresh dgv
             DisplayCustomersDGV();
         }
-
+        /// <summary>
+        /// Set the data source to display the movies table. Show error if doesn't work
+        /// </summary>
         private void DisplayMoviesDGV()
         {
             // Clear out any old data
@@ -128,16 +155,28 @@ namespace CSharp_Movies_Assessment
                 MessageBox.Show(ex.Message);
             }
         }
-
+        /// <summary>
+        /// Movies DGV Cell Click
+        /// </summary>
         private void dgvMovies_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >=0)
+            // if user clicks a cell with data in it
+            if (e.RowIndex >= 0)
             {
+                // give value to movie ID
                 int MovieID = 0;
                 try
                 {
+                    // set movie ID
                     MovieID = (int)dgvMovies.Rows[e.RowIndex].Cells[0].Value;
+                    // display selected movie details in textboxes
                     txtTitle.Text = dgvMovies.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    txtYear.Text = dgvMovies.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    txtRating.Text = dgvMovies.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    // todo is this needed??
+                    txtCost.Text = dgvMovies.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    txtCopies.Text = dgvMovies.Rows[e.RowIndex].Cells[5].Value.ToString();
+                    // row indexes are different for top movies table and all movies table
                     if (radTopMovies.Checked == false)
                     {
                         txtGenre.Text = dgvMovies.Rows[e.RowIndex].Cells[7].Value.ToString();
@@ -148,54 +187,68 @@ namespace CSharp_Movies_Assessment
                         txtGenre.Text = dgvMovies.Rows[e.RowIndex].Cells[6].Value.ToString();
                         // todo work out how to get plot to display
                     }
-                    txtYear.Text = dgvMovies.Rows[e.RowIndex].Cells[3].Value.ToString();
-                    txtRating.Text = dgvMovies.Rows[e.RowIndex].Cells[1].Value.ToString();
-                    txtCost.Text = dgvMovies.Rows[e.RowIndex].Cells[4].Value.ToString();
-                    txtCopies.Text = dgvMovies.Rows[e.RowIndex].Cells[5].Value.ToString();
-
+                    // display movie title and rating as a label outside of tabs
                     lblMovieDetails.Text = dgvMovies.Rows[e.RowIndex].Cells[2].Value.ToString() + "   ";
                     lblMovieDetails.Text += dgvMovies.Rows[e.RowIndex].Cells[1].Value.ToString() + "   ";
                     int year = Convert.ToInt16(dgvMovies.Rows[e.RowIndex].Cells[3].Value);
-
+                    // if the movie is less than 5 years old
                     if (year >= 2013)
                     {
+                        // display cost is $5
                         lblMovieDetails.Text += "$5.00";
                     }
+                    // if the movie is older than 5 years
                     else
                     {
+                        // display cost is $2
                         lblMovieDetails.Text += "$2.00";
                     }
                 }
+                // display error text if there is an error while running the above code
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
-
+                // give the value of movie id to MID for later use
                 MID = MovieID;
+                // set copies variable
                 string copies = dgvMovies.Rows[e.RowIndex].Cells[5].Value.ToString();
-
+                // if there is a set value for number of copies call the function
                 if (copies != "")
                 {
                     CheckNumberOfCopies(MID, copies);
                 } 
+                else
+                {
+                    MakeIssueMovieButtonVisible();
+                }
             }
         }
-
+        /// <summary>
+        /// Check the number of copies available against the copies currently rented out
+        /// </summary>
         private void CheckNumberOfCopies(int MID, string copies)
         {
+            // check the database to see how many copies are available
+            // assign this amount to a variable
             int available = myDatabase.CheckCopiesOut(MID, copies);
-            MessageBox.Show(available.ToString() + copies);
+            // convert total number of copies of movie to an int
             int total = Convert.ToInt16(copies);
+            // if the number of available copies is less than the total
             if (available < total)
             {
                 MakeIssueMovieButtonVisible();
             }
+            // display a message that the movie can not be rented at this time
             else
             {
                 MessageBox.Show("Sorry that movie is not available at this time.");
+                lblMovieDetails.Text = "";
             }
         }
-
+        /// <summary>
+        /// 'Add Movie' Button clicked
+        /// </summary>
         private void btnAddMovie_Click(object sender, EventArgs e)
         {
             // set variables from textbox fields
@@ -209,10 +262,20 @@ namespace CSharp_Movies_Assessment
 
             // call database method to add new movie
             myDatabase.AddNewMovieToDB(rating, title, year, cost, copies, plot, genre);
-            // refresh dgv
+            // refresh dgv to display new movie
             DisplayMoviesDGV();
+            // clear data from textboxes
+            rating = "";
+            title = "";
+            year = "";
+            cost = "";
+            copies = "";
+            plot = "";
+            genre = "";
         }
-
+        /// <summary>
+        /// 'Edit Movie' Button clicked
+        /// </summary>
         private void btnEditMovie_Click(object sender, EventArgs e)
         {
             int movieID = MID;
@@ -228,7 +291,7 @@ namespace CSharp_Movies_Assessment
 
             // call database method to add new movie
             myDatabase.EditMovieInDB(movieID, rating, title, year, cost, copies, plot, genre);
-            // refresh dgv
+            // refresh dgv to show updated movie
             DisplayMoviesDGV();
 
             // clear data from textboxes
@@ -239,12 +302,10 @@ namespace CSharp_Movies_Assessment
             txtCost.Text = "";
             txtCopies.Text = "";
             txtPlot.Text = "";
-
-            // highlight updated column
-            //int rowID = movieID--;
-            //dgvMovies.Rows[movieID].Selected = true;
         }
-
+        /// <summary>
+        /// 'Delete Movie' Button clicked
+        /// </summary>
         private void btnDeleteMovie_Click(object sender, EventArgs e)
         {
             int MovieId = MID;
@@ -259,11 +320,14 @@ namespace CSharp_Movies_Assessment
                 DisplayMoviesDGV();
             }
         }
-
+        /// <summary>
+        /// Set the data source to display the rentals table. Show error if doesn't work
+        /// </summary>
         private void DisplayRentalsDGV()
         {
             // Clear out any old data
             dgvRentals.DataSource = null;
+            // set dgv data source to display the rentals table
             try
             {
                 dgvRentals.DataSource = myDatabase.FillRentalsDGV();
@@ -278,31 +342,38 @@ namespace CSharp_Movies_Assessment
             radShowAll.Checked = true;
             radShowOut.Checked = false;
         }
-
+        /// <summary>
+        /// Rentals DGV Cell Click
+        /// </summary>
         private void dgvRentals_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int RentalID = 0;
-            // clear details from 'issue movie' side
-            lblFirst.Text = "";
-            lblMovieDetails.Text = "";
+            // make 'issue movie' button invisible
             btnIssue.Visible = false;
             try
             {
+                // show 'issued' and 'returned' labels
+                lblIssued.Visible = true;
+                lblReturned.Visible = true;
+                // show customer and movie name in labels and date that movie was issued
                 RentalID = (int)dgvRentals.Rows[e.RowIndex].Cells[0].Value;
-                lblName.Text = dgvRentals.Rows[e.RowIndex].Cells[1].Value.ToString() + " ";
-                lblName.Text += dgvRentals.Rows[e.RowIndex].Cells[2].Value.ToString();
-                lblMovieName.Text = dgvRentals.Rows[e.RowIndex].Cells[3].Value.ToString();
+                lblCustDetails.Text = dgvRentals.Rows[e.RowIndex].Cells[1].Value.ToString() + " ";
+                lblCustDetails.Text += dgvRentals.Rows[e.RowIndex].Cells[2].Value.ToString();
+                lblMovieDetails.Text = dgvRentals.Rows[e.RowIndex].Cells[3].Value.ToString();
                 lblIssue.Text = dgvRentals.Rows[e.RowIndex].Cells[4].Value.ToString();
+                // display the 'return movie' button
                 btnReturn.Visible = true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
+            // set value of the rental ID to RID for future use
             RID = RentalID;
         }
-
+        /// <summary>
+        /// "Return Movie" button clicked
+        /// </summary>
         private void btnReturn_Click(object sender, EventArgs e)
         {
             int rentalId = RID;
@@ -312,17 +383,15 @@ namespace CSharp_Movies_Assessment
             // refresh dgv
             DisplayRentalsDGV();
             // clear data
-            lblName.Text = "";
-            lblMovieName.Text = "";
+            lblCustDetails.Text = "";
+            lblMovieDetails.Text = "";
             lblIssue.Text = "";
-            btnReturn.Visible = false;
-
-            int rowId = rentalId--;
-            // highlight updated column
-            // todo change this because rows get deleted!!
-            //dgvRentals.Rows[rowId].Selected = true;
+            lblIssued.Visible = false;
+            btnReturn.Visible = false;       
         }
-
+        /// <summary>
+        /// 'Issue Movie' button clicked
+        /// </summary>
         private void btnIssue_Click(object sender, EventArgs e)
         {
             int customer = CID;
@@ -338,92 +407,116 @@ namespace CSharp_Movies_Assessment
             tabControl1.SelectedIndex = 2;
 
             // clear data
-            lblName.Text = "";
-            lblMovieName.Text = "";
-            lblIssue.Text = "";
-            lblFirst.Text = "";
+            lblCustDetails.Text = "";
             lblMovieDetails.Text = "";
             btnIssue.Visible = false;
-
-            // todo show recently rented movie as selected row
-            dgvRentals.Rows[17].Selected = true;
-            dgvRentals.FirstDisplayedScrollingRowIndex = 17;
         }
-
+        /// <summary>
+        /// Display 'Issue Movie' button when a customer and movie has been selected
+        /// </summary>
         private void MakeIssueMovieButtonVisible()
         {
+            // only make the issue movie button available if a customer and movie have both been selected
             if (CID > 0 && MID > 0)
             {
                 btnIssue.Visible = true;
             }
         }
-
+        /// <summary>
+        /// 'Search customers' button clicked
+        /// </summary>
         private void btnSearch_Click(object sender, EventArgs e)
         {
             DisplayCustomerSearchInDGV();
             // display clear search btn
             btnClearCust.Visible = true;
         }
-
+        /// <summary>
+        /// Set the data source to display the customers search result. Show error if doesn't work
+        /// </summary>
         public void DisplayCustomerSearchInDGV()
         {
+            // get name of customer that is being searched for
             string search = txtCustSearch.Text;
 
             // Clear out any old data
             dgvCustomers.DataSource = null;
+            // set the data source of the dgv to show the search results in the table
             try
             {
                 dgvCustomers.DataSource = myDatabase.SearchCustomers(search);
                 dgvCustomers.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
             }
+            // display a message if there is any errors with the above code
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-
+        /// <summary>
+        /// 'Clear customers search' button clicked
+        /// </summary>
         private void btnClearCust_Click(object sender, EventArgs e)
         {
+            // load up full customers table
             DisplayCustomersDGV();
+            // clear search textbox
             txtCustSearch.Text = "";
+            // remove 'clear search' button
             btnClearCust.Visible = false;
         }
-
+        /// <summary>
+        /// 'Show currently out rentals' radio button checked
+        /// </summary>
         private void radShowOut_CheckedChanged(object sender, EventArgs e)
         {
+            // radio button to show only movies currently out gets clicked
             if (radShowOut.Checked == true)
             {
+                // uncheck show all movies radio button
                 radShowAll.Checked = false;
                 // Clear out any old data
                 dgvRentals.DataSource = null;
+                // set data source of dgv to show the currently out movies view
                 try
                 {
                     dgvRentals.DataSource = myDatabase.ShowRentedOutMovies();
                     dgvRentals.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
                 }
+                // show message if there are any errors in above code
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
             }   
         }
-
+        /// <summary>
+        /// 'Show all rentals' radio button checked
+        /// </summary>
         private void radShowAll_CheckedChanged(object sender, EventArgs e)
         {
+            // radio button to show all movies is clicked
             if (radShowAll.Checked == true)
             {
+                // uncheck radio button to show only currently out rentals
                 radShowOut.Checked = false;
+                // call method to display the complete rentals table
                 DisplayRentalsDGV();
             }
         }
-
+        /// <summary>
+        /// 'Show top 10 customers' radio button checked
+        /// </summary>
         private void radTopCust_CheckedChanged(object sender, EventArgs e)
         {
+            // radio button for show top 10 customers is checked
             if (radTopCust.Checked == true)
             {
+                // uncheck show all customers radio button
                 radAllCust.Checked = false;
                 // Clear out any old data
                 dgvCustomers.DataSource = null;
+                // set dgv data source to view to display top 10 customers
                 try
                 {
                     dgvCustomers.DataSource = myDatabase.ShowTopCustomers();
@@ -438,25 +531,35 @@ namespace CSharp_Movies_Assessment
                 }
             }
         }
-
+        /// <summary>
+        /// 'Show all customers' radio button checked
+        /// </summary>
         private void radAllCust_CheckedChanged(object sender, EventArgs e)
         {
+            // show all customers radio button is checked
             if (radAllCust.Checked == true)
-            {
+            { 
+                // uncheck show top customers radio button
                 radTopCust.Checked = false;
+                // call method to display full customers table
                 DisplayCustomersDGV();
             }
         }
-
+        /// <summary>
+        /// 'Show top 10 movies' radio button checked
+        /// </summary>
         private void radTopMovies_CheckedChanged(object sender, EventArgs e)
         {
+            // radio button top movies is checked
             if (radTopMovies.Checked == true)
             {
+                // uncheck show all movies radio button
                 radAllMovies.Checked = false;
                 // Clear out any old data
                 dgvMovies.DataSource = null;
                 try
                 {
+                    // set dgv data source to the view to show only top 10 movies
                     dgvMovies.DataSource = myDatabase.ShowTopMovies();
                     dgvMovies.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
                     // make all columns invisible except movie name
@@ -472,31 +575,43 @@ namespace CSharp_Movies_Assessment
                 }
             }
         }
-
+        /// <summary>
+        /// 'Show all movies' radio button checked
+        /// </summary>
         private void radAllMovies_CheckedChanged(object sender, EventArgs e)
         {
+            // show all movies radio button is checked
             if (radAllMovies.Checked == true)
             {
+                // uncheck show top movies radio button
                 radTopMovies.Checked = false;
+                // show all movies dgv
                 DisplayMoviesDGV();
             }
         }
-
+        /// <summary>
+        /// 'Search movies' button clicked
+        /// </summary>
         private void btnSearchMov_Click(object sender, EventArgs e)
         {
+            // call method
             DisplayMovieSearchInDGV();
-            // display clear search button
+            // display 'clear search' button
             btnClearMov.Visible = true;
         }
-
+        /// <summary>
+        /// Set the data source to display the movies search result. Show error if doesn't work
+        /// </summary>
         private void DisplayMovieSearchInDGV()
         {
+            // get search term from text box
             string search = txtSearchMov.Text;
 
             // Clear out any old data
             dgvMovies.DataSource = null;
             try
             {
+                // set dgv data source to show only movies with titles that match the search result
                 dgvMovies.DataSource = myDatabase.SearchMovies(search);
                 dgvMovies.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
             }
@@ -505,11 +620,16 @@ namespace CSharp_Movies_Assessment
                 MessageBox.Show(ex.Message);
             }
         }
-
+        /// <summary>
+        /// 'Clear movies search' button clicked
+        /// </summary>
         private void btnClearMov_Click(object sender, EventArgs e)
         {
+            // show all movies 
             DisplayMoviesDGV();
+            // clear search textbox
             txtSearchMov.Text = "";
+            // make 'clear search' button invisible
             btnClearMov.Visible = false;
         }
     }
