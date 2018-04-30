@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace CSharp_Movies_Assessment
 {
-    class Database
+    public class Database
     {
         // Data Source=JESS-LAPTOP\SQLEXPRESS;Initial Catalog=MoviesDSED02Assess;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False
 
