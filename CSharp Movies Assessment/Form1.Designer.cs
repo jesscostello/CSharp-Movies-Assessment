@@ -91,16 +91,16 @@
             this.radShowOut = new System.Windows.Forms.RadioButton();
             this.radShowAll = new System.Windows.Forms.RadioButton();
             this.dgvRentals = new System.Windows.Forms.DataGridView();
+            this.lblReturn = new System.Windows.Forms.Label();
+            this.lblIssued = new System.Windows.Forms.Label();
+            this.lblReturned = new System.Windows.Forms.Label();
+            this.lblIssue = new System.Windows.Forms.Label();
             this.lblMovieDetails = new System.Windows.Forms.Label();
             this.lblCustomer = new System.Windows.Forms.Label();
             this.lblMovie = new System.Windows.Forms.Label();
             this.lblCustDetails = new System.Windows.Forms.Label();
             this.btnIssue = new System.Windows.Forms.Button();
             this.btnReturn = new System.Windows.Forms.Button();
-            this.lblReturn = new System.Windows.Forms.Label();
-            this.lblIssued = new System.Windows.Forms.Label();
-            this.lblReturned = new System.Windows.Forms.Label();
-            this.lblIssue = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
@@ -468,6 +468,7 @@
             // 
             // dgvCustomers
             // 
+            this.dgvCustomers.AllowUserToAddRows = false;
             this.dgvCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCustomers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCustomers.Location = new System.Drawing.Point(0, 0);
@@ -856,7 +857,7 @@
             this.tabRented.Location = new System.Drawing.Point(4, 22);
             this.tabRented.Name = "tabRented";
             this.tabRented.Padding = new System.Windows.Forms.Padding(3);
-            this.tabRented.Size = new System.Drawing.Size(939, 459);
+            this.tabRented.Size = new System.Drawing.Size(939, 466);
             this.tabRented.TabIndex = 2;
             this.tabRented.Text = "Rented Movies";
             this.tabRented.UseVisualStyleBackColor = true;
@@ -875,7 +876,7 @@
             // splitContainer7.Panel2
             // 
             this.splitContainer7.Panel2.Controls.Add(this.dgvRentals);
-            this.splitContainer7.Size = new System.Drawing.Size(933, 453);
+            this.splitContainer7.Size = new System.Drawing.Size(933, 460);
             this.splitContainer7.SplitterDistance = 158;
             this.splitContainer7.TabIndex = 1;
             // 
@@ -909,9 +910,47 @@
             this.dgvRentals.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRentals.Location = new System.Drawing.Point(0, 0);
             this.dgvRentals.Name = "dgvRentals";
-            this.dgvRentals.Size = new System.Drawing.Size(771, 453);
+            this.dgvRentals.Size = new System.Drawing.Size(771, 460);
             this.dgvRentals.TabIndex = 0;
             this.dgvRentals.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRentals_CellClick);
+            // 
+            // lblReturn
+            // 
+            this.lblReturn.AutoSize = true;
+            this.lblReturn.Location = new System.Drawing.Point(90, 62);
+            this.lblReturn.Name = "lblReturn";
+            this.lblReturn.Size = new System.Drawing.Size(0, 13);
+            this.lblReturn.TabIndex = 19;
+            // 
+            // lblIssued
+            // 
+            this.lblIssued.AutoSize = true;
+            this.lblIssued.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIssued.Location = new System.Drawing.Point(14, 42);
+            this.lblIssued.Name = "lblIssued";
+            this.lblIssued.Size = new System.Drawing.Size(48, 13);
+            this.lblIssued.TabIndex = 16;
+            this.lblIssued.Text = "Issued:";
+            this.lblIssued.Visible = false;
+            // 
+            // lblReturned
+            // 
+            this.lblReturned.AutoSize = true;
+            this.lblReturned.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReturned.Location = new System.Drawing.Point(14, 62);
+            this.lblReturned.Name = "lblReturned";
+            this.lblReturned.Size = new System.Drawing.Size(63, 13);
+            this.lblReturned.TabIndex = 17;
+            this.lblReturned.Text = "Returned:";
+            this.lblReturned.Visible = false;
+            // 
+            // lblIssue
+            // 
+            this.lblIssue.AutoSize = true;
+            this.lblIssue.Location = new System.Drawing.Point(90, 42);
+            this.lblIssue.Name = "lblIssue";
+            this.lblIssue.Size = new System.Drawing.Size(0, 13);
+            this.lblIssue.TabIndex = 18;
             // 
             // lblMovieDetails
             // 
@@ -976,44 +1015,6 @@
             this.btnReturn.UseVisualStyleBackColor = false;
             this.btnReturn.Visible = false;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
-            // 
-            // lblReturn
-            // 
-            this.lblReturn.AutoSize = true;
-            this.lblReturn.Location = new System.Drawing.Point(90, 62);
-            this.lblReturn.Name = "lblReturn";
-            this.lblReturn.Size = new System.Drawing.Size(0, 13);
-            this.lblReturn.TabIndex = 19;
-            // 
-            // lblIssued
-            // 
-            this.lblIssued.AutoSize = true;
-            this.lblIssued.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIssued.Location = new System.Drawing.Point(14, 42);
-            this.lblIssued.Name = "lblIssued";
-            this.lblIssued.Size = new System.Drawing.Size(48, 13);
-            this.lblIssued.TabIndex = 16;
-            this.lblIssued.Text = "Issued:";
-            this.lblIssued.Visible = false;
-            // 
-            // lblReturned
-            // 
-            this.lblReturned.AutoSize = true;
-            this.lblReturned.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReturned.Location = new System.Drawing.Point(14, 62);
-            this.lblReturned.Name = "lblReturned";
-            this.lblReturned.Size = new System.Drawing.Size(63, 13);
-            this.lblReturned.TabIndex = 17;
-            this.lblReturned.Text = "Returned:";
-            this.lblReturned.Visible = false;
-            // 
-            // lblIssue
-            // 
-            this.lblIssue.AutoSize = true;
-            this.lblIssue.Location = new System.Drawing.Point(90, 42);
-            this.lblIssue.Name = "lblIssue";
-            this.lblIssue.Size = new System.Drawing.Size(0, 13);
-            this.lblIssue.TabIndex = 18;
             // 
             // Form1
             // 

@@ -393,10 +393,17 @@ namespace CSharp_Movies_Assessment
         {
             DataTable dt = new DataTable();
             string SQL = "SELECT * FROM Customers WHERE FirstName LIKE @SearchName";
-            da = new SqlDataAdapter(SQL, myConnection);
-            // set the parameters
-            da.SelectCommand.Parameters.AddWithValue("@SearchName", "%" + search + "%");
-            da.Fill(dt);
+            using (da = new SqlDataAdapter(SQL, myConnection))
+            {
+                // set the parameters
+                da.SelectCommand.Parameters.AddWithValue("@SearchName", "%" + search + "%");
+                // open a connection to the DB
+                myConnection.Open();
+                // fill the datatable with results from the query
+                da.Fill(dt);
+                // close the connection
+                myConnection.Close();
+            }
 
             // pass the datatable data to the DGV
             return dt;

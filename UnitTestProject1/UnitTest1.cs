@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using CSharp_Movies_Assessment;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -11,9 +12,30 @@ namespace UnitTestProject1
         Database d = new Database();
 
         [TestMethod]
-        public void TestDBConection()
+        public void TestCustomerSearchValue()
         {
-            d.FillCustomersDGV();
+            string searchValue = "jess";
+            DataTable result = d.SearchCustomers(searchValue);
+
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void TestCustomerSearchNoValue()
+        {
+            string searchValue = "katie";
+            DataTable result = d.SearchCustomers(searchValue);
+
+            Assert.IsNull(result);
+        }
+
+        [TestMethod]
+        public void TestCustomerSearch()
+        {
+            string search = "jess";
+            f.DisplayCustomerSearchInDGV();
+
+            
         }
     }
 }
