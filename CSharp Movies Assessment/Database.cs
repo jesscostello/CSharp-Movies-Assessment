@@ -465,7 +465,7 @@ namespace CSharp_Movies_Assessment
         /// <summary>
         /// Count how many copies of the movie are rented out currently
         /// </summary>
-        public int CheckCopiesOut(int MID, string copies)
+        public int CheckCopiesOut(int MID)
         {
             // set the query to the SQL variable
             string SQL = "SELECT Count(*) FROM RentedMovies WHERE MovieIDFK = @MID AND DateReturned IS NULL";
@@ -474,7 +474,6 @@ namespace CSharp_Movies_Assessment
             {
                 var myCommand = new SqlCommand(SQL, myConnection);
                 // set the parameters
-                myCommand.Parameters.AddWithValue("Copies", copies);
                 myCommand.Parameters.AddWithValue("MID", MID); 
             
                 //open a connection to the DB

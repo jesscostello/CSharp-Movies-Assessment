@@ -169,7 +169,7 @@ namespace CSharp_Movies_Assessment
                 {
                     // set movie ID
                     MovieID = (int)dgvMovies.Rows[e.RowIndex].Cells[0].Value;
-                    int movie = MovieID;
+                    //int movie = MovieID;
                     // display selected movie details in textboxes
                     txtTitle.Text = dgvMovies.Rows[e.RowIndex].Cells[2].Value.ToString();
                     txtYear.Text = dgvMovies.Rows[e.RowIndex].Cells[3].Value.ToString();
@@ -231,7 +231,7 @@ namespace CSharp_Movies_Assessment
         {
             // check the database to see how many copies are available
             // assign this amount to a variable
-            int available = myDatabase.CheckCopiesOut(MID, copies);
+            int available = myDatabase.CheckCopiesOut(MID);
             // convert total number of copies of movie to an int
             int total = Convert.ToInt16(copies);
             // if the number of available copies is less than the total
@@ -446,6 +446,13 @@ namespace CSharp_Movies_Assessment
             {
                 dgvCustomers.DataSource = myDatabase.SearchCustomers(search);
                 dgvCustomers.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
+                if (dgvCustomers.Rows.Count == 0)
+                {
+                    MessageBox.Show("There are no customers with this name.");
+                    DisplayCustomersDGV();
+                    btnClearCust.Visible = false;
+                    txtCustSearch.Text = "";
+                }
             }
             // display a message if there is any errors with the above code
             catch (Exception ex)
@@ -615,6 +622,13 @@ namespace CSharp_Movies_Assessment
                 // set dgv data source to show only movies with titles that match the search result
                 dgvMovies.DataSource = myDatabase.SearchMovies(search);
                 dgvMovies.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
+                if (dgvMovies.Rows.Count == 0)
+                {
+                    MessageBox.Show("There are no movies with this title.");
+                    DisplayMoviesDGV();
+                    btnClearMov.Visible = false;
+                    txtSearchMov.Text = "";
+                }
             }
             catch (Exception ex)
             {

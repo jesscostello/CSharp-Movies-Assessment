@@ -16,8 +16,8 @@ namespace UnitTestProject1
         {
             string searchValue = "jess";
             DataTable result = d.SearchCustomers(searchValue);
-
-            Assert.IsNotNull(result);
+            int x = 3;
+            Assert.AreEqual(x, result.Rows.Count);
         }
 
         [TestMethod]
@@ -25,17 +25,26 @@ namespace UnitTestProject1
         {
             string searchValue = "katie";
             DataTable result = d.SearchCustomers(searchValue);
-
-            Assert.IsNull(result);
+            int x = 0;
+            Assert.AreEqual(x, result.Rows.Count);
         }
 
         [TestMethod]
-        public void TestCustomerSearch()
+        public void TestCheckCopiesRentalsOut()
         {
-            string search = "jess";
-            f.DisplayCustomerSearchInDGV();
+            int MID = 9;
+            int x = 1;
 
-            
+            Assert.AreEqual(x, d.CheckCopiesOut(MID));
+        }
+
+        [TestMethod]
+        public void TestCheckCopiesNoRentals()
+        {
+            int MID = 3;
+            int x = 0;
+
+            Assert.AreEqual(x, d.CheckCopiesOut(MID));
         }
     }
 }
