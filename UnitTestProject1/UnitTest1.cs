@@ -8,9 +8,10 @@ namespace UnitTestProject1
     [TestClass]
     public class UnitTest1
     {
-        Form1 f = new Form1();
         Database d = new Database();
-
+        /// <summary>
+        /// Test Customer Search when customer(s) do exist
+        /// </summary>
         [TestMethod]
         public void TestCustomerSearchValue()
         {
@@ -19,7 +20,9 @@ namespace UnitTestProject1
             int x = 3;
             Assert.AreEqual(x, result.Rows.Count);
         }
-
+        /// <summary>
+        /// Test customer search when customer does not exist
+        /// </summary>
         [TestMethod]
         public void TestCustomerSearchNoValue()
         {
@@ -28,7 +31,9 @@ namespace UnitTestProject1
             int x = 0;
             Assert.AreEqual(x, result.Rows.Count);
         }
-
+        /// <summary>
+        /// Test when the movie is currently rented out
+        /// </summary>
         [TestMethod]
         public void TestCheckCopiesRentalsOut()
         {
@@ -37,7 +42,9 @@ namespace UnitTestProject1
 
             Assert.AreEqual(x, d.CheckCopiesOut(MID));
         }
-
+        /// <summary>
+        /// Test when the movie is not out currently
+        /// </summary>
         [TestMethod]
         public void TestCheckCopiesNoRentals()
         {
